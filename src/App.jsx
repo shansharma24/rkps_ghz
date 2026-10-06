@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import LoadingScreen from './components/LoadingScreen';
 import ScrollToTop from './components/ScrollToTop';
 import TopUtilityHeader from './components/TopUtilityHeader';
 import Navbar from './components/Navbar';
@@ -23,9 +24,14 @@ import ErpLoginModal from './components/modals/ErpLoginModal';
 import VirtualTourModal from './components/modals/VirtualTourModal';
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
   const [admissionOpen, setAdmissionOpen] = useState(false);
   const [erpOpen, setErpOpen] = useState(false);
   const [virtualTourOpen, setVirtualTourOpen] = useState(false);
+
+  const handleLoadingFinished = useCallback(() => {
+    setLoading(false);
+  }, []);
 
   const scrollToEnquiry = () => {
     const el = document.getElementById('contact');
@@ -35,9 +41,12 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      {/* Initial Light-Themed Animated Loading Screen */}
+      {loading && <LoadingScreen onFinished={handleLoadingFinished} />}
+
       <ScrollToTop />
       <div className="relative min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col">
-        
+
         {/* 1. Global Top Utility Header */}
         <TopUtilityHeader
           onOpenAdmission={() => setAdmissionOpen(true)}
@@ -53,59 +62,59 @@ export default function App() {
         {/* 3. Dynamic Page View Routes */}
         <div className="flex-1">
           <Routes>
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={
                 <HomePage
                   onOpenAdmission={() => setAdmissionOpen(true)}
                   onOpenVirtualTour={() => setVirtualTourOpen(true)}
                   scrollToEnquiry={scrollToEnquiry}
                 />
-              } 
+              }
             />
-            <Route 
-              path="/vision-mission" 
-              element={<VisionMissionPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            <Route
+              path="/vision-mission"
+              element={<VisionMissionPage onOpenAdmission={() => setAdmissionOpen(true)} />}
             />
-            <Route 
-              path="/school-legacy" 
-              element={<SchoolLegacyPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            <Route
+              path="/school-legacy"
+              element={<SchoolLegacyPage onOpenAdmission={() => setAdmissionOpen(true)} />}
             />
-            <Route 
-              path="/principals-desk" 
-              element={<PrincipalsDeskPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            <Route
+              path="/principals-desk"
+              element={<PrincipalsDeskPage onOpenAdmission={() => setAdmissionOpen(true)} />}
             />
-            <Route 
-              path="/directors-desk" 
-              element={<DirectorsDeskPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            <Route
+              path="/directors-desk"
+              element={<DirectorsDeskPage onOpenAdmission={() => setAdmissionOpen(true)} />}
             />
-            <Route 
-              path="/facilities" 
+            <Route
+              path="/facilities"
               element={
-                <FacilitiesPage 
+                <FacilitiesPage
                   onOpenAdmission={() => setAdmissionOpen(true)}
                   onOpenVirtualTour={() => setVirtualTourOpen(true)}
                 />
-              } 
+              }
             />
-            <Route 
-              path="/contact" 
-              element={<ContactPage />} 
+            <Route
+              path="/contact"
+              element={<ContactPage />}
             />
-            <Route 
-              path="/admissions" 
-              element={<AdmissionsPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            <Route
+              path="/admissions"
+              element={<AdmissionsPage onOpenAdmission={() => setAdmissionOpen(true)} />}
             />
             {/* Catch-all fallback to HomePage */}
-            <Route 
-              path="*" 
+            <Route
+              path="*"
               element={
                 <HomePage
                   onOpenAdmission={() => setAdmissionOpen(true)}
                   onOpenVirtualTour={() => setVirtualTourOpen(true)}
                   scrollToEnquiry={scrollToEnquiry}
                 />
-              } 
+              }
             />
           </Routes>
         </div>

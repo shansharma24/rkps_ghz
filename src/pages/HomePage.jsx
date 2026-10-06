@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import AboutUs from '../components/AboutUs';
 import StatsCounter from '../components/StatsCounter';
@@ -9,7 +9,15 @@ import ParentsSpeak from '../components/ParentsSpeak';
 import AdmissionPosterModal from '../components/modals/AdmissionPosterModal';
 
 export default function HomePage({ onOpenAdmission, onOpenVirtualTour, scrollToEnquiry }) {
-  const [posterOpen, setPosterOpen] = useState(true);
+  const [posterOpen, setPosterOpen] = useState(false);
+
+  useEffect(() => {
+    // Open admission poster popup smoothly after website is loaded
+    const timer = setTimeout(() => {
+      setPosterOpen(true);
+    }, 1800);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <main className="flex-1">
