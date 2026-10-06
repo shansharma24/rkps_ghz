@@ -1,0 +1,61 @@
+import React from 'react';
+import { Award, Bell, ShieldCheck, UserCheck, Briefcase, Film, ExternalLink } from 'lucide-react';
+
+export default function TopUtilityHeader({ onOpenAdmission, onOpenErp, onOpenPmLetter }) {
+  return (
+    <header className="w-full bg-slate-900 border-b border-slate-800 text-xs text-slate-200 sticky-top z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between">
+        {/* Left: Affiliation & PM Recognition */}
+        <div className="hidden md:flex items-center space-x-6 text-slate-300">
+          <span className="flex items-center space-x-1.5 text-amber-400 font-medium">
+            <ShieldCheck className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span className="truncate">CBSE Affiliated Senior Secondary School (Affiliation No: 2130572 | School Code: 60254)</span>
+          </span>
+        </div>
+
+        {/* Right: Quick Links & Actions */}
+        <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 ml-auto font-medium">
+          <button 
+            onClick={onOpenPmLetter}
+            className="hover:text-amber-400 text-slate-300 transition-colors underline decoration-slate-600 underline-offset-4 flex items-center gap-1 text-[11px] sm:text-xs"
+          >
+            <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span>Appreciation Letter by Prime Minister</span>
+          </button>
+
+          <button 
+            onClick={onOpenErp}
+            className="hover:text-amber-400 text-slate-300 transition-colors flex items-center gap-1 text-[11px] sm:text-xs"
+          >
+            <UserCheck className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+            <span>ERP Login</span>
+          </button>
+
+          <a 
+            href="#contact" 
+            className="hover:text-amber-400 transition-colors hidden sm:inline-flex items-center gap-1 text-[11px] sm:text-xs"
+          >
+            <Briefcase className="w-3 h-3 text-slate-400" />
+            <span>Work With Us</span>
+          </a>
+
+          <a 
+            href="#facilities" 
+            className="hover:text-amber-400 transition-colors hidden md:inline-flex items-center gap-1 text-[11px] sm:text-xs"
+          >
+            <Film className="w-3 h-3 text-slate-400" />
+            <span>Media</span>
+          </a>
+
+          <button 
+            onClick={onOpenAdmission}
+            className="bg-blue-700 hover:bg-blue-800 text-white px-3.5 py-1.5 rounded-sm font-semibold tracking-wide transition-all shadow-sm hover:shadow text-xs shrink-0 flex items-center gap-1"
+          >
+            <span>Apply for Admission</span>
+            <ExternalLink className="w-3 h-3" />
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
