@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import Facilities from './components/Facilities';
 import WallOfFame from './components/WallOfFame';
-import SchoolHighlights from './components/SchoolHighlights';
 import CtaBanner from './components/CtaBanner';
 import ParentsSpeak from './components/ParentsSpeak';
 import Footer from './components/Footer';
@@ -58,9 +57,6 @@ export default function App() {
 
       {/* 6. Wall of Fame / Scholastic Champions */}
       <WallOfFame />
-
-      {/* 7. School Highlights Bar */}
-      <SchoolHighlights />
 
       {/* 8. Call To Action Banner */}
       <CtaBanner

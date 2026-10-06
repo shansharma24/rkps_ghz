@@ -1,6 +1,8 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ExternalLink, ArrowUp } from 'lucide-react';
 import floydImg from '../assets/floyd.png';
+import cbseImg from '../assets/cbse.png';
+import ptsImg from '../assets/pts.png';
 
 const partnerLogos = [
   {
@@ -54,25 +56,15 @@ const partnerLogos = [
     )
   },
   {
-    id: 'edunext',
-    name: 'Edunext Technologies',
+    id: 'pts-bridge',
+    name: 'PTS Bridge',
     render: () => (
-      <div className="flex flex-col items-center justify-center px-4">
-        <div className="flex items-center justify-center mb-1">
-          <svg className="w-8 h-8 sm:w-9 sm:h-9" viewBox="0 0 40 40" fill="none">
-            <path d="M10 8 L20 4 L30 8 L30 30 L20 26 L10 30 Z" fill="#0f172a" />
-            <path d="M20 4 L20 26" stroke="white" strokeWidth="1.5" />
-            <path d="M14 12 L18 10 M14 16 L18 14 M14 20 L18 18" stroke="white" strokeWidth="1" />
-            <path d="M26 12 L22 10 M26 16 L22 14 M26 20 L22 18" stroke="white" strokeWidth="1" />
-            <path d="M20 26 L23 34 L20 32 L17 34 Z" fill="#0284c7" />
-          </svg>
-        </div>
-        <span className="text-sm sm:text-base font-black tracking-wider text-slate-900 font-sans leading-none">
-          EDUNEXT
-        </span>
-        <span className="text-[7.5px] font-semibold text-slate-500 mt-1 whitespace-nowrap">
-          School ERP • E-Learning • Mobile App
-        </span>
+      <div className="flex items-center justify-center px-4">
+        <img
+          src={ptsImg}
+          alt="PTS Bridge"
+          className="h-10 sm:h-12 md:h-13 w-auto object-contain max-w-[160px]"
+        />
       </div>
     )
   },
@@ -101,17 +93,11 @@ const partnerLogos = [
     name: 'CBSE Board Affiliated',
     render: () => (
       <div className="flex items-center justify-center px-4">
-        <svg className="w-14 h-14 sm:w-16 sm:h-16" viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="46" stroke="#0891b2" strokeWidth="3" fill="#f0fdfa" />
-          <circle cx="50" cy="50" r="41" stroke="#0891b2" strokeWidth="1" fill="none" />
-          <circle cx="50" cy="50" r="22" fill="#0891b2" opacity="0.12" />
-          <path d="M38 52 C44 50, 48 50, 50 54 C52 50, 56 50, 62 52 L62 62 C56 60, 52 60, 50 64 C48 60, 44 60, 38 62 Z" fill="#0e7490" />
-          <path d="M50 38 C53 43, 50 46, 50 48 C50 46, 47 43, 50 38 Z" fill="#f59e0b" />
-          <rect x="28" y="72" width="44" height="9" rx="3" fill="#0891b2" />
-          <text x="50" y="78.5" textAnchor="middle" className="text-[6.5px] font-bold fill-white">
-            केन्द्रीय माध्यमिक शिक्षा बोर्ड
-          </text>
-        </svg>
+        <img
+          src={cbseImg}
+          alt="CBSE Board Affiliated"
+          className="h-14 sm:h-16 w-auto object-contain max-w-[120px]"
+        />
       </div>
     )
   },
