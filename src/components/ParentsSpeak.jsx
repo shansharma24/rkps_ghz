@@ -63,7 +63,7 @@ const testimonials = [
 export default function ParentsSpeak() {
   return (
     <section 
-      className="relative py-10 md:py-12 bg-gradient-to-b from-blue-950 via-slate-900 to-slate-950 text-white overflow-hidden border-t border-blue-900/40"
+      className="relative py-8 md:py-9 bg-gradient-to-b from-blue-950 via-slate-900 to-slate-950 text-white overflow-hidden border-t border-blue-900/40"
       data-purpose="parents-speak-section"
       id="parents-speak"
     >
@@ -79,59 +79,59 @@ export default function ParentsSpeak() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         {/* Compact Header */}
-        <div className="text-center max-w-2xl mx-auto mb-7 md:mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-300 text-[11px] font-bold uppercase tracking-wider mb-2 backdrop-blur-sm">
+        <div className="text-center max-w-2xl mx-auto mb-5 md:mb-6">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-300 text-[10.5px] font-bold uppercase tracking-wider mb-1.5 backdrop-blur-sm">
             <Sparkles className="w-3 h-3 text-amber-400" />
             Voices of Trust &amp; Pride
           </div>
           
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white heading-serif tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-white heading-serif tracking-tight">
             Parents Speak
           </h2>
           
-          <div className="w-12 h-0.5 bg-amber-400 mx-auto mt-2 rounded-full"></div>
+          <div className="w-10 h-0.5 bg-amber-400 mx-auto mt-1.5 rounded-full"></div>
         </div>
       </div>
 
       {/* Auto-scrolling Review Track with edge fades */}
       <div className="relative w-full overflow-hidden select-none">
         {/* Left and right fade gradients */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-blue-950 via-blue-950/70 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-slate-950 via-slate-950/70 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-blue-950 via-blue-950/70 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-slate-950 via-slate-950/70 to-transparent z-10 pointer-events-none"></div>
 
         {/* Continuous Marquee Container */}
-        <div className="animate-marquee py-2 gap-5 px-4 flex items-stretch">
+        <div className="animate-marquee py-1.5 gap-4 px-4 flex items-stretch">
           {[...testimonials, ...testimonials].map((item, index) => (
             <div 
               key={`${item.id}-${index}`} 
-              className="w-[280px] sm:w-[320px] md:w-[340px] shrink-0 flex flex-col group"
+              className="w-[260px] sm:w-[290px] md:w-[310px] shrink-0 flex flex-col group"
             >
               {/* White Speech Bubble Card */}
-              <div className="relative flex-1 bg-white text-slate-800 p-5 rounded-xl shadow-lg border border-slate-100 flex flex-col justify-between transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+              <div className="relative flex-1 bg-white text-slate-800 p-4 rounded-xl shadow-md border border-slate-100 flex flex-col justify-between transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
                 {/* Header inside bubble */}
-                <div className="flex items-center justify-between mb-2.5">
-                  <Quote className="w-5 h-5 text-blue-900/25 group-hover:text-amber-500/50 transition-colors" />
-                  <span className="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-blue-50 text-blue-900 border border-blue-100">
+                <div className="flex items-center justify-between mb-2">
+                  <Quote className="w-4 h-4 text-blue-900/25 group-hover:text-amber-500/50 transition-colors" />
+                  <span className="text-[9.5px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-blue-50 text-blue-900 border border-blue-100">
                     {item.tag}
                   </span>
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-xs text-slate-700 leading-relaxed font-normal line-clamp-4">
+                <p className="text-[11.5px] text-slate-700 leading-relaxed font-normal line-clamp-3">
                   "{item.quote}"
                 </p>
 
                 {/* Downward Pointer Triangle */}
-                <div className="absolute -bottom-2.5 left-7 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[10px] border-t-white drop-shadow-xs"></div>
+                <div className="absolute -bottom-2 left-6 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-t-[8px] border-t-white drop-shadow-2xs"></div>
               </div>
 
               {/* Author Details Below */}
-              <div className="pt-4 pb-1 pl-3">
-                <h4 className="text-xs sm:text-[13px] font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">
+              <div className="pt-3 pb-0.5 pl-2.5">
+                <h4 className="text-xs font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">
                   {item.author}
                 </h4>
                 {item.role && (
-                  <p className="text-[11px] text-blue-200/70 mt-0.5 line-clamp-1">
+                  <p className="text-[10.5px] text-blue-200/70 mt-0.5 line-clamp-1">
                     {item.role}
                   </p>
                 )}

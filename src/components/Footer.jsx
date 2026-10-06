@@ -1,5 +1,151 @@
 import React from 'react';
-import { ArrowUp, MapPin, Phone, Mail } from 'lucide-react';
+import { Phone, Mail, MapPin, ExternalLink, ArrowUp } from 'lucide-react';
+
+const partnerLogos = [
+  {
+    id: 'sof',
+    name: 'Science Olympiad Foundation',
+    render: () => (
+      <div className="flex flex-col items-center justify-center px-4">
+        <div className="flex items-center gap-1.5 font-serif font-black text-2xl sm:text-3xl tracking-tighter text-slate-900">
+          <span>S</span>
+          <span className="relative inline-flex items-center justify-center w-7 h-7">
+            <svg viewBox="0 0 24 24" className="w-7 h-7 fill-amber-400 stroke-slate-900 stroke-1">
+              <path d="M12 2a6 6 0 0 0-6 6c0 2.2 1.2 4.1 3 5.2V16a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2.8c1.8-1.1 3-3 3-5.2a6 6 0 0 0-6-6z" />
+              <path d="M10 19h4v1a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1z" fill="#334155" />
+            </svg>
+          </span>
+          <span>F</span>
+        </div>
+        <span className="text-[8px] font-extrabold uppercase tracking-tight text-slate-900 mt-1 border-t border-slate-800 pt-0.5">
+          SCIENCE OLYMPIAD FOUNDATION
+        </span>
+      </div>
+    )
+  },
+  {
+    id: 'eco-council',
+    name: 'Eco School Council',
+    render: () => (
+      <div className="flex items-center justify-center px-4">
+        <svg className="w-14 h-14 sm:w-16 sm:h-16" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="44" stroke="#1d4ed8" strokeWidth="4" fill="none" />
+          <circle cx="50" cy="50" r="38" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="3 3" fill="none" />
+          <path d="M50 20 C65 20, 75 35, 68 50 C60 40, 50 42, 50 20 Z" fill="#2563eb" />
+          <path d="M76 65 C68 78, 50 78, 42 65 C52 60, 58 50, 76 65 Z" fill="#1d4ed8" />
+          <path d="M24 65 C16 52, 25 35, 40 35 C38 48, 42 58, 24 65 Z" fill="#3b82f6" />
+          <circle cx="50" cy="50" r="6" fill="#1e40af" />
+        </svg>
+      </div>
+    )
+  },
+  {
+    id: 'edunext',
+    name: 'Edunext Technologies',
+    render: () => (
+      <div className="flex flex-col items-center justify-center px-4">
+        <div className="flex items-center justify-center mb-1">
+          <svg className="w-8 h-8 sm:w-9 sm:h-9" viewBox="0 0 40 40" fill="none">
+            <path d="M10 8 L20 4 L30 8 L30 30 L20 26 L10 30 Z" fill="#0f172a" />
+            <path d="M20 4 L20 26" stroke="white" strokeWidth="1.5" />
+            <path d="M14 12 L18 10 M14 16 L18 14 M14 20 L18 18" stroke="white" strokeWidth="1" />
+            <path d="M26 12 L22 10 M26 16 L22 14 M26 20 L22 18" stroke="white" strokeWidth="1" />
+            <path d="M20 26 L23 34 L20 32 L17 34 Z" fill="#0284c7" />
+          </svg>
+        </div>
+        <span className="text-sm sm:text-base font-black tracking-wider text-slate-900 font-sans leading-none">
+          EDUNEXT
+        </span>
+        <span className="text-[7.5px] font-semibold text-slate-500 mt-1 whitespace-nowrap">
+          School ERP • E-Learning • Mobile App
+        </span>
+      </div>
+    )
+  },
+  {
+    id: 'extramarks',
+    name: 'Extramarks Smart Learning',
+    render: () => (
+      <div className="flex items-center justify-center px-4">
+        <div className="flex items-center">
+          <span className="text-2xl sm:text-3xl font-black tracking-tight text-orange-600 font-sans">
+            EXTR
+          </span>
+          <div className="relative inline-flex items-center justify-center text-orange-600 font-black text-2xl sm:text-3xl">
+            <span>A</span>
+            <span className="absolute -top-1.5 -right-1.5 text-orange-600 text-xs font-bold">▲</span>
+          </div>
+          <span className="text-2xl sm:text-3xl font-black tracking-tight text-orange-600 font-sans ml-0.5">
+            MARKS
+          </span>
+        </div>
+      </div>
+    )
+  },
+  {
+    id: 'cbse',
+    name: 'CBSE Board Affiliated',
+    render: () => (
+      <div className="flex items-center justify-center px-4">
+        <svg className="w-14 h-14 sm:w-16 sm:h-16" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="46" stroke="#0891b2" strokeWidth="3" fill="#f0fdfa" />
+          <circle cx="50" cy="50" r="41" stroke="#0891b2" strokeWidth="1" fill="none" />
+          <circle cx="50" cy="50" r="22" fill="#0891b2" opacity="0.12" />
+          <path d="M38 52 C44 50, 48 50, 50 54 C52 50, 56 50, 62 52 L62 62 C56 60, 52 60, 50 64 C48 60, 44 60, 38 62 Z" fill="#0e7490" />
+          <path d="M50 38 C53 43, 50 46, 50 48 C50 46, 47 43, 50 38 Z" fill="#f59e0b" />
+          <rect x="28" y="72" width="44" height="9" rx="3" fill="#0891b2" />
+          <text x="50" y="78.5" textAnchor="middle" className="text-[6.5px] font-bold fill-white">
+            केन्द्रीय माध्यमिक शिक्षा बोर्ड
+          </text>
+        </svg>
+      </div>
+    )
+  },
+  {
+    id: 'childcare',
+    name: 'Student Health & Wellness',
+    render: () => (
+      <div className="flex items-center justify-center px-4">
+        <svg className="w-14 h-14 sm:w-16 sm:h-16" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="45" stroke="#dc2626" strokeWidth="3" fill="none" />
+          <circle cx="50" cy="50" r="40" stroke="#1d4ed8" strokeWidth="2" strokeDasharray="5 3" fill="none" />
+          <g fill="#1e3a8a">
+            <path d="M38 48 C36 44, 38 40, 41 40 C43 40, 44 43, 44 48 L44 54 C44 56, 42 58, 40 58 C38 58, 36 56, 36 53 Z" />
+            <path d="M32 50 C31 47, 33 44, 35 44 C37 44, 38 47, 38 50 L38 54 C38 56, 36 58, 34 58 C32 58, 31 56, 31 53 Z" />
+            <path d="M44 47 C43 43, 45 40, 48 40 C50 40, 51 43, 51 47 L51 54 C51 57, 49 59, 47 59 C45 59, 44 57, 44 54 Z" />
+            <circle cx="41" cy="62" r="5" />
+          </g>
+          <g fill="#dc2626">
+            <path d="M58 48 C56 44, 58 40, 61 40 C63 40, 64 43, 64 48 L64 54 C64 56, 62 58, 60 58 C58 58, 56 56, 56 53 Z" />
+            <path d="M52 50 C51 47, 53 44, 55 44 C57 44, 58 47, 58 50 L58 54 C58 56, 56 58, 54 58 C52 58, 51 56, 51 53 Z" />
+            <path d="M64 47 C63 43, 65 40, 68 40 C70 40, 71 43, 71 47 L71 54 C71 57, 69 59, 67 59 C65 59, 64 57, 64 54 Z" />
+            <circle cx="61" cy="62" r="5" />
+          </g>
+        </svg>
+      </div>
+    )
+  },
+  {
+    id: 'british-council',
+    name: 'British Council IDS',
+    render: () => (
+      <div className="flex flex-col items-center justify-center px-4">
+        <div className="flex items-center gap-1.5 mb-1">
+          <div className="w-2.5 h-2.5 rounded-full bg-blue-900"></div>
+          <div className="w-2.5 h-2.5 rounded-full bg-blue-900"></div>
+          <div className="w-2.5 h-2.5 rounded-full bg-blue-900"></div>
+          <div className="w-2.5 h-2.5 rounded-full bg-blue-900"></div>
+        </div>
+        <span className="text-xs sm:text-sm font-black tracking-widest text-blue-950 uppercase">
+          BRITISH COUNCIL
+        </span>
+        <span className="text-[7.5px] font-bold text-slate-500 uppercase tracking-tight">
+          International School Award
+        </span>
+      </div>
+    )
+  }
+];
 
 export default function Footer({ onOpenAdmission, onOpenErp }) {
   const scrollToTop = () => {
@@ -7,186 +153,223 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
   };
 
   return (
-    <footer className="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-900" data-purpose="main-footer">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="w-full bg-[#071330] text-white overflow-hidden" data-purpose="main-footer">
+      
+      {/* Upper Main Footer - Generously sized, prominent & spacious */}
+      <div className="relative py-12 md:py-16 border-b border-blue-950">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
-          
-          {/* School Crest & Mission Statement (4 cols) */}
-          <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <img
-                src="/logo.jpg"
-                alt="Radha Krishna Public School Emblem"
-                className="w-13 h-13 object-contain rounded-full bg-white p-0.5 shadow-md ring-2 ring-amber-400/30"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = "https://lh3.googleusercontent.com/aida-public/AB6AXuBoNJun0ExBXPheYHmnmnbC-ZF4P0JiDFLlmz8IQrVF7lZtdwaaTcoZ5dSeYkQey6prpW2-7fZSW1h0sOM26hsdItH1OZLvkLK9tf0w69Tg_013t54FONJP4iM2K97Df9dechedtYtIjiNILRiwu7x1lMOqahPRhyIwxT5C3CDVi1wXapzquJ_3UfNt1gkYlawZybCslVuYK4vXNjPNkExnLbDolVb3e1RV9cp3GQKMSGOzWfumFI7HIJ6CYaPprRNq1T8";
-                }}
-              />
-              <div>
-                <h3 className="text-sm font-extrabold text-white tracking-wider uppercase">
-                  Radha Krishna Public School
-                </h3>
-                <p className="text-[10px] font-bold tracking-widest text-amber-400 uppercase">
-                  Learn • Grow • Lead
-                </p>
+        {/* Subtle geometric pattern watermark overlay */}
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:18px_18px]" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            {/* Left Column: School Crest, Title, Affiliation & Contact List */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* School Header */}
+              <div className="flex items-center gap-4">
+                <img
+                  src="/logo.jpg"
+                  alt="Radha Krishna Public School Crest"
+                  className="w-14 h-14 object-contain rounded-full bg-white p-0.5 shadow-lg ring-2 ring-amber-400/30 shrink-0"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "https://lh3.googleusercontent.com/aida-public/AB6AXuBoNJun0ExBXPheYHmnmnbC-ZF4P0JiDFLlmz8IQrVF7lZtdwaaTcoZ5dSeYkQey6prpW2-7fZSW1h0sOM26hsdItH1OZLvkLK9tf0w69Tg_013t54FONJP4iM2K97Df9dechedtYtIjiNILRiwu7x1lMOqahPRhyIwxT5C3CDVi1wXapzquJ_3UfNt1gkYlawZybCslVuYK4vXNjPNkExnLbDolVb3e1RV9cp3GQKMSGOzWfumFI7HIJ6CYaPprRNq1T8";
+                  }}
+                />
+                <div>
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white tracking-wide leading-tight">
+                    Radha Krishna Public School, Ghaziabad
+                  </h3>
+                  <p className="text-xs text-blue-200/80 font-medium tracking-wide mt-1">
+                    Affiliation No. : <span className="font-semibold text-white">2130572</span> | School Code : <span className="font-semibold text-white">60252</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Contact Information with square outline box icons */}
+              <div className="space-y-3.5 pt-1">
+                {/* Phone */}
+                <div className="flex items-center gap-3.5 text-xs sm:text-[13px] text-slate-200">
+                  <div className="w-7 h-7 border border-white/60 flex items-center justify-center shrink-0 rounded-xs">
+                    <Phone className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <a href="tel:01204961300" className="hover:text-amber-400 transition-colors">
+                    +0120-4961300, 01204961301
+                  </a>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-center gap-3.5 text-xs sm:text-[13px] text-slate-200">
+                  <div className="w-7 h-7 border border-white/60 flex items-center justify-center shrink-0 rounded-xs">
+                    <Mail className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <a href="mailto:rkps.ghz@gmail.com" className="hover:text-amber-400 transition-colors">
+                    rkps.ghz@gmail.com
+                  </a>
+                </div>
+
+                {/* Address */}
+                <div className="flex items-start gap-3.5 text-xs sm:text-[13px] text-slate-200">
+                  <div className="w-7 h-7 border border-white/60 flex items-center justify-center shrink-0 mt-0.5 rounded-xs">
+                    <MapPin className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <span className="leading-relaxed">
+                    Institutional Area, Sector 12, Indirapuram Ghaziabad - 201014 (U.P)
+                  </span>
+                </div>
               </div>
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              A progressive CBSE affiliated senior secondary institution committed to academic excellence, character building, cultural ethos, and holistic individual development in Ghaziabad.
-            </p>
-
-            {/* Social Icons */}
-            <div className="flex items-center space-x-3 pt-2">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="w-8 h-8 rounded-full bg-slate-900 hover:bg-blue-600 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="w-8 h-8 rounded-full bg-slate-900 hover:bg-blue-500 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                </svg>
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-8 h-8 rounded-full bg-slate-900 hover:bg-pink-600 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="w-8 h-8 rounded-full bg-slate-900 hover:bg-red-600 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                </svg>
-              </a>
+            {/* Middle Column: QUICK LINKS */}
+            <div className="lg:col-span-3 pt-1">
+              <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white mb-4 sm:mb-5">
+                QUICK LINKS
+              </h4>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3.5 text-xs sm:text-[12px] font-bold text-slate-200 uppercase tracking-wide">
+                <a href="#about" className="hover:text-amber-400 transition-colors">
+                  ABOUT US
+                </a>
+                <a href="#circulars" onClick={onOpenErp} className="hover:text-amber-400 transition-colors">
+                  CIRCULAR
+                </a>
+                <a href="#parents-speak" className="hover:text-amber-400 transition-colors">
+                  TESTIMONIALS
+                </a>
+                <a href="#contact" className="hover:text-amber-400 transition-colors">
+                  SOCIAL WORK
+                </a>
+                <a href="#contact" className="hover:text-amber-400 transition-colors">
+                  VISTING HOURS
+                </a>
+                <a href="#facilities" className="hover:text-amber-400 transition-colors">
+                  GALLERY
+                </a>
+              </div>
             </div>
+
+            {/* Right Column: Google Maps Card */}
+            <div className="lg:col-span-4">
+              <div className="relative rounded-xl overflow-hidden border border-white/20 shadow-xl bg-slate-800 h-[190px] sm:h-[200px] group">
+                {/* "Open in Maps" overlay button */}
+                <a
+                  href="https://maps.google.com/?q=Radha+Krishna+Public+School+Indirapuram+Ghaziabad"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-2.5 left-2.5 z-10 px-3 py-1 bg-white/95 hover:bg-white text-blue-900 text-[11px] font-bold rounded shadow-md flex items-center gap-1.5 transition-all hover:scale-105"
+                >
+                  <span>Open in Maps</span>
+                  <ExternalLink className="w-3 h-3 text-blue-800" />
+                </a>
+
+                {/* Google Map Iframe */}
+                <iframe
+                  title="Radha Krishna Public School Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.286361836154!2d77.368686!3d28.638421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf00799999999%3A0x1!2sIndirapuram%2C%20Ghaziabad!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin"
+                  className="w-full h-full border-0 filter contrast-105"
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+
           </div>
 
-          {/* Quick Links (2 cols) */}
-          <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Quick Links
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              <li><a className="hover:text-amber-400 transition-colors" href="#">Home</a></li>
-              <li><a className="hover:text-amber-400 transition-colors" href="#about">About Us</a></li>
-              <li><a className="hover:text-amber-400 transition-colors" href="#wall-of-fame">Academics</a></li>
-              <li>
-                <button onClick={onOpenAdmission} className="hover:text-amber-400 transition-colors text-left">
-                  Admissions
-                </button>
-              </li>
-              <li><a className="hover:text-amber-400 transition-colors" href="#facilities">Campus &amp; Facilities</a></li>
-              <li><a className="hover:text-amber-400 transition-colors" href="#wall-of-fame">Gallery &amp; Toppers</a></li>
-              <li><a className="hover:text-amber-400 transition-colors" href="#contact">Contact</a></li>
-            </ul>
-          </div>
+          {/* Social Links Row centered at the bottom of navy section */}
+          <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-xs sm:text-sm font-semibold text-slate-200">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-pink-400 transition-colors"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+              <span>Instagram</span>
+            </a>
 
-          {/* Important Links (3 cols) */}
-          <div className="lg:col-span-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Important Links
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              <li>
-                <button onClick={onOpenErp} className="hover:text-amber-400 transition-colors text-left">
-                  Parent Portal
-                </button>
-              </li>
-              <li>
-                <button onClick={onOpenErp} className="hover:text-amber-400 transition-colors text-left">
-                  Student Portal
-                </button>
-              </li>
-              <li>
-                <button onClick={onOpenErp} className="hover:text-amber-400 transition-colors text-left">
-                  Staff Portal
-                </button>
-              </li>
-              <li><a className="hover:text-amber-400 transition-colors" href="#facilities">Academic Calendar</a></li>
-              <li><a className="hover:text-amber-400 transition-colors" href="#wall-of-fame">Notice Board</a></li>
-              <li><a className="hover:text-amber-400 transition-colors" href="#contact">Mandatory Disclosure</a></li>
-              <li><a className="hover:text-amber-400 transition-colors" href="#admissions">Downloads &amp; Syllabus</a></li>
-            </ul>
-          </div>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-blue-400 transition-colors"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+              <span>facebook</span>
+            </a>
 
-          {/* Contact Us Column (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Contact Us
-            </h4>
-            <div className="text-xs text-slate-400 space-y-2.5">
-              <p className="flex items-start gap-2">
-                <span className="text-amber-400 text-sm leading-none mt-0.5">📍</span>
-                <span>Institutional Area, Sector 12, Indirapuram, Ghaziabad, Uttar Pradesh</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <span className="text-amber-400 text-sm leading-none">📞</span>
-                <span>+91 120-2800000 / +91 9876543210</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <span className="text-amber-400 text-sm leading-none">✉️</span>
-                <span>info@rkpschool.edu.in</span>
-              </p>
-            </div>
-            
-            <div className="pt-3">
-              <span className="inline-block px-3 py-1.5 bg-slate-900 border border-slate-800 rounded text-[11px] font-mono font-semibold text-amber-400">
-                CBSE Affiliation No: 2130572
-              </span>
-            </div>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-red-400 transition-colors"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+              <span>Youtube</span>
+            </a>
+
+            <a
+              href="https://wa.me/911204961300"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-emerald-400 transition-colors"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12.031 0C5.396 0 .029 5.367.029 11.987c0 2.079.529 4.117 1.544 5.934L0 24l6.257-1.541a11.905 11.905 0 0 0 5.774 1.488h.005c6.64 0 12.007-5.367 12.007-11.987A11.976 11.976 0 0 0 12.031 0zm0 21.903a9.92 9.92 0 0 1-5.06-1.385l-.364-.216-3.722.916.993-3.626-.237-.377A9.875 9.875 0 0 1 2.029 12c0-5.522 4.49-10.013 10.013-10.013a9.96 9.96 0 0 1 7.079 2.935 9.964 9.964 0 0 1 2.934 7.078c0 5.522-4.49 10.013-10.024 10.013z" />
+              </svg>
+              <span>WhatsApp</span>
+            </a>
           </div>
 
         </div>
-
-        {/* Sub-Footer / Copyright & Scroll Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 Radha Krishna Public School, Ghaziabad. All Rights Reserved.</p>
-          
-          <div className="flex items-center space-x-6">
-            <a className="hover:underline hover:text-slate-400" href="#">Privacy Policy</a>
-            <span>•</span>
-            <a className="hover:underline hover:text-slate-400" href="#">Terms of Use</a>
-            <span>•</span>
-            <a className="hover:underline hover:text-slate-400" href="#">Sitemap</a>
-          </div>
-
-          {/* Back to Top Button */}
-          <button
-            onClick={scrollToTop}
-            aria-label="Back to Top"
-            className="w-9 h-9 rounded-full bg-amber-500 hover:bg-amber-600 text-slate-950 flex items-center justify-center transition-colors shadow-md hover:scale-105 active:scale-95"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </button>
-        </div>
-
       </div>
+
+      {/* Moving / Scrolling Partner & Accreditation Logos Section (White background) */}
+      <div className="relative bg-white py-6 md:py-8 overflow-hidden border-t border-slate-200 select-none">
+        {/* Subtle left and right gradient fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+        {/* Continuous Marquee Track */}
+        <div className="animate-marquee flex items-center gap-14 sm:gap-20">
+          {[...partnerLogos, ...partnerLogos].map((partner, idx) => (
+            <div
+              key={`${partner.id}-${idx}`}
+              className="shrink-0 flex items-center justify-center transition-transform hover:scale-105 duration-300"
+              title={partner.name}
+            >
+              {partner.render()}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom-most Copyright & Attributions Bar */}
+      <div className="bg-white border-t border-slate-200 py-4 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
+          <p>© Copyright 2026 Radha Krishna Public School, Ghaziabad</p>
+          <div className="flex items-center gap-4">
+            <p className="text-xs text-slate-500">
+              Designed &amp; Maintained by <span className="font-semibold text-slate-700">Edunext Technologies Pvt. Ltd.</span>
+            </p>
+            {/* Scroll to Top circular button */}
+            <button
+              onClick={scrollToTop}
+              aria-label="Scroll to top"
+              className="w-8 h-8 rounded-full border border-slate-300 hover:border-slate-500 text-slate-700 flex items-center justify-center hover:bg-slate-100 transition-colors shadow-xs"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+
     </footer>
   );
 }
