@@ -148,7 +148,7 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
   };
 
   return (
-    <footer className="w-full bg-[#071330] text-white overflow-hidden" data-purpose="main-footer">
+    <footer className="w-full bg-[#071330] text-white overflow-hidden" data-purpose="main-footer" id="contact">
       
       {/* Upper Main Footer - Generously sized, prominent & spacious */}
       <div className="relative py-12 md:py-16 border-b border-blue-950">

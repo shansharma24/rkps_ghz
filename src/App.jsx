@@ -7,7 +7,6 @@ import Facilities from './components/Facilities';
 import WallOfFame from './components/WallOfFame';
 import SchoolHighlights from './components/SchoolHighlights';
 import CtaBanner from './components/CtaBanner';
-import ContactSection from './components/ContactSection';
 import ParentsSpeak from './components/ParentsSpeak';
 import Footer from './components/Footer';
 import FloatingQuickActions from './components/FloatingQuickActions';
@@ -24,15 +23,10 @@ export default function App() {
   const [pmLetterOpen, setPmLetterOpen] = useState(false);
   const [virtualTourOpen, setVirtualTourOpen] = useState(false);
 
-  const contactRef = useRef(null);
-
   const scrollToEnquiry = () => {
-    if (contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      const el = document.getElementById('contact');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    const el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    else setAdmissionOpen(true);
   };
 
   return (
@@ -74,13 +68,10 @@ export default function App() {
         onOpenEnquiry={scrollToEnquiry}
       />
 
-      {/* 9. Contact & Enquiry Section with Interactive Form & Map */}
-      <ContactSection formRef={contactRef} />
-
-      {/* 10. Parents Speak / Community Testimonials (Themed with Speech Bubbles) */}
+      {/* 9. Parents Speak / Community Testimonials (Themed with Speech Bubbles) */}
       <ParentsSpeak />
 
-      {/* 11. Institutional Midnight Navy Footer */}
+      {/* 10. Institutional Midnight Navy Footer */}
       <Footer
         onOpenAdmission={() => setAdmissionOpen(true)}
         onOpenErp={() => setErpOpen(true)}
