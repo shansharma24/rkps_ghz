@@ -1,53 +1,60 @@
 import React from 'react';
-import { ArrowRight, HelpCircle } from 'lucide-react';
+import studentsImg from '../assets/admissions_students.png';
 
 export default function CtaBanner({ onOpenAdmission, onOpenEnquiry }) {
+  const handleAction = () => {
+    if (onOpenAdmission) {
+      onOpenAdmission();
+    } else if (onOpenEnquiry) {
+      onOpenEnquiry();
+    }
+  };
+
   return (
-    <section className="bg-blue-950 py-10 px-4 sm:px-6 lg:px-8 border-b border-blue-900" data-purpose="cta-banner" id="admissions">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <section 
+      className="relative w-full bg-white pt-10 sm:pt-14 md:pt-16 pb-12 sm:pb-16 overflow-visible" 
+      data-purpose="admissions-cta-banner" 
+      id="admissions"
+    >
+      {/* Main Colored Banner Bar - Themed in Royal Institutional Navy */}
+      <div className="relative w-full bg-gradient-to-r from-blue-950 via-[#0d2259] to-blue-900 text-white overflow-visible shadow-md">
         
-        {/* Left side: Student Thumbnails & Heading */}
-        <div className="flex items-center gap-6">
-          <div className="hidden sm:flex items-center space-x-2 shrink-0">
-            <img
-              alt="RKPS Student Learning"
-              className="w-16 h-16 rounded-xl object-cover border-2 border-amber-400 shadow-md ring-2 ring-amber-400/20"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDADta2QPOo3lnW1mvx810hecTNdLql6oRO5oIh_n_IPehzHiAxt2ZfORiPzfZd_qkphYVmc6cctoRVsyM8_vKrWXT_1_UbGetlgCcLIl2w5mfeb-jlgRtL52riGZP37bV0CJcunFfQYckNJ2lWllSs3-04u1Yvos4ox0cRsCy6YWKmZaI0M6uPwlt6ncekRw_rpaX8mPK5s0SHSsIVqdicBw3rHmbuKnLzZIPO58_dzrFtIpSWFFjtiw"
-            />
-            <img
-              alt="RKPS Proud Student"
-              className="w-16 h-16 rounded-xl object-cover border-2 border-blue-400 shadow-md ring-2 ring-blue-400/20"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC3yncjklmzit2NMEQ5a_Xqqdb-InBGpDDglWjjJQXcnpO4djYwoDlgFYcFrpXfVliXioKItTnODfU5VhAIQBCwaa3HrC9hT3k4RKqIIiZJCwwidnXTIq1kR6prhd2ifxDZW3y0oXT0k0klY-SalrmPsHkRNycMOVwynl3ab95bAy_4TvxUYPYRi4TgmYkuKNMBZXSSZUArWe2jqgXlSNqvABIa2AMMafzJvsVnBwpxfQ1QepJTuASbw"
-            />
-          </div>
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white heading-serif">
-              Your Child's Journey Begins Here.
+        {/* Subtle patterned overlay for institutional depth */}
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative min-h-[170px] sm:min-h-[200px] md:min-h-[220px] flex items-center">
+          
+          {/* Left Text Block */}
+          <div className="py-8 sm:py-10 md:py-12 z-10 max-w-xl">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase leading-none font-sans select-none drop-shadow-md">
+              ADMISSIONS OPEN
             </h2>
-            <p className="text-xs sm:text-sm text-blue-200 mt-1">
-              Take the first step towards an inspiring and enriching school experience.
-            </p>
+            <div className="text-2xl sm:text-4xl md:text-5xl font-black text-amber-400 tracking-tight mt-1.5 sm:mt-2.5 select-none font-sans drop-shadow-md">
+              2026-27
+            </div>
           </div>
+
+          {/* Right Side: Students 3D Pop-out Image with transparent cutout overflowing the top */}
+          <div className="absolute right-0 sm:right-4 lg:right-8 bottom-0 w-[42%] sm:w-[46%] md:w-[48%] max-w-[560px] h-[135%] sm:h-[145%] md:h-[155%] pointer-events-none flex items-end justify-end overflow-visible z-20">
+            <img
+              src={studentsImg}
+              alt="Radha Krishna Public School Students"
+              className="w-full h-full object-contain object-bottom select-none transform translate-y-0 filter drop-shadow-[0_10px_15px_rgba(0,0,0,0.25)]"
+              loading="eager"
+            />
+          </div>
+
+          {/* Golden Yellow ENQUIRE NOW Button overlapping bottom edge */}
+          <div className="absolute -bottom-5 sm:-bottom-6 left-4 sm:left-6 lg:left-8 z-30">
+            <button
+              onClick={handleAction}
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider px-7 sm:px-10 py-3 sm:py-3.5 shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 select-none border border-amber-300 rounded-xs"
+            >
+              ENQUIRE NOW
+            </button>
+          </div>
+
         </div>
-
-        {/* Right side: Dual CTA Buttons */}
-        <div className="flex items-center gap-3 shrink-0 flex-wrap sm:flex-nowrap">
-          <button
-            onClick={onOpenAdmission}
-            className="px-6 py-3 rounded-full bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center gap-2 hover:scale-105 active:scale-95"
-          >
-            <span>Apply For Admission</span>
-            <span className="text-sm">➔</span>
-          </button>
-
-          <button
-            onClick={onOpenEnquiry}
-            className="px-6 py-3 rounded-full border border-blue-400 hover:bg-blue-900/60 text-white text-xs font-bold uppercase tracking-wider transition-all hover:scale-105 active:scale-95"
-          >
-            Enquire Now
-          </button>
-        </div>
-
       </div>
     </section>
   );
