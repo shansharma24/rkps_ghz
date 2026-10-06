@@ -16,7 +16,7 @@ export default function TopUtilityHeader({ onOpenAdmission, onOpenErp, onOpenPmL
         {/* Right: Quick Links & Actions */}
         <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 ml-auto font-medium">
 
-          <button 
+          <button
             onClick={onOpenErp}
             className="hover:text-amber-400 text-slate-300 transition-colors flex items-center gap-1 text-[11px] sm:text-xs"
           >
@@ -24,25 +24,25 @@ export default function TopUtilityHeader({ onOpenAdmission, onOpenErp, onOpenPmL
             <span>ERP Login</span>
           </button>
 
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="hover:text-amber-400 transition-colors hidden sm:inline-flex items-center gap-1 text-[11px] sm:text-xs"
           >
             <Briefcase className="w-3 h-3 text-slate-400" />
             <span>Work With Us</span>
           </a>
 
-          <a 
-            href="#facilities" 
+          <a
+            href="#facilities"
             className="hover:text-amber-400 transition-colors hidden md:inline-flex items-center gap-1 text-[11px] sm:text-xs"
           >
             <Film className="w-3 h-3 text-slate-400" />
             <span>Media</span>
           </a>
 
-          <button 
+          <button
             onClick={onOpenAdmission}
-            className="bg-blue-700 hover:bg-blue-800 text-white px-3.5 py-1.5 rounded-sm font-semibold tracking-wide transition-all shadow-sm hover:shadow text-xs shrink-0 flex items-center gap-1"
+            className="bg-blue-700 hover:bg-blue-800 text-white px-3.5 py-1.5 rounded-sm font-semibold tracking-wide transition-all text-xs shrink-0 flex items-center gap-1.5 ring-2 ring-sky-400 shadow-[0_0_12px_rgba(56,189,248,0.7)] hover:shadow-[0_0_20px_rgba(56,189,248,0.95)] hover:ring-sky-300 cursor-pointer"
           >
             <span>Apply for Admission</span>
             <ExternalLink className="w-3 h-3" />

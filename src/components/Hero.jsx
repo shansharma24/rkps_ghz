@@ -61,7 +61,7 @@ export default function Hero({ onOpenAdmission, onOpenVirtualTour }) {
   useEffect(() => {
     if (currentSlide === 0 && videoRef.current) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   }, [currentSlide]);
 
@@ -79,9 +79,8 @@ export default function Hero({ onOpenAdmission, onOpenVirtualTour }) {
       {heroSlides.map((slide, idx) => (
         <div
           key={idx}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
         >
           {slide.type === 'video' ? (
             <video

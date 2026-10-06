@@ -11,19 +11,19 @@ export default function CtaBanner({ onOpenAdmission, onOpenEnquiry }) {
   };
 
   return (
-    <section 
-      className="relative w-full bg-white pt-10 sm:pt-14 md:pt-16 pb-12 sm:pb-16 overflow-visible" 
-      data-purpose="admissions-cta-banner" 
+    <section
+      className="relative w-full bg-white pt-10 sm:pt-14 md:pt-16 pb-12 sm:pb-16 overflow-visible"
+      data-purpose="admissions-cta-banner"
       id="admissions"
     >
       {/* Main Colored Banner Bar - Themed in Royal Institutional Navy */}
       <div className="relative w-full bg-gradient-to-r from-blue-950 via-[#0d2259] to-blue-900 text-white overflow-visible shadow-md">
-        
+
         {/* Subtle patterned overlay for institutional depth */}
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative min-h-[170px] sm:min-h-[200px] md:min-h-[220px] flex items-center">
-          
+
           {/* Left Text Block */}
           <div className="py-8 sm:py-10 md:py-12 z-10 max-w-xl">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase leading-none font-sans select-none drop-shadow-md">
