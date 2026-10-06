@@ -16,7 +16,6 @@ import FloatingQuickActions from './components/FloatingQuickActions';
 // Modals
 import AdmissionModal from './components/modals/AdmissionModal';
 import ErpLoginModal from './components/modals/ErpLoginModal';
-import PmLetterModal from './components/modals/PmLetterModal';
 import VirtualTourModal from './components/modals/VirtualTourModal';
 
 export default function App() {
@@ -98,10 +97,7 @@ export default function App() {
         onClose={() => setErpOpen(false)}
       />
 
-      <PmLetterModal
-        isOpen={pmLetterOpen}
-        onClose={() => setPmLetterOpen(false)}
-      />
+
 
       <VirtualTourModal
         isOpen={virtualTourOpen}

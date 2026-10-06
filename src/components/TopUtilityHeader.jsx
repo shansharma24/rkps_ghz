@@ -15,13 +15,6 @@ export default function TopUtilityHeader({ onOpenAdmission, onOpenErp, onOpenPmL
 
         {/* Right: Quick Links & Actions */}
         <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 ml-auto font-medium">
-          <button 
-            onClick={onOpenPmLetter}
-            className="hover:text-amber-400 text-slate-300 transition-colors underline decoration-slate-600 underline-offset-4 flex items-center gap-1 text-[11px] sm:text-xs"
-          >
-            <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-            <span>Appreciation Letter by Prime Minister</span>
-          </button>
 
           <button 
             onClick={onOpenErp}
