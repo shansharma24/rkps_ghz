@@ -47,12 +47,12 @@ export default function LeadershipMessage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-swipe every 2 seconds unless paused on hover or when modal is open
+  // Auto-swipe every 2.5 seconds unless paused on hover or when modal is open
   useEffect(() => {
     if (isPaused || isModalOpen) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev === 0 ? 1 : 0));
-    }, 2000);
+    }, 2500);
     return () => clearInterval(interval);
   }, [isPaused, isModalOpen]);
 
@@ -195,8 +195,12 @@ export default function LeadershipMessage() {
                     <Award className="w-4 h-4 text-amber-500" />
                     <span>{currentLeader.experience}</span>
                   </div>
-                  <span className="text-slate-300">•</span>
-                  <span className="text-slate-600 font-medium">{currentLeader.credentials}</span>
+                  {currentLeader.credentials && (
+                    <>
+                      <span className="text-slate-300">•</span>
+                      <span className="text-slate-600 font-medium">{currentLeader.credentials}</span>
+                    </>
+                  )}
                 </div>
 
               </div>
@@ -266,9 +270,11 @@ export default function LeadershipMessage() {
                   <h3 className="text-xl sm:text-2xl font-bold heading-serif text-white">
                     {currentLeader.name}
                   </h3>
-                  <p className="text-xs text-slate-300">
-                    {currentLeader.credentials}
-                  </p>
+                  {currentLeader.credentials && (
+                    <p className="text-xs text-slate-300">
+                      {currentLeader.credentials}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
