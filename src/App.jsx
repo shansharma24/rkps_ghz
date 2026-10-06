@@ -3,6 +3,7 @@ import TopUtilityHeader from './components/TopUtilityHeader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
+import StatsCounter from './components/StatsCounter';
 import Facilities from './components/Facilities';
 import WallOfFame from './components/WallOfFame';
 
@@ -52,6 +53,9 @@ export default function App() {
 
       {/* 4. About Us Section (Strictly matching reference layout & geometric accents) */}
       <AboutUs onOpenLegacyModal={() => setAdmissionOpen(true)} />
+
+      {/* 4.5 School Key Metrics Counter Bar (Students, Teachers, Alumni, Awards) */}
+      <StatsCounter />
 
       {/* 5. Campus & Facilities Bento Grid */}
       <Facilities />
