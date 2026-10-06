@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
-import facadeImg from '../assets/Rajala Krishna Public School Facade.png';
+import facadeImg from '../assets/Radha Krishna Public School Exterior.png';
 
 export default function AboutUs({ onOpenLegacyModal }) {
   const [isExpanded, setIsExpanded] = useState(false);

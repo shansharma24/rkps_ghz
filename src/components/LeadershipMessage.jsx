@@ -7,7 +7,7 @@ const leaders = [
   {
     id: 'director',
     role: 'DIRECTOR',
-    name: 'Dr. Rajesh Sharma',
+    name: 'Dr. Satish Yadav',
     experience: '28+ Years in Educational Leadership',
     image: directorImg,
     quote: '“Education is the most powerful weapon which you can use to change the world.”',
@@ -25,7 +25,7 @@ const leaders = [
   {
     id: 'principal',
     role: 'PRINCIPAL',
-    name: 'Dr. Priya Sharma',
+    name: 'Dr. Rupa Tyagi ',
     experience: '22+ Years in Pedagogy & Curriculum Excellence',
     image: principalImg,
     quote: '“The mind is not a vessel to be filled, but a fire to be kindled.”',
