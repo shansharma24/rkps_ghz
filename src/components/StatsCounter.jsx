@@ -68,8 +68,8 @@ export default function StatsCounter() {
             if (frame === totalFrames) {
               clearInterval(timer);
               setCounts({
-                students: 35000,
-                teachers: 2500,
+                students: 5000,
+                teachers: 100,
                 alumni: 10,
                 awards: 100
               });

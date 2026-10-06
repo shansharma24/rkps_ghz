@@ -4,8 +4,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import StatsCounter from './components/StatsCounter';
+import LeadershipMessage from './components/LeadershipMessage';
 import Facilities from './components/Facilities';
-import WallOfFame from './components/WallOfFame';
+// import WallOfFame from './components/WallOfFame';
 
 import ParentsSpeak from './components/ParentsSpeak';
 import CtaBanner from './components/CtaBanner';
@@ -57,11 +58,14 @@ export default function App() {
       {/* 4.5 School Key Metrics Counter Bar (Students, Teachers, Alumni, Awards) */}
       <StatsCounter />
 
+      {/* 4.6 Leadership Message (Director & Principal Carousel) */}
+      <LeadershipMessage />
+
       {/* 5. Campus & Facilities Bento Grid */}
       <Facilities />
 
-      {/* 6. Wall of Fame / Scholastic Champions */}
-      <WallOfFame />
+      {/* 6. Wall of Fame / Scholastic Champions
+      <WallOfFame /> */}
 
     
 
