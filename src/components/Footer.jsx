@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ExternalLink, ArrowUp } from 'lucide-react';
+import floydImg from '../assets/floyd.png';
 
 const partnerLogos = [
   {
@@ -20,6 +21,19 @@ const partnerLogos = [
         <span className="text-[8px] font-extrabold uppercase tracking-tight text-slate-900 mt-1 border-t border-slate-800 pt-0.5">
           SCIENCE OLYMPIAD FOUNDATION
         </span>
+      </div>
+    )
+  },
+  {
+    id: 'floyd-school',
+    name: 'Floyd School',
+    render: () => (
+      <div className="flex items-center justify-center px-4">
+        <img
+          src={floydImg}
+          alt="Floyd School Logo"
+          className="h-12 sm:h-14 md:h-16 w-auto object-contain max-w-[220px] sm:max-w-[260px]"
+        />
       </div>
     )
   },
@@ -125,26 +139,7 @@ const partnerLogos = [
       </div>
     )
   },
-  {
-    id: 'british-council',
-    name: 'British Council IDS',
-    render: () => (
-      <div className="flex flex-col items-center justify-center px-4">
-        <div className="flex items-center gap-1.5 mb-1">
-          <div className="w-2.5 h-2.5 rounded-full bg-blue-900"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-blue-900"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-blue-900"></div>
-          <div className="w-2.5 h-2.5 rounded-full bg-blue-900"></div>
-        </div>
-        <span className="text-xs sm:text-sm font-black tracking-widest text-blue-950 uppercase">
-          BRITISH COUNCIL
-        </span>
-        <span className="text-[7.5px] font-bold text-slate-500 uppercase tracking-tight">
-          International School Award
-        </span>
-      </div>
-    )
-  }
+  
 ];
 
 export default function Footer({ onOpenAdmission, onOpenErp }) {
@@ -356,7 +351,7 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
           <p>© Copyright 2026 Radha Krishna Public School, Ghaziabad</p>
           <div className="flex items-center gap-4">
             <p className="text-xs text-slate-500">
-              Designed &amp; Maintained by <span className="font-semibold text-slate-700">Edunext Technologies Pvt. Ltd.</span>
+              Designed &amp; Maintained by <span className="font-semibold text-slate-700">FloydSchool of Technologies Pvt. Ltd.</span>
             </p>
             {/* Scroll to Top circular button */}
             <button
