@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, ExternalLink, ArrowUp } from 'lucide-react';
 import floydImg from '../assets/floyd.png';
 import cbseImg from '../assets/cbse.png';
@@ -208,24 +209,24 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
                 QUICK LINKS
               </h4>
               <div className="grid grid-cols-2 gap-x-6 gap-y-3.5 text-xs sm:text-[12px] font-bold text-slate-200 uppercase tracking-wide">
-                <a href="#about" className="hover:text-amber-400 transition-colors">
+                <Link to="/school-legacy" className="hover:text-amber-400 transition-colors">
                   ABOUT US
-                </a>
-                <a href="#circulars" onClick={onOpenErp} className="hover:text-amber-400 transition-colors">
-                  CIRCULAR
-                </a>
-                <a href="#parents-speak" className="hover:text-amber-400 transition-colors">
-                  TESTIMONIALS
-                </a>
-                <a href="#contact" className="hover:text-amber-400 transition-colors">
-                  SOCIAL WORK
-                </a>
-                <a href="#contact" className="hover:text-amber-400 transition-colors">
-                  VISTING HOURS
-                </a>
-                <a href="#facilities" className="hover:text-amber-400 transition-colors">
-                  GALLERY
-                </a>
+                </Link>
+                <Link to="/vision-mission" className="hover:text-amber-400 transition-colors">
+                  VISION &amp; MISSION
+                </Link>
+                <Link to="/principals-desk" className="hover:text-amber-400 transition-colors">
+                  PRINCIPAL'S DESK
+                </Link>
+                <Link to="/directors-desk" className="hover:text-amber-400 transition-colors">
+                  DIRECTOR'S DESK
+                </Link>
+                <Link to="/facilities" className="hover:text-amber-400 transition-colors">
+                  FACILITIES
+                </Link>
+                <Link to="/contact" className="hover:text-amber-400 transition-colors">
+                  CONTACT US
+                </Link>
               </div>
             </div>
 

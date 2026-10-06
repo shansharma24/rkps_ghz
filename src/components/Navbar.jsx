@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown, Phone, Mail, Award, BookOpen, Calendar, Compass, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const location = useLocation();
 
   const toggleDropdown = (name) => {
     setActiveDropdown(activeDropdown === name ? null : name);
   };
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all">
@@ -15,7 +19,7 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
         <div className="flex items-center justify-between h-20">
           
           {/* School Crest & Brand Identity with User Uploaded Logo */}
-          <a href="#" className="flex items-center space-x-3.5 group">
+          <Link to="/" className="flex items-center space-x-3.5 group">
             <div className="relative">
               <img 
                 src="/logo.jpg" 
@@ -44,109 +48,122 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
                 </span>
               </div>
             </div>
-          </a>
+          </Link>
 
           {/* Main Desktop Navigation Menu */}
           <div className="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-700">
-            <a href="#" className="text-blue-700 font-bold border-b-2 border-blue-700 pb-0.5 transition-colors">
+            <Link 
+              to="/" 
+              className={`transition-colors pb-0.5 ${
+                isActive('/') 
+                  ? 'text-blue-700 font-bold border-b-2 border-blue-700' 
+                  : 'hover:text-blue-700'
+              }`}
+            >
               Home
-            </a>
+            </Link>
 
             {/* About Us Dropdown */}
             <div className="relative group py-2">
-              <span className="hover:text-blue-700 flex items-center gap-1 transition-colors cursor-pointer">
+              <span className={`flex items-center gap-1 transition-colors cursor-pointer ${
+                ['/school-legacy', '/vision-mission', '/principals-desk', '/directors-desk'].includes(location.pathname)
+                  ? 'text-blue-700 font-bold'
+                  : 'hover:text-blue-700'
+              }`}>
                 About Us <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-700 transition-transform group-hover:rotate-180" />
               </span>
-              <div className="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl py-2 border border-slate-100 z-50 animate-fadeIn">
-                <a href="#about" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
+              <div className="absolute left-0 top-full hidden group-hover:block w-56 bg-white shadow-xl rounded-xl py-2 border border-slate-100 z-50 animate-fadeIn">
+                <Link 
+                  to="/school-legacy" 
+                  className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
                   School Legacy &amp; Ethos
-                </a>
-                <a href="#about" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
+                </Link>
+                <Link 
+                  to="/vision-mission" 
+                  className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
                   Vision &amp; Mission
-                </a>
-                <a href="#stats" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
+                </Link>
+                <Link 
+                  to="/principals-desk" 
+                  className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
                   Principal's Desk
-                </a>
-                <a href="#stats" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
-                  School Highlights
-                </a>
+                </Link>
+                <Link 
+                  to="/directors-desk" 
+                  className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
+                  Director's Desk
+                </Link>
               </div>
             </div>
 
             {/* Admission Dropdown */}
             <div className="relative group py-2">
-              <span className="hover:text-blue-700 flex items-center gap-1 transition-colors cursor-pointer">
+              <span className={`flex items-center gap-1 transition-colors cursor-pointer ${
+                ['/admissions'].includes(location.pathname)
+                  ? 'text-blue-700 font-bold'
+                  : 'hover:text-blue-700'
+              }`}>
                 Admission <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-700 transition-transform group-hover:rotate-180" />
               </span>
-              <div className="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl py-2 border border-slate-100 z-50 animate-fadeIn">
+              <div className="absolute left-0 top-full hidden group-hover:block w-56 bg-white shadow-xl rounded-xl py-2 border border-slate-100 z-50 animate-fadeIn">
+                <Link 
+                  to="/admissions" 
+                  className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
+                  Admission Process 2026–27
+                </Link>
                 <button 
                   onClick={onOpenAdmission} 
-                  className="w-full text-left px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                  className="w-full text-left px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium cursor-pointer"
                 >
-                  Admission Process 2025–26
+                  Apply Online (Instant Form)
                 </button>
-                <a href="#admissions" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
-                  Fee Structure &amp; Guidelines
-                </a>
-                <a href="#contact" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
+                <Link 
+                  to="/contact" 
+                  className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
                   Online Enquiry Form
-                </a>
+                </Link>
               </div>
             </div>
 
-            {/* Academic Dropdown */}
-            <div className="relative group py-2">
-              <span className="hover:text-blue-700 flex items-center gap-1 transition-colors cursor-pointer">
-                Academic <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-700 transition-transform group-hover:rotate-180" />
-              </span>
-              <div className="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl py-2 border border-slate-100 z-50 animate-fadeIn">
-                <a href="#wall-of-fame" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
-                  CBSE Curriculum &amp; Pedagogy
-                </a>
-                <a href="#wall-of-fame" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium text-amber-700 font-bold">
-                  ★ Wall of Fame (Toppers)
-                </a>
-                <a href="#facilities" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
-                  STEM &amp; Innovation Labs
-                </a>
-              </div>
-            </div>
-
-            {/* Happenings Dropdown */}
-            <div className="relative group py-2">
-              <span className="hover:text-blue-700 flex items-center gap-1 transition-colors cursor-pointer">
-                Happenings <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-700 transition-transform group-hover:rotate-180" />
-              </span>
-              <div className="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl py-2 border border-slate-100 z-50 animate-fadeIn">
-                <a href="#facilities" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
-                  Events &amp; Competitions
-                </a>
-                <a href="#facilities" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
-                  Annual Function &amp; MUN
-                </a>
-                <a href="#facilities" className="block px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium">
-                  Sports Meet
-                </a>
-              </div>
-            </div>
-
-            <a href="#facilities" className="hover:text-blue-700 transition-colors">
+            {/* Facilities Page Link */}
+            <Link 
+              to="/facilities" 
+              className={`transition-colors pb-0.5 ${
+                isActive('/facilities') 
+                  ? 'text-blue-700 font-bold border-b-2 border-blue-700' 
+                  : 'hover:text-blue-700'
+              }`}
+            >
               Facilities
-            </a>
+            </Link>
 
-            <a href="#contact" className="hover:text-blue-700 transition-colors">
+            {/* Contact Page Link */}
+            <Link 
+              to="/contact" 
+              className={`transition-colors pb-0.5 ${
+                isActive('/contact') 
+                  ? 'text-blue-700 font-bold border-b-2 border-blue-700' 
+                  : 'hover:text-blue-700'
+              }`}
+            >
               Contact
-            </a>
+            </Link>
           </div>
 
           {/* Right Quick Action in Navbar */}
           <div className="flex items-center space-x-3">
-            <button 
-              onClick={onOpenEnquiry}
+            <Link 
+              to="/contact"
               className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full border-2 border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white text-xs font-bold transition-all shadow-sm hover:shadow"
             >
               Enquire Now
-            </button>
+            </Link>
 
             {/* Mobile menu toggle button */}
             <button 
@@ -164,13 +181,13 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 shadow-xl space-y-3 animate-slideDown">
-          <a 
-            href="#" 
+          <Link 
+            to="/" 
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-bold text-blue-700 border-b border-slate-100"
           >
             Home
-          </a>
+          </Link>
 
           <div>
             <button 
@@ -182,9 +199,10 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
             </button>
             {activeDropdown === 'about' && (
               <div className="pl-4 py-2 space-y-2 bg-slate-50 rounded-lg my-1">
-                <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">School Legacy &amp; Ethos</a>
-                <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Vision &amp; Mission</a>
-                <a href="#stats" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Principal's Desk</a>
+                <Link to="/school-legacy" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">School Legacy &amp; Ethos</Link>
+                <Link to="/vision-mission" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Vision &amp; Mission</Link>
+                <Link to="/principals-desk" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Principal's Desk</Link>
+                <Link to="/directors-desk" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Director's Desk</Link>
               </div>
             )}
           </div>
@@ -199,50 +217,43 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
             </button>
             {activeDropdown === 'admission' && (
               <div className="pl-4 py-2 space-y-2 bg-slate-50 rounded-lg my-1">
-                <button onClick={() => { setMobileMenuOpen(false); onOpenAdmission(); }} className="block text-left text-xs text-slate-600 py-1">Admission Process</button>
-                <a href="#admissions" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Fee Structure</a>
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Online Enquiry</a>
+                <Link to="/admissions" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Admission Process 2026–27</Link>
+                <button onClick={() => { setMobileMenuOpen(false); onOpenAdmission(); }} className="block text-left text-xs text-slate-600 py-1">Apply Online</button>
+                <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Online Enquiry</Link>
               </div>
             )}
           </div>
 
-          <a 
-            href="#wall-of-fame" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-700 border-b border-slate-100"
-          >
-            Academic &amp; Wall of Fame
-          </a>
-
-          <a 
-            href="#facilities" 
+          <Link 
+            to="/facilities" 
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-semibold text-slate-700 border-b border-slate-100"
           >
             Campus &amp; Facilities
-          </a>
+          </Link>
 
-          <a 
-            href="#contact" 
+          <Link 
+            to="/contact" 
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-semibold text-slate-700 border-b border-slate-100"
           >
             Contact &amp; Location
-          </a>
+          </Link>
 
           <div className="pt-2 flex flex-col gap-2">
             <button 
               onClick={() => { setMobileMenuOpen(false); onOpenAdmission(); }}
               className="w-full py-2.5 bg-blue-900 hover:bg-blue-800 text-white rounded-lg text-xs font-bold text-center"
             >
-              Apply for Admission 2025–26
+              Apply for Admission 2026–27
             </button>
-            <button 
-              onClick={() => { setMobileMenuOpen(false); onOpenEnquiry(); }}
-              className="w-full py-2.5 border border-blue-900 text-blue-900 rounded-lg text-xs font-bold text-center"
+            <Link 
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-2.5 border border-blue-900 text-blue-900 rounded-lg text-xs font-bold text-center block"
             >
               Enquire Now
-            </button>
+            </Link>
           </div>
         </div>
       )}

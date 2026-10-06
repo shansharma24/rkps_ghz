@@ -1,17 +1,21 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import ScrollToTop from './components/ScrollToTop';
 import TopUtilityHeader from './components/TopUtilityHeader';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AboutUs from './components/AboutUs';
-import StatsCounter from './components/StatsCounter';
-import LeadershipMessage from './components/LeadershipMessage';
-import Facilities from './components/Facilities';
-// import WallOfFame from './components/WallOfFame';
-
-import ParentsSpeak from './components/ParentsSpeak';
-import CtaBanner from './components/CtaBanner';
 import Footer from './components/Footer';
 import FloatingQuickActions from './components/FloatingQuickActions';
+
+// Page Views
+import HomePage from './pages/HomePage';
+import VisionMissionPage from './pages/VisionMissionPage';
+import SchoolLegacyPage from './pages/SchoolLegacyPage';
+import PrincipalsDeskPage from './pages/PrincipalsDeskPage';
+import DirectorsDeskPage from './pages/DirectorsDeskPage';
+import FacilitiesPage from './pages/FacilitiesPage';
+import ContactPage from './pages/ContactPage';
+import AdmissionsPage from './pages/AdmissionsPage';
 
 // Modals
 import AdmissionModal from './components/modals/AdmissionModal';
@@ -21,7 +25,6 @@ import VirtualTourModal from './components/modals/VirtualTourModal';
 export default function App() {
   const [admissionOpen, setAdmissionOpen] = useState(false);
   const [erpOpen, setErpOpen] = useState(false);
-  const [pmLetterOpen, setPmLetterOpen] = useState(false);
   const [virtualTourOpen, setVirtualTourOpen] = useState(false);
 
   const scrollToEnquiry = () => {
@@ -31,78 +34,107 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col">
-      {/* 1. Top Utility Header */}
-      <TopUtilityHeader
-        onOpenAdmission={() => setAdmissionOpen(true)}
-        onOpenErp={() => setErpOpen(true)}
-        onOpenPmLetter={() => setPmLetterOpen(true)}
-      />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="relative min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col">
+        
+        {/* 1. Global Top Utility Header */}
+        <TopUtilityHeader
+          onOpenAdmission={() => setAdmissionOpen(true)}
+          onOpenErp={() => setErpOpen(true)}
+        />
 
-      {/* 2. Main Navigation Bar with School Crest & User Uploaded Logo */}
-      <Navbar
-        onOpenEnquiry={scrollToEnquiry}
-        onOpenAdmission={() => setAdmissionOpen(true)}
-      />
+        {/* 2. Global Navigation Bar with Multi-Page Routing */}
+        <Navbar
+          onOpenEnquiry={scrollToEnquiry}
+          onOpenAdmission={() => setAdmissionOpen(true)}
+        />
 
-      {/* 3. Hero Banner Section */}
-      <Hero
-        onOpenAdmission={() => setAdmissionOpen(true)}
-        onOpenVirtualTour={() => setVirtualTourOpen(true)}
-      />
+        {/* 3. Dynamic Page View Routes */}
+        <div className="flex-1">
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <HomePage
+                  onOpenAdmission={() => setAdmissionOpen(true)}
+                  onOpenVirtualTour={() => setVirtualTourOpen(true)}
+                  scrollToEnquiry={scrollToEnquiry}
+                />
+              } 
+            />
+            <Route 
+              path="/vision-mission" 
+              element={<VisionMissionPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            />
+            <Route 
+              path="/school-legacy" 
+              element={<SchoolLegacyPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            />
+            <Route 
+              path="/principals-desk" 
+              element={<PrincipalsDeskPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            />
+            <Route 
+              path="/directors-desk" 
+              element={<DirectorsDeskPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            />
+            <Route 
+              path="/facilities" 
+              element={
+                <FacilitiesPage 
+                  onOpenAdmission={() => setAdmissionOpen(true)}
+                  onOpenVirtualTour={() => setVirtualTourOpen(true)}
+                />
+              } 
+            />
+            <Route 
+              path="/contact" 
+              element={<ContactPage />} 
+            />
+            <Route 
+              path="/admissions" 
+              element={<AdmissionsPage onOpenAdmission={() => setAdmissionOpen(true)} />} 
+            />
+            {/* Catch-all fallback to HomePage */}
+            <Route 
+              path="*" 
+              element={
+                <HomePage
+                  onOpenAdmission={() => setAdmissionOpen(true)}
+                  onOpenVirtualTour={() => setVirtualTourOpen(true)}
+                  scrollToEnquiry={scrollToEnquiry}
+                />
+              } 
+            />
+          </Routes>
+        </div>
 
-      {/* 4. About Us Section (Strictly matching reference layout & geometric accents) */}
-      <AboutUs onOpenLegacyModal={() => setAdmissionOpen(true)} />
+        {/* 4. Global Institutional Midnight Navy Footer */}
+        <Footer
+          onOpenAdmission={() => setAdmissionOpen(true)}
+          onOpenErp={() => setErpOpen(true)}
+        />
 
-      {/* 4.5 School Key Metrics Counter Bar (Students, Teachers, Alumni, Awards) */}
-      <StatsCounter />
+        {/* 5. Persistent Floating Quick Actions */}
+        <FloatingQuickActions />
 
-      {/* 4.6 Leadership Message (Director & Principal Carousel) */}
-      <LeadershipMessage />
+        {/* Global Interactive Modals */}
+        <AdmissionModal
+          isOpen={admissionOpen}
+          onClose={() => setAdmissionOpen(false)}
+        />
 
-      {/* 5. Campus & Facilities Bento Grid */}
-      <Facilities />
+        <ErpLoginModal
+          isOpen={erpOpen}
+          onClose={() => setErpOpen(false)}
+        />
 
-      {/* 6. Wall of Fame / Scholastic Champions
-      <WallOfFame /> */}
-
-    
-
-      {/* 8. Call To Action Banner */}
-      <CtaBanner
-        onOpenAdmission={() => setAdmissionOpen(true)}
-        onOpenEnquiry={scrollToEnquiry}
-      />
-
-        {/* 9. Parents Speak / Community Testimonials (Themed with Speech Bubbles) */}
-      <ParentsSpeak />
-
-      {/* 10. Institutional Midnight Navy Footer */}
-      <Footer
-        onOpenAdmission={() => setAdmissionOpen(true)}
-        onOpenErp={() => setErpOpen(true)}
-      />
-
-      {/* 11. Persistent Floating Quick Actions (Call, WhatsApp, AI Assistant) */}
-      <FloatingQuickActions />
-
-      {/* Interactive Modals */}
-      <AdmissionModal
-        isOpen={admissionOpen}
-        onClose={() => setAdmissionOpen(false)}
-      />
-
-      <ErpLoginModal
-        isOpen={erpOpen}
-        onClose={() => setErpOpen(false)}
-      />
-
-
-
-      <VirtualTourModal
-        isOpen={virtualTourOpen}
-        onClose={() => setVirtualTourOpen(false)}
-      />
-    </div>
+        <VirtualTourModal
+          isOpen={virtualTourOpen}
+          onClose={() => setVirtualTourOpen(false)}
+        />
+      </div>
+    </BrowserRouter>
   );
 }
