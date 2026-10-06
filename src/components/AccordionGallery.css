@@ -13,6 +13,7 @@
   max-width: 100%;
   perspective: 1400px;
   perspective-origin: 50% 50%;
+  contain: layout style;
 }
 
 .accordion-gallery--vertical {
@@ -35,6 +36,8 @@
   background: #0a0713;
   box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.8);
   will-change: flex-grow, transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -49,18 +52,18 @@
   inset: 0;
   overflow: hidden;
   border-radius: inherit;
+  transform: translateZ(0);
 }
 
 .ag-panel__media {
-  --ag-gray: 1;
-  --ag-dim: 0.35;
   position: absolute;
   top: 50%;
   left: 50%;
   width: var(--ag-media-size);
   height: 100%;
-  filter: grayscale(var(--ag-gray));
-  will-change: transform, filter;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .accordion-gallery--vertical .ag-panel__media {
@@ -75,15 +78,17 @@
   display: block;
   user-select: none;
   -webkit-user-drag: none;
+  transform: translateZ(0);
 }
 
 .ag-panel__overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    linear-gradient(180deg, transparent 45%, color-mix(in srgb, var(--ag-overlay) 78%, transparent) 100%),
-    color-mix(in srgb, var(--ag-overlay) calc(var(--ag-dim, 0.35) * 100%), transparent);
+  background: linear-gradient(180deg, rgba(11, 30, 72, 0.15) 30%, rgba(11, 30, 72, 0.88) 100%);
+  opacity: 0.75;
+  will-change: opacity;
+  transform: translateZ(0);
 }
 
 .ag-panel__label {
@@ -96,29 +101,32 @@
   gap: 12px;
   pointer-events: none;
   z-index: 2;
+  transform: translateZ(0);
 }
 
 .ag-panel__bar {
   flex: 0 0 auto;
-  width: 3px;
-  height: 26px;
+  width: 3.5px;
+  height: 24px;
   border-radius: 3px;
   background: var(--ag-accent);
   opacity: 0;
-  box-shadow: 0 0 12px color-mix(in srgb, var(--ag-accent) 60%, transparent);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+  will-change: transform, opacity;
 }
 
 .ag-panel__text {
   color: var(--ag-text);
   font-family: inherit;
-  font-weight: 600;
-  font-size: clamp(1rem, 1.4vw, 1.4rem);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.3vw, 1.3rem);
   letter-spacing: 0.01em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   opacity: 0;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+  will-change: transform, opacity;
 }
 
 @media (max-width: 520px) {

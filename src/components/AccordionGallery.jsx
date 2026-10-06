@@ -24,19 +24,20 @@ const AccordionGallery = ({
   radius = 16,
   expandRatio = 0.52,
   orientation = 'horizontal',
-  duration = 0.6,
+  duration = 0.5,
   ease = 'power3.out',
-  parallax = 0.5,
-  tilt = 8,
-  stagger = 0.06,
+  parallax = 0.4,
+  tilt = 6,
+  stagger = 0.05,
   trigger = 'hover',
   showLabels = true,
-  grayscale = true,
+  grayscale = false,
   className = ''
 }) => {
   const rootRef = useRef(null);
   const panelRefs = useRef([]);
   const mediaRefs = useRef([]);
+  const overlayRefs = useRef([]);
   const barRefs = useRef([]);
   const textRefs = useRef([]);
   const tlRef = useRef(null);
@@ -69,18 +70,20 @@ const AccordionGallery = ({
         if (!panel) return;
         const isActive = i === active;
         const media = mediaRefs.current[i];
+        const overlay = overlayRefs.current[i];
         const bar = barRefs.current[i];
         const text = textRefs.current[i];
 
         const rot = isActive ? 0 : i < active ? tilt : -tilt;
         const rotProp = vertical ? { rotateX: -rot } : { rotateY: rot };
 
+        // 1. Hardware accelerated flex-grow and 3D tilt
         tl.to(panel, { flexGrow: isActive ? grow : 1, ...rotProp, duration: dur, ease }, 0);
 
+        // 2. Hardware accelerated internal media parallax drift
         if (media) {
           const drift = Math.max(-1.5, Math.min(1.5, active - i));
           const shift = drift * parallax * mediaSize * 0.06;
-          const gray = grayscale ? (isActive ? 0 : 1) : 0;
           tl.to(
             media,
             {
@@ -88,8 +91,6 @@ const AccordionGallery = ({
               yPercent: -50,
               x: vertical ? 0 : isActive ? 0 : shift,
               y: vertical ? (isActive ? 0 : shift) : 0,
-              '--ag-gray': gray,
-              '--ag-dim': isActive ? 0 : 0.35,
               duration: dur,
               ease
             },
@@ -97,11 +98,17 @@ const AccordionGallery = ({
           );
         }
 
+        // 3. Hardware accelerated opacity for collapsed overlay (replaces expensive color-mix custom properties)
+        if (overlay) {
+          tl.to(overlay, { opacity: isActive ? 0.35 : 0.75, duration: dur, ease }, 0);
+        }
+
+        // 4. Staggered labels reveal
         if (showLabels && bar && text) {
           if (isActive) {
             tl.to([bar, text], { opacity: 1, x: 0, duration: dur, ease, stagger: prefersReduced ? 0 : stagger }, 0);
           } else {
-            tl.to([bar, text], { opacity: 0, x: -14, duration: dur * 0.6, ease }, 0);
+            tl.to([bar, text], { opacity: 0, x: -12, duration: dur * 0.5, ease }, 0);
           }
         }
       });
@@ -117,13 +124,13 @@ const AccordionGallery = ({
       vertical,
       tilt,
       parallax,
-      grayscale,
       showLabels,
       stagger,
       prefersReduced
     ]
   );
 
+  // ResizeObserver: only measures when the container dimension actually changes (no layout thrashing)
   useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
@@ -135,30 +142,29 @@ const AccordionGallery = ({
       const size = Math.max(140, usable * Math.min(Math.max(expandRatio, 0.2), 0.9) * 1.22);
       mediaSizeRef.current = size;
       el.style.setProperty('--ag-media-size', `${size}px`);
-      applyLayout(!firstRunRef.current);
     };
 
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
     return () => ro.disconnect();
-  }, [applyLayout, gap, count, expandRatio, vertical]);
+  }, [gap, count, expandRatio, vertical]);
 
+  // Layout updates on active index change
   useEffect(() => {
     applyLayout(!firstRunRef.current);
     firstRunRef.current = false;
-  }, [applyLayout]);
+  }, [applyLayout, active]);
 
-  useEffect(
-    () => () => {
-      tlRef.current?.kill();
-    },
-    []
-  );
+  useEffect(() => () => {
+    tlRef.current?.kill();
+  }, []);
 
-  const handleEnter = i => {
-    if (trigger === 'hover') setActive(i);
-  };
+  const handleEnter = useCallback(i => {
+    if (trigger === 'hover' && i !== active) {
+      setActive(i);
+    }
+  }, [trigger, active]);
 
   const handleClick = (i, e) => {
     if (i !== active) {
@@ -213,9 +219,13 @@ const AccordionGallery = ({
           >
             <span className="ag-panel__frame">
               <span className="ag-panel__media" ref={el => (mediaRefs.current[i] = el)}>
-                <img src={item.image} alt={item.alt || item.label || ''} draggable="false" />
+                <img src={item.image} alt={item.alt || item.label || ''} draggable="false" loading="lazy" />
               </span>
-              <span className="ag-panel__overlay" aria-hidden="true" />
+              <span 
+                className="ag-panel__overlay" 
+                ref={el => (overlayRefs.current[i] = el)} 
+                aria-hidden="true" 
+              />
             </span>
             {showLabels && (
               <span className="ag-panel__label" aria-hidden="true">
