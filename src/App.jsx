@@ -5,8 +5,9 @@ import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import Facilities from './components/Facilities';
 import WallOfFame from './components/WallOfFame';
-import CtaBanner from './components/CtaBanner';
+
 import ParentsSpeak from './components/ParentsSpeak';
+import CtaBanner from './components/CtaBanner';
 import Footer from './components/Footer';
 import FloatingQuickActions from './components/FloatingQuickActions';
 
@@ -58,13 +59,15 @@ export default function App() {
       {/* 6. Wall of Fame / Scholastic Champions */}
       <WallOfFame />
 
+    
+
       {/* 8. Call To Action Banner */}
       <CtaBanner
         onOpenAdmission={() => setAdmissionOpen(true)}
         onOpenEnquiry={scrollToEnquiry}
       />
 
-      {/* 9. Parents Speak / Community Testimonials (Themed with Speech Bubbles) */}
+        {/* 9. Parents Speak / Community Testimonials (Themed with Speech Bubbles) */}
       <ParentsSpeak />
 
       {/* 10. Institutional Midnight Navy Footer */}
