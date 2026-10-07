@@ -43,36 +43,59 @@ const facilityItems = [
 export default function Facilities() {
   return (
     <section 
-      className="py-8 sm:py-10 md:py-12 bg-gradient-to-b from-white via-slate-50 to-blue-50/20 text-slate-800 relative overflow-hidden" 
+      className="py-10 sm:py-14 md:py-16 bg-gradient-to-b from-white via-slate-50 to-blue-50/20 text-slate-800 relative overflow-hidden" 
       data-purpose="facilities-accordion-gallery" 
       id="facilities"
     >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Minimalist, Clean Header */}
-        <div className="text-center mb-5 sm:mb-7">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0B1E48] tracking-tight heading-serif">
-            Campus &amp; Facilities
-          </h2>
-          <div className="w-16 h-1 bg-amber-500 mx-auto mt-2 rounded-full" />
+        {/* Header with Title and Highlights utilizing space */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold uppercase tracking-wider mb-2 border border-amber-200/60">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+              <span>World-Class Infrastructure</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0B1E48] tracking-tight heading-serif">
+              Campus &amp; Facilities
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl font-medium">
+              Explore our 12-acre campus featuring state-of-the-art smart classrooms, research laboratories, athletics arena, and central library.
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+            <span className="bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-xs text-slate-700 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              12-Acre Campus
+            </span>
+            <span className="bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-xs text-slate-700 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-amber-500" />
+              Smart Classrooms
+            </span>
+            <span className="bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-xs text-slate-700 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
+              Olympic Arena
+            </span>
+          </div>
         </div>
 
-        {/* Full-Width Accordion Gallery with Maximum Space Utilization */}
-        <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-950 p-1.5 sm:p-2">
+        {/* Full-Width Accordion Gallery with Maximum Space Utilization (No Outline Frame) */}
+        <div className="w-full">
           <AccordionGallery
             items={facilityItems}
             defaultIndex={1}
-            expandRatio={0.48}
+            expandRatio={0.54}
             trigger="hover"
             accentColor="#f59e0b"
             overlayColor="#0b1e48"
             textColor="#ffffff"
             grayscale={false}
-            height={460}
-            gap={10}
-            radius={16}
-            tilt={6}
-            parallax={0.4}
+            height={520}
+            gap={12}
+            radius={20}
+            tilt={5}
+            parallax={0.35}
             duration={0.6}
             showLabels={true}
           />

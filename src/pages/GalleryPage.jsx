@@ -161,23 +161,23 @@ export default function GalleryPage({ onOpenAdmission, onOpenVirtualTour }) {
         </div>
       </section>
 
-      {/* 2. Interactive Accordion Showcase */}
-      <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
-        <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-950 p-2">
+      {/* 2. Interactive Accordion Showcase (No Outline Frame) */}
+      <section className="py-10 max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+        <div className="w-full">
           <AccordionGallery
             items={featuredAccordionItems}
             defaultIndex={0}
-            expandRatio={0.48}
+            expandRatio={0.54}
             trigger="hover"
             accentColor="#f59e0b"
             overlayColor="#0b1e48"
             textColor="#ffffff"
             grayscale={false}
-            height={460}
-            gap={10}
-            radius={18}
-            tilt={6}
-            parallax={0.4}
+            height={520}
+            gap={12}
+            radius={20}
+            tilt={5}
+            parallax={0.35}
             duration={0.6}
             showLabels={true}
           />
