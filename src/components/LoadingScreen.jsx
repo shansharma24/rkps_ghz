@@ -118,9 +118,13 @@ export default function LoadingScreen({ onFinished }) {
             </defs>
           </svg>
 
-          {/* Golden Orbiting Satellite Dot */}
-          <div className="absolute inset-0 w-full h-full pointer-events-none animate-orbit">
-            <span className="absolute top-[1.5px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-amber-500 shadow-[0_0_10px_#f59e0b]" />
+          {/* Golden Orbiting Satellite Dot (Synchronized with circular laser beam) */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none loading-dot-orbit">
+            <span
+              className="absolute top-[3%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-amber-400 flex items-center justify-center shadow-[0_0_12px_#f59e0b,0_0_22px_rgba(245,158,11,0.85)]"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_4px_#ffffff]" />
+            </span>
           </div>
 
           {/* Pure White Circular Card housing the Logo Image */}
@@ -199,19 +203,30 @@ export default function LoadingScreen({ onFinished }) {
             stroke-dashoffset: 0;
           }
         }
+        .loading-dot-orbit {
+          animation: orbitLaserSync 2.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          transform-origin: center center;
+        }
+        @keyframes orbitLaserSync {
+          0% {
+            transform: rotate(0deg);
+            opacity: 1;
+          }
+          96% {
+            transform: rotate(345.6deg);
+            opacity: 1;
+          }
+          100% {
+            transform: rotate(360deg);
+            opacity: 0;
+          }
+        }
         @keyframes shimmerGleam {
           0% { transform: translateX(-150%); }
           50%, 100% { transform: translateX(150%); }
         }
         .animate-shimmer {
           animation: shimmerGleam 2.1s infinite ease-in-out;
-        }
-        @keyframes orbitSpin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        .animate-orbit {
-          animation: orbitSpin 2.4s linear infinite;
         }
         @keyframes subtleBreathe {
           0%, 100% { transform: scale(1); }
