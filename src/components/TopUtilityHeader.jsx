@@ -1,7 +1,8 @@
 import React from 'react';
-import { Award, Bell, ShieldCheck, UserCheck, Briefcase, Film, ExternalLink } from 'lucide-react';
+import { ShieldCheck, UserCheck, Images, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-export default function TopUtilityHeader({ onOpenAdmission, onOpenErp, onOpenPmLetter }) {
+export default function TopUtilityHeader({ onOpenAdmission, onOpenErp }) {
   return (
     <header className="w-full bg-slate-900 border-b border-slate-800 text-xs text-slate-200 sticky-top z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between">
@@ -9,7 +10,7 @@ export default function TopUtilityHeader({ onOpenAdmission, onOpenErp, onOpenPmL
         <div className="hidden md:flex items-center space-x-6 text-slate-300">
           <span className="flex items-center space-x-1.5 text-amber-400 font-medium">
             <ShieldCheck className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-            <span className="truncate">CBSE Affiliated Senior Secondary School (Affiliation No: 2130572 | School Code: 60254)</span>
+            <span className="truncate">CBSE Affiliated Senior Secondary School (Affiliation No: 2130572 | School Code: 2132212)</span>
           </span>
         </div>
 
@@ -24,21 +25,13 @@ export default function TopUtilityHeader({ onOpenAdmission, onOpenErp, onOpenPmL
             <span>ERP Login</span>
           </button>
 
-          <a
-            href="#contact"
-            className="hover:text-amber-400 transition-colors hidden sm:inline-flex items-center gap-1 text-[11px] sm:text-xs"
+          <Link
+            to="/gallery"
+            className="hover:text-amber-400 text-slate-300 transition-colors inline-flex items-center gap-1.5 text-[11px] sm:text-xs"
           >
-            <Briefcase className="w-3 h-3 text-slate-400" />
-            <span>Work With Us</span>
-          </a>
-
-          <a
-            href="#facilities"
-            className="hover:text-amber-400 transition-colors hidden md:inline-flex items-center gap-1 text-[11px] sm:text-xs"
-          >
-            <Film className="w-3 h-3 text-slate-400" />
-            <span>Media</span>
-          </a>
+            <Images className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span>Gallery</span>
+          </Link>
 
           <button
             onClick={onOpenAdmission}

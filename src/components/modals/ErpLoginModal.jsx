@@ -93,7 +93,7 @@ export default function ErpLoginModal({ isOpen, onClose }) {
                   required
                   value={userId}
                   onChange={(e) => setUserId(e.target.value)}
-                  placeholder={role === 'parent' ? 'e.g. 9876543210' : role === 'student' ? 'RKPS-2024-XXXX' : 'EMP-XXX'}
+                  placeholder={role === 'parent' ? 'e.g. 9310300600' : role === 'student' ? 'RKPS-2024-XXXX' : 'EMP-XXX'}
                   className="w-full text-xs rounded-lg border-slate-300 border focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2.5 px-3 bg-white"
                 />
               </div>

@@ -83,7 +83,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-slate-900">Telephone &amp; Helpline</h3>
                     <p className="text-slate-600 mt-0.5">
-                      <a href="tel:+911202841234" className="hover:text-blue-900 font-medium">+91 (0120) 284-1234</a> / <a href="tel:+919876543210" className="hover:text-blue-900 font-medium">+91 98765 43210</a>
+                      <a href="tel:+919310300600" className="hover:text-blue-900 font-medium">+91 9310300600</a>
                     </p>
                     <p className="text-xs text-slate-500 mt-0.5">Admissions Cell: Ext. 102</p>
                   </div>
@@ -119,7 +119,7 @@ export default function ContactPage() {
               {/* Quick WhatsApp / Direct Call Buttons */}
               <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-3">
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/919310300600"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
@@ -128,7 +128,7 @@ export default function ContactPage() {
                   <span>WhatsApp Chat</span>
                 </a>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919310300600"
                   className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-blue-950 hover:bg-blue-900 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
                 >
                   <Phone className="w-4 h-4 text-amber-400" />
@@ -212,7 +212,7 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 9310300600"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-900 text-sm"

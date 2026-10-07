@@ -17,6 +17,8 @@ import DirectorsDeskPage from './pages/DirectorsDeskPage';
 import FacilitiesPage from './pages/FacilitiesPage';
 import ContactPage from './pages/ContactPage';
 import AdmissionsPage from './pages/AdmissionsPage';
+import DownloadsPage from './pages/DownloadsPage';
+import GalleryPage from './pages/GalleryPage';
 
 // Modals
 import AdmissionModal from './components/modals/AdmissionModal';
@@ -104,6 +106,19 @@ export default function App() {
             <Route
               path="/admissions"
               element={<AdmissionsPage onOpenAdmission={() => setAdmissionOpen(true)} />}
+            />
+            <Route
+              path="/downloads"
+              element={<DownloadsPage onOpenAdmission={() => setAdmissionOpen(true)} />}
+            />
+            <Route
+              path="/gallery"
+              element={
+                <GalleryPage
+                  onOpenAdmission={() => setAdmissionOpen(true)}
+                  onOpenVirtualTour={() => setVirtualTourOpen(true)}
+                />
+              }
             />
             {/* Catch-all fallback to HomePage */}
             <Route

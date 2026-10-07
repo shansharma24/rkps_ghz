@@ -154,7 +154,7 @@ export default function AdmissionModal({ isOpen, onClose }) {
                 <input
                   type="tel"
                   required
-                  placeholder="+91 9876543210"
+                  placeholder="+91 9310300600"
                   value={formData.parentPhone}
                   onChange={(e) => setFormData({ ...formData, parentPhone: e.target.value })}
                   className="w-full text-xs rounded-lg border-slate-300 border focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2.5 px-3 bg-white"

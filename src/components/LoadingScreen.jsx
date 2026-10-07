@@ -164,7 +164,7 @@ export default function LoadingScreen({ onFinished }) {
             CBSE Affiliated Senior Secondary School
           </p>
           <p className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase mt-0.5">
-            Affiliation No: 2130572 &bull; School Code: 60254
+            Affiliation No: 2130572 &bull; School Code: 2132212
           </p>
         </div>
 

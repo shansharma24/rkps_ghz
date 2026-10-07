@@ -69,7 +69,9 @@ export default function ContactSection({ formRef }) {
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900 uppercase">Call Us</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">+91 120-2800000 / +91 9876543210</p>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        <a href="tel:+919310300600" className="hover:text-blue-900 transition-colors font-medium">+91 9310300600</a>
+                      </p>
                     </div>
                   </div>
 
@@ -103,7 +105,7 @@ export default function ContactSection({ formRef }) {
                   ✓
                 </span>
                 <div>
-                  <div className="text-[11px] font-bold text-blue-950">CBSE Affiliation #2130572</div>
+                  <div className="text-[11px] font-bold text-blue-950">CBSE Affiliation #2130572 | School Code #2132212</div>
                   <div className="text-[10px] text-slate-500">Regular On-Campus Counseling Available</div>
                 </div>
               </div>
@@ -192,7 +194,7 @@ export default function ContactSection({ formRef }) {
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 9876543210"
+                        placeholder="+91 9310300600"
                         className="w-full text-xs rounded-lg border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 py-2.5 px-3 bg-white border transition-colors"
                       />
                     </div>

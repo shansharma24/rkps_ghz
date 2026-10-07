@@ -164,7 +164,7 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
                     Radha Krishna Public School, Ghaziabad
                   </h3>
                   <p className="text-xs text-blue-200/80 font-medium tracking-wide mt-1">
-                    Affiliation No. : <span className="font-semibold text-white">2130572</span> | School Code : <span className="font-semibold text-white">60252</span>
+                    Affiliation No. : <span className="font-semibold text-white">2130572</span> | School Code : <span className="font-semibold text-white">2132212</span>
                   </p>
                 </div>
               </div>
@@ -176,8 +176,8 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
                   <div className="w-7 h-7 border border-white/60 flex items-center justify-center shrink-0 rounded-xs">
                     <Phone className="w-3.5 h-3.5 text-white" />
                   </div>
-                  <a href="tel:01204961300" className="hover:text-amber-400 transition-colors">
-                    +0120-4961300, 01204961301
+                  <a href="tel:9310300600" className="hover:text-amber-400 transition-colors">
+                    +91 9310300600
                   </a>
                 </div>
 
@@ -223,6 +223,12 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
                 </Link>
                 <Link to="/facilities" className="hover:text-amber-400 transition-colors">
                   FACILITIES
+                </Link>
+                <Link to="/downloads" className="hover:text-amber-400 transition-colors">
+                  DOWNLOADS
+                </Link>
+                <Link to="/gallery" className="hover:text-amber-400 transition-colors">
+                  GALLERY
                 </Link>
                 <Link to="/contact" className="hover:text-amber-400 transition-colors">
                   CONTACT US
@@ -297,7 +303,7 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
             </a>
 
             <a
-              href="https://wa.me/911204961300"
+              href="https://wa.me/919310300600"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 hover:text-emerald-400 transition-colors"

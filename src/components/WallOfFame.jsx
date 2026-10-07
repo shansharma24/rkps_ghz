@@ -233,7 +233,7 @@ export default function WallOfFame() {
                 <h3 className="text-xl font-bold text-blue-950 heading-serif">
                   Official Academic Merit Dossier (2024–25)
                 </h3>
-                <p className="text-xs text-slate-500">Radha Krishna Public School, Ghaziabad • Affiliation No. 2130572</p>
+                <p className="text-xs text-slate-500">Radha Krishna Public School, Ghaziabad • Affiliation No. 2130572 | School Code: 2132212</p>
               </div>
             </div>
 

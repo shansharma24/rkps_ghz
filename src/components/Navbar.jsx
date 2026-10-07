@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, BookOpen, FlaskConical, Trophy, GraduationCap, FileText, CalendarDays } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
@@ -51,7 +51,7 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
           </Link>
 
           {/* Main Desktop Navigation Menu */}
-          <div className="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-700">
+          <div className="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-700">
             <Link
               to="/"
               className={`transition-colors pb-0.5 ${isActive('/')
@@ -128,16 +128,87 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
               </div>
             </div>
 
-            {/* Facilities Page Link */}
-            <Link
-              to="/facilities"
-              className={`transition-colors pb-0.5 ${isActive('/facilities')
-                  ? 'text-blue-700 font-bold border-b-2 border-blue-700'
+            {/* Facilities Dropdown */}
+            <div className="relative group py-2">
+              <span className={`flex items-center gap-1 transition-colors cursor-pointer ${['/facilities'].includes(location.pathname)
+                  ? 'text-blue-700 font-bold'
                   : 'hover:text-blue-700'
-                }`}
-            >
-              Facilities
-            </Link>
+                }`}>
+                Facilities <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-700 transition-transform group-hover:rotate-180" />
+              </span>
+              <div className="absolute left-0 top-full hidden group-hover:block w-56 bg-white shadow-xl rounded-xl py-2 border border-slate-100 z-50 animate-fadeIn">
+                <Link
+                  to="/facilities#library"
+                  className="flex items-center gap-2 px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
+                  <BookOpen className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Library</span>
+                </Link>
+                <Link
+                  to="/facilities#labs"
+                  className="flex items-center gap-2 px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
+                  <FlaskConical className="w-3.5 h-3.5 text-blue-500" />
+                  <span>Labs</span>
+                </Link>
+                <Link
+                  to="/facilities#ground"
+                  className="flex items-center gap-2 px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
+                  <Trophy className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Ground</span>
+                </Link>
+                <Link
+                  to="/facilities#classrooms"
+                  className="flex items-center gap-2 px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
+                  <GraduationCap className="w-3.5 h-3.5 text-indigo-500" />
+                  <span>Classrooms</span>
+                </Link>
+                <div className="border-t border-slate-100 mt-1 pt-1">
+                  <Link
+                    to="/facilities"
+                    className="block px-4 py-1.5 text-[11px] text-blue-700 hover:underline font-semibold"
+                  >
+                    View All Facilities &rarr;
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Downloads Dropdown */}
+            <div className="relative group py-2">
+              <span className={`flex items-center gap-1 transition-colors cursor-pointer ${['/downloads'].includes(location.pathname)
+                  ? 'text-blue-700 font-bold'
+                  : 'hover:text-blue-700'
+                }`}>
+                Downloads <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-700 transition-transform group-hover:rotate-180" />
+              </span>
+              <div className="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl py-2 border border-slate-100 z-50 animate-fadeIn">
+                <Link
+                  to="/downloads#curriculum"
+                  className="flex items-center gap-2 px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
+                  <FileText className="w-3.5 h-3.5 text-blue-500" />
+                  <span>Curriculum</span>
+                </Link>
+                <Link
+                  to="/downloads#datesheet"
+                  className="flex items-center gap-2 px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
+                  <CalendarDays className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Datesheet</span>
+                </Link>
+                <div className="border-t border-slate-100 mt-1 pt-1">
+                  <Link
+                    to="/downloads"
+                    className="block px-4 py-1.5 text-[11px] text-blue-700 hover:underline font-semibold"
+                  >
+                    View All Downloads &rarr;
+                  </Link>
+                </div>
+              </div>
+            </div>
 
             {/* Contact Page Link */}
             <Link
@@ -219,12 +290,72 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
             )}
           </div>
 
+          {/* Facilities Mobile */}
+          <div>
+            <button
+              onClick={() => toggleDropdown('facilities')}
+              className="w-full flex items-center justify-between py-2 text-sm font-semibold text-slate-700 border-b border-slate-100"
+            >
+              <span>Facilities</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'facilities' ? 'rotate-180' : ''}`} />
+            </button>
+            {activeDropdown === 'facilities' && (
+              <div className="pl-4 py-2 space-y-2 bg-slate-50 rounded-lg my-1">
+                <Link to="/facilities#library" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-xs text-slate-600 py-1">
+                  <BookOpen className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Library</span>
+                </Link>
+                <Link to="/facilities#labs" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-xs text-slate-600 py-1">
+                  <FlaskConical className="w-3.5 h-3.5 text-blue-500" />
+                  <span>Labs</span>
+                </Link>
+                <Link to="/facilities#ground" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-xs text-slate-600 py-1">
+                  <Trophy className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Ground</span>
+                </Link>
+                <Link to="/facilities#classrooms" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-xs text-slate-600 py-1">
+                  <GraduationCap className="w-3.5 h-3.5 text-indigo-500" />
+                  <span>Classrooms</span>
+                </Link>
+                <Link to="/facilities" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-semibold text-blue-700 py-1">
+                  View All Facilities &rarr;
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Downloads Mobile */}
+          <div>
+            <button
+              onClick={() => toggleDropdown('downloads')}
+              className="w-full flex items-center justify-between py-2 text-sm font-semibold text-slate-700 border-b border-slate-100"
+            >
+              <span>Downloads</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === 'downloads' ? 'rotate-180' : ''}`} />
+            </button>
+            {activeDropdown === 'downloads' && (
+              <div className="pl-4 py-2 space-y-2 bg-slate-50 rounded-lg my-1">
+                <Link to="/downloads#curriculum" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-xs text-slate-600 py-1">
+                  <FileText className="w-3.5 h-3.5 text-blue-500" />
+                  <span>Curriculum</span>
+                </Link>
+                <Link to="/downloads#datesheet" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-xs text-slate-600 py-1">
+                  <CalendarDays className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Datesheet</span>
+                </Link>
+                <Link to="/downloads" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-semibold text-blue-700 py-1">
+                  View All Downloads &rarr;
+                </Link>
+              </div>
+            )}
+          </div>
+
           <Link
-            to="/facilities"
+            to="/gallery"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm font-semibold text-slate-700 border-b border-slate-100"
           >
-            Campus &amp; Facilities
+            Gallery
           </Link>
 
           <Link

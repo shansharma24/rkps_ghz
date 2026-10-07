@@ -22,17 +22,17 @@ export default function FloatingQuickActions() {
 
     // Automated smart assistant response
     setTimeout(() => {
-      let botReply = "Thank you for asking! For detailed admission procedures and fee schedules for 2025–26, you can fill the enquiry form on our page or call our admission desk at +91 120-2800000.";
+      let botReply = "Thank you for asking! For detailed admission procedures and fee schedules for 2026–27, you can fill the enquiry form on our page or call our admission desk at +91 9310300600.";
       
       const lower = userText.toLowerCase();
       if (lower.includes('fee')) {
         botReply = "Our fee structure is transparent and structured by grade levels (Pre-Primary, Primary, Middle, and Senior Secondary). We offer online fee payment via our Parent Portal. Would you like us to email you the complete fee brochure?";
       } else if (lower.includes('admission') || lower.includes('apply')) {
-        botReply = "Admissions for academic session 2025–26 are currently open for Pre-Nursery to Class XII. You can click 'Apply for Admission' above or submit your phone number in our enquiry form.";
+        botReply = "Admissions for academic session 2026–27 are currently open for Pre-Nursery to Class XII. You can click 'Apply for Admission' above or call us directly at +91 9310300600.";
       } else if (lower.includes('timing') || lower.includes('hour') || lower.includes('time')) {
         botReply = "School timings are Monday to Saturday: 8:00 AM to 2:00 PM for scholars, and our administrative office remains open until 4:00 PM.";
       } else if (lower.includes('affiliation') || lower.includes('cbse')) {
-        botReply = "Radha Krishna Public School is proudly affiliated with the Central Board of Secondary Education (CBSE), New Delhi (Affiliation No: 2130572).";
+        botReply = "Radha Krishna Public School is proudly affiliated with the Central Board of Secondary Education (CBSE), New Delhi (Affiliation No: 2130572 | School Code: 2132212).";
       }
 
       setMessages((prev) => [...prev, { sender: 'bot', text: botReply }]);
@@ -44,19 +44,19 @@ export default function FloatingQuickActions() {
       <aside className="fixed right-4 bottom-8 z-50 flex flex-col items-center gap-3" data-purpose="floating-contacts">
         {/* Call Quick Button */}
         <a
-          href="tel:+911202800000"
+          href="tel:+919310300600"
           aria-label="Call Us"
           className="w-12 h-12 bg-teal-500 hover:bg-teal-600 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110 active:scale-95 group relative"
         >
           <Phone className="w-5 h-5" />
           <span className="absolute right-14 bg-slate-900 text-white text-[11px] font-semibold px-2.5 py-1 rounded shadow whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            Call +91 120-2800000
+            Call +91 9310300600
           </span>
         </a>
 
         {/* WhatsApp Quick Button */}
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/919310300600"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

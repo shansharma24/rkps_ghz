@@ -5,34 +5,46 @@ import AccordionGallery from '../components/AccordionGallery';
 
 const facilityCards = [
   {
+    id: 'classrooms',
     title: 'Smart Digitized Classrooms',
     category: 'Learning Environment',
-    desc: 'Equipped with interactive IFPD touch-panels, high-speed fiber internet, and ergonomic furniture tailored for collaboration.'
+    desc: 'Equipped with interactive IFPD touch-panels, high-speed fiber internet, and ergonomic furniture tailored for collaboration.',
+    icon: 'GraduationCap'
   },
   {
+    id: 'labs',
     title: 'Advanced Science Research Suites',
     category: 'STEM Laboratories',
-    desc: 'CBSE-standard Physics, Chemistry, and Biology laboratories equipped with computerized sensor probes and safety apparatus.'
+    desc: 'CBSE-standard Physics, Chemistry, and Biology laboratories equipped with computerized sensor probes and safety apparatus.',
+    icon: 'FlaskConical'
   },
   {
+    id: 'robotics',
     title: 'AI & Robotics Tinkering Hub',
     category: 'Future Technology',
-    desc: 'Arduino, Raspberry Pi, 3D printers, and drone aviation kits for hands-on computational learning and national hackathons.'
+    desc: 'Arduino, Raspberry Pi, 3D printers, and drone aviation kits for hands-on computational learning and national hackathons.',
+    icon: 'Cpu'
   },
   {
-    title: 'Olympic-Standard Sports Arena',
+    id: 'ground',
+    title: 'Olympic-Standard Sports Arena & Ground',
     category: 'Athletics & Fitness',
-    desc: 'Full-size cricket coaching nets, synthetic basketball and badminton academy, and dedicated martial arts & yoga studios.'
+    desc: 'Full-size cricket coaching nets, synthetic basketball and badminton academy, football field, and dedicated martial arts & yoga studios.',
+    icon: 'Trophy'
   },
   {
+    id: 'library',
     title: 'Grand Central Library',
     category: 'Knowledge Repository',
-    desc: 'Over 20,000 literary works, international research journals, quiet research carrels, and digital e-library stations.'
+    desc: 'Over 20,000 literary works, international research journals, quiet research carrels, and digital e-library stations.',
+    icon: 'BookOpen'
   },
   {
+    id: 'auditorium',
     title: '1,200-Seat Multipurpose Auditorium',
     category: 'Performing Arts',
-    desc: 'Centrally air-conditioned with professional acoustics, theatrical stage lighting grids, and orchestral audio engineering.'
+    desc: 'Centrally air-conditioned with professional acoustics, theatrical stage lighting grids, and orchestral audio engineering.',
+    icon: 'Building2'
   }
 ];
 
@@ -96,6 +108,34 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
           <p className="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto font-medium">
             Spread across 12 lush acres in Ghaziabad, our modern academic wings, advanced laboratories, and championship sporting arenas nurture future-ready leaders.
           </p>
+
+          {/* Quick Facility Anchor Links */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-6">
+            <a
+              href="#library"
+              className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all"
+            >
+              📚 Library
+            </a>
+            <a
+              href="#labs"
+              className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all"
+            >
+              🧪 Labs
+            </a>
+            <a
+              href="#ground"
+              className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all"
+            >
+              ⚽ Sports Ground
+            </a>
+            <a
+              href="#classrooms"
+              className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all"
+            >
+              🏫 Classrooms
+            </a>
+          </div>
         </div>
       </section>
 
@@ -134,7 +174,12 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {facilityCards.map((card, idx) => (
-            <div key={idx} className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all">
+            <div
+              key={idx}
+              id={card.id}
+              className="scroll-mt-28 bg-white p-7 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all relative overflow-hidden group hover:-translate-y-1"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-700 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/60 inline-block mb-3">
                 {card.category}
               </span>
