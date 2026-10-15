@@ -74,7 +74,7 @@ export default function Hero({ onOpenAdmission, onOpenVirtualTour }) {
   };
 
   return (
-    <section className="relative w-full h-[540px] md:h-[620px] lg:h-[680px] bg-slate-900 overflow-hidden" data-purpose="hero-carousel">
+    <section className="relative w-full h-[280px] xs:h-[340px] sm:h-[460px] md:h-[620px] lg:h-[680px] bg-slate-900 overflow-hidden" data-purpose="hero-carousel">
       {/* Background Slides */}
       {heroSlides.map((slide, idx) => (
         <div
@@ -104,20 +104,20 @@ export default function Hero({ onOpenAdmission, onOpenVirtualTour }) {
       ))}
 
       {/* Slide Arrow Controls */}
-      <div className="absolute inset-0 max-w-7xl mx-auto px-4 flex items-center justify-between pointer-events-none z-20">
+      <div className="absolute inset-0 max-w-7xl mx-auto px-3 sm:px-4 flex items-center justify-between pointer-events-none z-20">
         <button
           onClick={prevSlide}
           aria-label="Previous Slide"
-          className="pointer-events-auto w-11 h-11 rounded-full bg-slate-900/60 hover:bg-blue-900 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
+          className="pointer-events-auto w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-slate-900/60 hover:bg-blue-900 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
         <button
           onClick={nextSlide}
           aria-label="Next Slide"
-          className="pointer-events-auto w-11 h-11 rounded-full bg-slate-900/60 hover:bg-blue-900 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
+          className="pointer-events-auto w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-slate-900/60 hover:bg-blue-900 text-white flex items-center justify-center backdrop-blur-md transition-all border border-white/20 hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </div>
 

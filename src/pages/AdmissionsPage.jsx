@@ -162,19 +162,19 @@ export default function AdmissionsPage({ onOpenAdmission }) {
         </div>
 
         {/* Fee Document Card & Interactive Viewer */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-xl space-y-8">
+        <div className="bg-white rounded-3xl p-4 sm:p-8 md:p-10 border border-slate-200/90 shadow-xl space-y-6 sm:space-y-8">
           
           {/* Top Bar with Document Metadata & Action Buttons */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-100">
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center shrink-0 shadow-sm">
-                <FileText className="w-7 h-7 text-amber-600" />
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 pb-5 sm:pb-6 border-b border-slate-100">
+            <div className="flex items-start gap-3.5 sm:gap-4">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center shrink-0 shadow-sm">
+                <FileText className="w-6 h-6 sm:w-7 sm:h-7 text-amber-600" />
               </div>
               <div>
-                <span className="text-[11px] font-bold text-amber-800 uppercase tracking-wider bg-amber-100/80 px-2 py-0.5 rounded">
+                <span className="text-[10px] sm:text-[11px] font-bold text-amber-800 uppercase tracking-wider bg-amber-100/80 px-2 py-0.5 rounded">
                   Official Document (PDF)
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold text-[#0B1E48] heading-serif mt-1">
+                <h3 className="text-base sm:text-xl font-bold text-[#0B1E48] heading-serif mt-1">
                   Radha Krishna Public School Fee Schedule
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5">
@@ -183,12 +183,12 @@ export default function AdmissionsPage({ onOpenAdmission }) {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
               <a
                 href={feeStructurePdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all"
+                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-all text-center"
               >
                 <Eye className="w-4 h-4 text-slate-600" />
                 <span>Open in New Tab</span>
@@ -198,7 +198,7 @@ export default function AdmissionsPage({ onOpenAdmission }) {
               <a
                 href={feeStructurePdf}
                 download="RKPS_Fee_Structure_2026-27.pdf"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-950 hover:bg-blue-900 text-white text-xs font-bold tracking-wide transition-all shadow-md hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 rounded-xl bg-blue-950 hover:bg-blue-900 text-white text-xs font-bold tracking-wide transition-all shadow-md hover:scale-105 active:scale-95 text-center"
               >
                 <Download className="w-4 h-4 text-amber-400" />
                 <span>Download Fee PDF</span>
@@ -209,7 +209,7 @@ export default function AdmissionsPage({ onOpenAdmission }) {
           {/* Embedded Document Viewer Preview */}
           <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-900">
             <div className="bg-slate-800 px-4 py-2.5 flex items-center justify-between text-xs text-slate-300">
-              <span className="font-semibold flex items-center gap-2">
+              <span className="font-semibold flex items-center gap-2 text-[11px] sm:text-xs">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 Official Fee Notification Preview
               </span>
@@ -217,14 +217,14 @@ export default function AdmissionsPage({ onOpenAdmission }) {
                 href={feeStructurePdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1"
+                className="text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1 text-[11px] sm:text-xs"
               >
                 <span>Fullscreen</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
 
-            <div className="w-full h-[600px] sm:h-[720px] bg-slate-100 relative">
+            <div className="w-full h-[380px] sm:h-[600px] md:h-[720px] bg-slate-100 relative">
               <object
                 data={`${feeStructurePdf}#toolbar=1&navpanes=0`}
                 type="application/pdf"

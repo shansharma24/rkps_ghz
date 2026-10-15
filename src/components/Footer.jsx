@@ -271,7 +271,7 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
           </div>
 
           {/* Social Links Row centered at the bottom of navy section */}
-          <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-xs sm:text-sm font-semibold text-slate-200">
+          <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-5 sm:gap-8 md:gap-12 text-xs sm:text-sm font-semibold text-slate-200">
             <a
               href="https://www.instagram.com/radhakrishnapublicschoolrkps/"
               target="_blank"
@@ -346,9 +346,9 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
 
       {/* Bottom-most Copyright & Attributions Bar */}
       <div className="bg-white border-t border-slate-200 py-4 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600 text-center sm:text-left">
           <p>© Copyright 2026 Radha Krishna Public School, Ghaziabad</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4">
             <p className="text-xs text-slate-500">
               Designed &amp; Maintained by <span className="font-semibold text-slate-700">FloydSchool of Technologies Pvt. Ltd.</span>
             </p>
@@ -356,7 +356,7 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
             <button
               onClick={scrollToTop}
               aria-label="Scroll to top"
-              className="w-8 h-8 rounded-full border border-slate-300 hover:border-slate-500 text-slate-700 flex items-center justify-center hover:bg-slate-100 transition-colors shadow-xs"
+              className="w-8 h-8 rounded-full border border-slate-300 hover:border-slate-500 text-slate-700 flex items-center justify-center hover:bg-slate-100 transition-colors shadow-xs shrink-0 cursor-pointer"
             >
               <ArrowUp className="w-4 h-4" />
             </button>

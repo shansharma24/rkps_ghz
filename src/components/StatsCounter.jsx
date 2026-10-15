@@ -33,10 +33,10 @@ const statsData = [
 
 export default function StatsCounter() {
   const [counts, setCounts] = useState({
-    students: 0,
-    teachers: 0,
-    alumni: 0,
-    awards: 0
+    students: 5000,
+    teachers: 100,
+    alumni: 10,
+    awards: 100
   });
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
@@ -47,7 +47,7 @@ export default function StatsCounter() {
         if (entries[0].isIntersecting && !hasAnimated) {
           setHasAnimated(true);
 
-          const duration = 2000;
+          const duration = 1800;
           const frameDuration = 1000 / 60;
           const totalFrames = Math.round(duration / frameDuration);
           let frame = 0;
@@ -77,7 +77,7 @@ export default function StatsCounter() {
           }, frameDuration);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.05 }
     );
 
     if (sectionRef.current) {
