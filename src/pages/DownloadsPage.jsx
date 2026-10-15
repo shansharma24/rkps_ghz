@@ -9,12 +9,10 @@ const curriculumDownloads = [
     title: 'Senior Secondary (Class XI & XII) Science Stream Syllabus',
     category: 'Senior Wing (XI-XII)',
     grade: 'Class 11 & 12',
-    subjects: 'Physics, Chemistry, Mathematics, Biology, Computer Science (Python), Physical Education',
+    subjects: 'Physics, Chemistry, Mathematics, Biology, Computer Science, Physical Education',
     year: '2026–27',
-    format: 'PDF',
-    size: '2.4 MB',
-    date: 'Updated Jan 2026',
-    desc: 'Detailed unit-wise weightage, CBSE blueprint, practical experiment lists, and evaluation scheme.'
+    date: 'Academic Year 2026–27',
+    desc: 'Unit-wise weightage, CBSE curriculum structure, practical experiment lists, and evaluation scheme.'
   },
   {
     id: 'curr-2',
@@ -23,9 +21,7 @@ const curriculumDownloads = [
     grade: 'Class 11 & 12',
     subjects: 'Accountancy, Business Studies, Economics, History, Pol. Science, Applied Maths, English Core',
     year: '2026–27',
-    format: 'PDF',
-    size: '2.1 MB',
-    date: 'Updated Jan 2026',
+    date: 'Academic Year 2026–27',
     desc: 'CBSE syllabus outline, project work guidelines, case study methodology, and board marking rubrics.'
   },
   {
@@ -33,84 +29,70 @@ const curriculumDownloads = [
     title: 'Secondary School (Class IX & X) CBSE Board Curriculum',
     category: 'Secondary (IX-X)',
     grade: 'Class 9 & 10',
-    subjects: 'English Language & Lit, Hindi Course A, Mathematics Standard/Basic, Science, Social Science, AI',
+    subjects: 'English Language & Lit, Hindi Course A, Mathematics Standard/Basic, Science, Social Science, IT',
     year: '2026–27',
-    format: 'PDF',
-    size: '3.1 MB',
-    date: 'Updated Jan 2026',
-    desc: 'Comprehensive annual syllabus, internal assessment bifurcation (Periodic tests, Portfolio, Lab Manuals).'
+    date: 'Academic Year 2026–27',
+    desc: 'Comprehensive annual syllabus, internal assessment bifurcation, periodic tests, and portfolio work.'
   },
   {
     id: 'curr-4',
     title: 'Middle Wing (Class VI to VIII) Integrated Academic Blueprint',
     category: 'Middle Wing (VI-VIII)',
     grade: 'Class 6 - 8',
-    subjects: 'English, Hindi, Sanskrit, Mathematics, Integrated Science, Social Science, Coding & Robotics',
+    subjects: 'English, Hindi, Sanskrit, Mathematics, Integrated Science, Social Science, Computer Science',
     year: '2026–27',
-    format: 'PDF',
-    size: '1.9 MB',
-    date: 'Updated Jan 2026',
-    desc: 'Experiential learning modules aligned with NEP 2020 national curriculum framework.'
+    date: 'Academic Year 2026–27',
+    desc: 'Competency-based learning modules aligned with CBSE curriculum guidelines.'
   },
   {
     id: 'curr-5',
-    title: 'Primary Wing (Class I to V) Experiential Curriculum & Activity Guide',
+    title: 'Primary Wing (Class I to V) Experiential Curriculum Guide',
     category: 'Primary Wing (I-V)',
     grade: 'Class 1 - 5',
     subjects: 'Foundational Literacy, Numeracy, EVS, General Awareness, Visual Arts, Music & Physical Fitness',
     year: '2026–27',
-    format: 'PDF',
-    size: '1.6 MB',
-    date: 'Updated Jan 2026',
-    desc: 'Child-centric competency based curriculum focusing on foundational numeracy and storytelling pedagogy.'
+    date: 'Academic Year 2026–27',
+    desc: 'Activity-based foundational curriculum focusing on language skills, numeracy, and creative expression.'
   },
   {
     id: 'curr-6',
-    title: 'Foundational Stage (Nursery, LKG, UKG) Early Childhood Framework',
+    title: 'Foundational Stage (Nursery, LKG, UKG) Early Learning Framework',
     category: 'Early Years',
     grade: 'Nursery - UKG',
-    subjects: 'Phonics, Sensory Discovery, Motor Development, Montessori Play, Social Readiness',
+    subjects: 'Phonics, Sensory Discovery, Motor Development, Play Activities, Social Readiness',
     year: '2026–27',
-    format: 'PDF',
-    size: '1.4 MB',
-    date: 'Updated Jan 2026',
-    desc: 'Activity-based non-formal syllabus following the National Curriculum Framework for Foundational Stage (NCF-FS).'
+    date: 'Academic Year 2026–27',
+    desc: 'Activity-based non-formal syllabus following early childhood education standards.'
   }
 ];
 
 const datesheetDownloads = [
   {
     id: 'date-1',
-    title: 'Annual Board Examination Datesheet 2026 (Class X & XII)',
+    title: 'Annual Board Examination Schedule 2026 (Class X & XII)',
     category: 'CBSE Board Examinations',
     period: 'February – April 2026',
     timing: '10:30 AM – 01:30 PM (Morning Shift)',
-    format: 'PDF',
-    size: '1.1 MB',
     status: 'Official Schedule',
     desc: 'Official CBSE date sheet for All India Secondary School Examination (AISSE) and Senior School Certificate (AISSCE).'
   },
   {
     id: 'date-2',
-    title: 'Annual Final Term Examinations Timetable 2026 (Class IX & XI)',
+    title: 'Annual Final Term Examinations Timetable (Class IX & XI)',
     category: 'Internal Assessment',
-    period: 'February 2026',
+    period: 'February – March 2026',
     timing: '09:00 AM – 12:15 PM',
-    format: 'PDF',
-    size: '850 KB',
-    status: 'Active',
+    status: 'Active Schedule',
     desc: 'Comprehensive datesheet, preparatory leave details, and subject-wise reporting instructions.'
   },
   {
     id: 'date-3',
-    title: 'Periodic Test 3 (PT-3) Date Sheet (Class I to VIII)',
+    title: 'Periodic Test Evaluation Schedule (Class I to VIII)',
     category: 'Periodic Assessments',
     period: 'Dec 2025 – Jan 2026',
     timing: '08:30 AM – 11:30 AM',
-    format: 'PDF',
-    size: '620 KB',
-    status: 'Published',
-    desc: 'Mid-session unit test evaluation schedule and syllabus coverage blueprint for primary & middle wings.'
+    status: 'Active Schedule',
+    desc: 'Mid-session unit test evaluation schedule and syllabus coverage outline for primary & middle wings.'
   },
   {
     id: 'date-4',
@@ -118,8 +100,6 @@ const datesheetDownloads = [
     category: 'Practical Examinations',
     period: 'January 2026',
     timing: 'Batch 1: 08:30 AM | Batch 2: 12:30 PM',
-    format: 'PDF',
-    size: '780 KB',
     status: 'Concluded',
     desc: 'External examiner roster, physics/chemistry/biology project submission criteria and lab viva schedules.'
   },
@@ -129,37 +109,14 @@ const datesheetDownloads = [
     category: 'Annual Calendar',
     period: 'Academic Session 2026–27',
     timing: 'Full Session Schedule',
-    format: 'PDF',
-    size: '1.3 MB',
-    status: 'Annual Release',
-    desc: 'Complete annual almanac highlighting term breaks, inter-school tournaments, PTM dates, and summer vacations.'
+    status: 'Annual Schedule',
+    desc: 'Complete annual almanac highlighting term breaks, inter-school activities, PTM dates, and vacations.'
   }
 ];
 
 export default function DownloadsPage({ onOpenAdmission }) {
   const [activeTab, setActiveTab] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [downloadSuccess, setDownloadSuccess] = useState('');
-
-  const handleDownload = (title, filename) => {
-    // Simulated instant download action
-    setDownloadSuccess(`Downloading "${title}"...`);
-    const blob = new Blob([
-      `Radha Krishna Public School\nIndirapuram, Ghaziabad, U.P.\n\nDocument: ${title}\nAcademic Session: 2026-27\nDownloaded from official portal: rkps.edu.in\n`
-    ], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${filename || 'RKPS_Document'}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-
-    setTimeout(() => {
-      setDownloadSuccess('');
-    }, 4000);
-  };
 
   const filteredCurriculum = curriculumDownloads.filter(c =>
     c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -179,7 +136,7 @@ export default function DownloadsPage({ onOpenAdmission }) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 text-xs font-bold uppercase tracking-widest mb-4">
             <FileCheck className="w-3.5 h-3.5 text-amber-400" />
-            <span>Academic Resources &amp; Downloads</span>
+            <span>Academic Guidelines &amp; Schedules</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black heading-serif tracking-tight text-white leading-tight">
@@ -191,14 +148,6 @@ export default function DownloadsPage({ onOpenAdmission }) {
           <p className="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto font-medium">
             Access official CBSE syllabi, course blueprints, examination schedules, and academic calendars for Radha Krishna Public School.
           </p>
-
-          {/* Download Toast Notification */}
-          {downloadSuccess && (
-            <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/90 text-white text-xs font-bold shadow-lg animate-fadeIn">
-              <CheckCircle2 className="w-4 h-4" />
-              <span>{downloadSuccess}</span>
-            </div>
-          )}
 
           {/* Quick Filter Navigation Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-3 mt-7">
@@ -356,7 +305,7 @@ export default function DownloadsPage({ onOpenAdmission }) {
                       {item.grade}
                     </span>
                     <span className="text-[10px] font-semibold text-slate-500">
-                      {item.format} • {item.size}
+                      Session 2026–27
                     </span>
                   </div>
 
@@ -374,16 +323,13 @@ export default function DownloadsPage({ onOpenAdmission }) {
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-400 font-medium">
+                  <span className="text-[11px] text-slate-500 font-medium">
                     {item.date}
                   </span>
-                  <button
-                    onClick={() => handleDownload(item.title, `RKPS_Curriculum_${item.grade.replace(/\s+/g, '_')}`)}
-                    className="px-4 py-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow hover:scale-105 active:scale-95 cursor-pointer"
-                  >
-                    <Download className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Download Syllabus</span>
-                  </button>
+                  <span className="text-[11px] text-blue-900 font-semibold bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                    <span>CBSE Aligned</span>
+                  </span>
                 </div>
               </div>
             ))}
@@ -446,16 +392,13 @@ export default function DownloadsPage({ onOpenAdmission }) {
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-400 font-medium">
-                    {item.format} • {item.size}
+                  <span className="text-[11px] text-slate-500 font-medium">
+                    Session 2025–26
                   </span>
-                  <button
-                    onClick={() => handleDownload(item.title, `RKPS_Datesheet_${item.id}`)}
-                    className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold flex items-center gap-1.5 transition-all shadow hover:scale-105 active:scale-95 cursor-pointer"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    <span>Download Schedule</span>
-                  </button>
+                  <span className="text-[11px] text-amber-900 font-semibold bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200 flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Official Circular</span>
+                  </span>
                 </div>
               </div>
             ))}

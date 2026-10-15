@@ -1,101 +1,61 @@
 import React from 'react';
-import { Building2, BookOpen, Trophy, Cpu, CheckCircle2, GraduationCap, FlaskConical, Compass } from 'lucide-react';
+import { Building2, BookOpen, Trophy, Cpu, CheckCircle2, GraduationCap, FlaskConical, Compass, Monitor } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import AccordionGallery from '../components/AccordionGallery';
 
 const facilityCards = [
   {
     id: 'classrooms',
-    title: 'Smart Digitized Classrooms',
+    title: 'Smart Classrooms',
     category: 'Learning Environment',
     badgeColor: 'bg-indigo-50 text-indigo-700',
-    desc: 'Equipped with interactive IFPD touch-panels, high-speed fiber internet, and ergonomic furniture tailored for collaboration and active learning.',
-    features: ['Interactive 4K IFPD Panels', 'High-Speed Fiber Network', 'Ergonomic Modular Seating', 'Acoustic Soundproofing'],
+    desc: 'Spacious, well-ventilated classrooms equipped with interactive display panels and ergonomic furniture designed for active and collaborative learning.',
+    features: ['Interactive Display Panels', 'Ergonomic Student Seating', 'Well-Ventilated Classrooms', 'Digital Teaching Aids'],
     icon: GraduationCap
   },
   {
     id: 'labs',
-    title: 'Advanced Science Research Suites',
-    category: 'STEM Laboratories',
+    title: 'Science Laboratories',
+    category: 'Science & Research',
     badgeColor: 'bg-blue-50 text-blue-700',
-    desc: 'CBSE-standard Physics, Chemistry, and Biology laboratories equipped with computerized sensor probes, analytical balances, and safety apparatus.',
-    features: ['CBSE-Standard Lab Protocols', 'Computerized Sensor Probes', 'Fume Hoods & Safety Kits', 'Dedicated Biotech Workbenches'],
+    desc: 'Well-equipped Physics, Chemistry, and Biology laboratories compliant with CBSE curriculum and safety guidelines for hands-on experimental learning.',
+    features: ['Physics Apparatus & Kits', 'Chemistry Safe Workbenches', 'Biology Microscope Stations', 'Standard Lab Safety Equipment'],
     icon: FlaskConical
   },
   {
-    id: 'robotics',
-    title: 'AI & Robotics Tinkering Hub',
-    category: 'Future Technology',
+    id: 'computer-lab',
+    title: 'Computer & IT Laboratory',
+    category: 'Digital Learning',
     badgeColor: 'bg-cyan-50 text-cyan-700',
-    desc: 'Arduino, Raspberry Pi, 3D printers, and drone aviation kits for hands-on computational learning, coding, and national robotics hackathons.',
-    features: ['3D Prototyping Printers', 'Arduino & Raspberry Pi Kits', 'Drone Aviation Testing', 'Python & AI Coding Stations'],
-    icon: Cpu
+    desc: 'Dedicated air-conditioned computer lab with networked desktop terminals, broadband internet, and educational software for digital literacy.',
+    features: ['Networked Desktop Workstations', 'High-Speed Broadband Internet', 'IT & Coding Curriculum', 'Supervised Cyber-Safe Access'],
+    icon: Monitor
   },
   {
     id: 'ground',
-    title: 'Olympic-Standard Sports Arena & Ground',
+    title: 'Sports & Physical Education',
     category: 'Athletics & Fitness',
     badgeColor: 'bg-emerald-50 text-emerald-700',
-    desc: 'Full-size cricket coaching nets, synthetic basketball and badminton academy, football turf, and dedicated martial arts & yoga studios.',
-    features: ['Cricket Turf Practice Nets', 'Synthetic Basketball Academy', 'Championship Football Turf', 'Taekwondo & Yoga Studio'],
+    desc: 'Dedicated open playground and courts for cricket practice, football, volleyball, badminton, and structured physical education sessions.',
+    features: ['Cricket Practice Nets', 'Badminton & Volleyball Courts', 'Football & Athletic Field', 'Yoga & Physical Training'],
     icon: Trophy
   },
   {
     id: 'library',
-    title: 'Grand Central Knowledge Library',
+    title: 'School Library & Reading Room',
     category: 'Knowledge Repository',
     badgeColor: 'bg-amber-50 text-amber-700',
-    desc: 'Over 20,000 literary works, international research journals, quiet research carrels, Kindle stations, and digital e-library repositories.',
-    features: ['20,000+ Curated Volumes', 'E-Library Kindle Terminals', 'Individual Research Carrels', 'National & Global Periodicals'],
+    desc: 'Quiet reading environment featuring academic reference books, fiction, children’s literature, newspapers, and educational periodicals.',
+    features: ['Curated Academic Books', 'Daily Newspapers & Periodicals', 'Children’s Story & Fiction Section', 'Quiet Study & Reading Area'],
     icon: BookOpen
   },
   {
     id: 'auditorium',
-    title: '1,200-Seat Multipurpose Auditorium',
+    title: 'Multipurpose Activity Hall',
     category: 'Performing Arts',
     badgeColor: 'bg-purple-50 text-purple-700',
-    desc: 'Centrally air-conditioned with professional acoustics, theatrical stage lighting grids, surround audio engineering, and green rooms.',
-    features: ['1,200 Seating Capacity', 'Theatrical Stage Lighting', 'Surround Acoustic Engineering', 'Backstage Dressing Suites'],
+    desc: 'Multi-functional auditorium space with audio-visual equipment and stage for morning assemblies, cultural celebrations, debates, and workshops.',
+    features: ['Stage & Presentation Setup', 'Sound & Audio-Visual System', 'Assembly & Function Seating', 'Co-Curricular Event Space'],
     icon: Building2
-  }
-];
-
-const galleryItems = [
-  {
-    image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/founnew2.jpg',
-    label: 'Foundation Wing',
-    alt: 'Foundation Wing',
-    link: '#admissions'
-  },
-  {
-    image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/homeinner2.jpg',
-    label: 'Central Library',
-    alt: 'Central Library',
-    link: '#admissions'
-  },
-  {
-    image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/homeinner3.jpg',
-    label: 'Senior Wing',
-    alt: 'Senior Wing',
-    link: '#admissions'
-  },
-  {
-    image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/homeinner7.jpg',
-    label: 'Robotics & STEM Lab',
-    alt: 'Robotics and STEM Lab',
-    link: '#admissions'
-  },
-  {
-    image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/homeinner5.jpg',
-    label: 'Olympic Sports Arena',
-    alt: 'Olympic Sports Arena',
-    link: '#admissions'
-  },
-  {
-    image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/homeinner1.jpg',
-    label: 'Performing Arts Auditorium',
-    alt: 'Performing Arts Auditorium',
-    link: '#admissions'
   }
 ];
 
@@ -108,7 +68,7 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 text-xs font-bold uppercase tracking-widest mb-4">
             <Building2 className="w-3.5 h-3.5 text-amber-400" />
-            <span>World-Class Infrastructure</span>
+            <span>Campus Infrastructure</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black heading-serif tracking-tight text-white leading-tight">
@@ -118,22 +78,28 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
           <div className="w-20 h-1.5 bg-amber-400 mx-auto mt-4 mb-5 rounded-full" />
 
           <p className="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto font-medium">
-            Set amidst a lush green campus in Ghaziabad, our modern academic wings, advanced laboratories, and championship sporting arenas nurture future-ready leaders.
+            Our modern academic wings, science laboratories, computer lab, and sports grounds provide an enriching environment for holistic student development.
           </p>
 
           {/* Quick Facility Anchor Links */}
           <div className="flex flex-wrap items-center justify-center gap-2.5 mt-6">
             <a
-              href="#library"
+              href="#classrooms"
               className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all"
             >
-              📚 Library
+              🏫 Classrooms
             </a>
             <a
               href="#labs"
               className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all"
             >
-              🧪 Labs
+              🧪 Science Labs
+            </a>
+            <a
+              href="#computer-lab"
+              className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all"
+            >
+              💻 Computer Lab
             </a>
             <a
               href="#ground"
@@ -142,35 +108,18 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
               ⚽ Sports Ground
             </a>
             <a
-              href="#classrooms"
+              href="#library"
               className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all"
             >
-              🏫 Classrooms
+              📚 Library
+            </a>
+            <a
+              href="#auditorium"
+              className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all"
+            >
+              🎭 Activity Hall
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* 2. Interactive Accordion Gallery Showcase (No Outline Frame) */}
-      <section className="py-10 max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
-        <div className="w-full">
-          <AccordionGallery
-            items={galleryItems}
-            defaultIndex={1}
-            expandRatio={0.54}
-            trigger="hover"
-            accentColor="#f59e0b"
-            overlayColor="#0b1e48"
-            textColor="#ffffff"
-            grayscale={false}
-            height={520}
-            gap={12}
-            radius={20}
-            tilt={5}
-            parallax={0.35}
-            duration={0.6}
-            showLabels={true}
-          />
         </div>
       </section>
 
