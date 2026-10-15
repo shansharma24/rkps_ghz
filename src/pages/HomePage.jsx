@@ -6,6 +6,7 @@ import LeadershipMessage from '../components/LeadershipMessage';
 import Facilities from '../components/Facilities';
 import CtaBanner from '../components/CtaBanner';
 import ParentsSpeak from '../components/ParentsSpeak';
+import StudentVideoShowcase from '../components/StudentVideoShowcase';
 import AdmissionPosterModal from '../components/modals/AdmissionPosterModal';
 
 export default function HomePage({ onOpenAdmission, onOpenVirtualTour, scrollToEnquiry }) {
@@ -44,7 +45,10 @@ export default function HomePage({ onOpenAdmission, onOpenVirtualTour, scrollToE
       {/* 5. Campus & Facilities Gallery */}
       <Facilities />
 
-      {/* 6. Call To Action Banner */}
+      {/* 6. Student Video Showcase (Voices of RKPS) */}
+      <StudentVideoShowcase />
+
+      {/* 7. Call To Action Banner */}
       <CtaBanner
         onOpenAdmission={onOpenAdmission}
         onOpenEnquiry={scrollToEnquiry}
