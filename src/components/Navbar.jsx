@@ -113,6 +113,13 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
                 >
                   Admission Process 2026–27
                 </Link>
+                <Link
+                  to="/admissions#fee-structure"
+                  className="flex items-center justify-between px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium"
+                >
+                  <span>Fee Structure 2026–27</span>
+                  <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">PDF</span>
+                </Link>
                 <button
                   onClick={onOpenAdmission}
                   className="w-full text-left px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-blue-700 text-xs font-medium cursor-pointer"
@@ -284,6 +291,10 @@ export default function Navbar({ onOpenEnquiry, onOpenAdmission }) {
             {activeDropdown === 'admission' && (
               <div className="pl-4 py-2 space-y-2 bg-slate-50 rounded-lg my-1">
                 <Link to="/admissions" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Admission Process 2026–27</Link>
+                <Link to="/admissions#fee-structure" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-xs text-slate-600 py-1">
+                  <span>Fee Structure 2026–27</span>
+                  <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">PDF</span>
+                </Link>
                 <button onClick={() => { setMobileMenuOpen(false); onOpenAdmission(); }} className="block text-left text-xs text-slate-600 py-1">Apply Online</button>
                 <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block text-xs text-slate-600 py-1">Online Enquiry</Link>
               </div>

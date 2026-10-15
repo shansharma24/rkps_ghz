@@ -26,7 +26,7 @@ export default function FloatingQuickActions() {
       
       const lower = userText.toLowerCase();
       if (lower.includes('fee')) {
-        botReply = "Our fee structure is transparent and structured by grade levels (Pre-Primary, Primary, Middle, and Senior Secondary). We offer online fee payment via our Parent Portal. Would you like us to email you the complete fee brochure?";
+        botReply = "Our official Fee Structure (Session 2026–27) is available for direct view and download on our Admissions page (/admissions#fee-structure). You can also download or view the official PDF directly at /fee-structure.pdf.";
       } else if (lower.includes('admission') || lower.includes('apply')) {
         botReply = "Admissions for academic session 2026–27 are currently open for Pre-Nursery to Class XII. You can click 'Apply for Admission' above or call us directly at +91 9310300600.";
       } else if (lower.includes('timing') || lower.includes('hour') || lower.includes('time')) {

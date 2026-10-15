@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Download, FileText, CalendarDays, BookOpen, Clock, CheckCircle2, FileCheck, Search, Filter } from 'lucide-react';
+import { Download, FileText, CalendarDays, BookOpen, Clock, CheckCircle2, FileCheck, Search, Filter, ExternalLink, Eye, CreditCard } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import feeStructurePdf from '../assets/SCAN_20261009_082427092.pdf';
 
 const curriculumDownloads = [
   {
@@ -235,6 +236,18 @@ export default function DownloadsPage({ onOpenAdmission }) {
               <CalendarDays className="w-3.5 h-3.5" />
               <span>Datesheets ({datesheetDownloads.length})</span>
             </a>
+            <a
+              href="#fee-structure"
+              onClick={() => setActiveTab('fee')}
+              className={`px-5 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                activeTab === 'fee'
+                  ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
+                  : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+              }`}
+            >
+              <CreditCard className="w-3.5 h-3.5" />
+              <span>Fee Structure (2026–27)</span>
+            </a>
           </div>
         </div>
       </section>
@@ -259,6 +272,59 @@ export default function DownloadsPage({ onOpenAdmission }) {
           </div>
         </div>
       </section>
+
+      {/* Featured Official Fee Structure Card */}
+      {(activeTab === 'all' || activeTab === 'fee') && (
+        <section id="fee-structure" className="scroll-mt-28 py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-blue-950 rounded-3xl p-6 sm:p-8 text-white border border-amber-400/30 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="space-y-2 max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider border border-amber-400/30">
+                  <CreditCard className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Official Circular • Academic Session 2026–27</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold heading-serif text-white">
+                  Radha Krishna Public School Fee Structure (2026–27)
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+                  Official certified fee schedule covering pre-primary to senior secondary grades, payment timelines, and admission criteria.
+                </p>
+                <div className="flex flex-wrap items-center gap-4 pt-1 text-xs text-slate-300">
+                  <span className="flex items-center gap-1 font-semibold text-emerald-400">
+                    <CheckCircle2 className="w-4 h-4" /> Official Scanned Circular
+                  </span>
+                  <span>•</span>
+                  <span>Format: PDF (526 KB)</span>
+                  <span>•</span>
+                  <span>Approved by School Management</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full md:w-auto">
+                <a
+                  href={feeStructurePdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-all border border-white/20 flex items-center justify-center gap-2 flex-1 sm:flex-initial"
+                >
+                  <Eye className="w-4 h-4 text-amber-400" />
+                  <span>Preview</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+                </a>
+                <a
+                  href={feeStructurePdf}
+                  download="RKPS_Fee_Structure_2026-27.pdf"
+                  className="px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-extrabold uppercase tracking-wider transition-all shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center gap-2 flex-1 sm:flex-initial"
+                >
+                  <Download className="w-4 h-4 text-slate-950" />
+                  <span>Download PDF</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 3. Curriculum Section */}
       {(activeTab === 'all' || activeTab === 'curriculum') && (

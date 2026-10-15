@@ -230,6 +230,12 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
                 <Link to="/gallery" className="hover:text-amber-400 transition-colors">
                   GALLERY
                 </Link>
+                <Link to="/admissions" className="hover:text-amber-400 transition-colors">
+                  ADMISSIONS
+                </Link>
+                <Link to="/admissions#fee-structure" className="hover:text-amber-400 transition-colors">
+                  FEE STRUCTURE
+                </Link>
                 <Link to="/contact" className="hover:text-amber-400 transition-colors">
                   CONTACT US
                 </Link>
