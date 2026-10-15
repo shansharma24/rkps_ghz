@@ -2,12 +2,21 @@ import React from 'react';
 import { Building2, BookOpen, Trophy, Cpu, CheckCircle2, GraduationCap, FlaskConical, Compass, Monitor } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Authentic High-Resolution Campus & Facility Images from local folder
+import exteriorImg from '../assets/Radha Krishna Public School Exterior.png';
+import slide2Img from '../assets/slides/2.png';
+import studentsImg from '../assets/admissions_students.png';
+import slide3Img from '../assets/slides/3.png';
+import slide4Img from '../assets/slides/4.png';
+import slide5Img from '../assets/slides/5.png';
+
 const facilityCards = [
   {
     id: 'classrooms',
     title: 'Smart Classrooms',
     category: 'Learning Environment',
-    badgeColor: 'bg-indigo-50 text-indigo-700',
+    badgeColor: 'bg-indigo-600 text-white font-bold',
+    image: exteriorImg,
     desc: 'Spacious, well-ventilated classrooms equipped with interactive display panels and ergonomic furniture designed for active and collaborative learning.',
     features: ['Interactive Display Panels', 'Ergonomic Student Seating', 'Well-Ventilated Classrooms', 'Digital Teaching Aids'],
     icon: GraduationCap
@@ -16,7 +25,8 @@ const facilityCards = [
     id: 'labs',
     title: 'Science Laboratories',
     category: 'Science & Research',
-    badgeColor: 'bg-blue-50 text-blue-700',
+    badgeColor: 'bg-blue-600 text-white font-bold',
+    image: slide3Img,
     desc: 'Well-equipped Physics, Chemistry, and Biology laboratories compliant with CBSE curriculum and safety guidelines for hands-on experimental learning.',
     features: ['Physics Apparatus & Kits', 'Chemistry Safe Workbenches', 'Biology Microscope Stations', 'Standard Lab Safety Equipment'],
     icon: FlaskConical
@@ -25,7 +35,8 @@ const facilityCards = [
     id: 'computer-lab',
     title: 'Computer & IT Laboratory',
     category: 'Digital Learning',
-    badgeColor: 'bg-cyan-50 text-cyan-700',
+    badgeColor: 'bg-cyan-600 text-white font-bold',
+    image: slide2Img,
     desc: 'Dedicated air-conditioned computer lab with networked desktop terminals, broadband internet, and educational software for digital literacy.',
     features: ['Networked Desktop Workstations', 'High-Speed Broadband Internet', 'IT & Coding Curriculum', 'Supervised Cyber-Safe Access'],
     icon: Monitor
@@ -34,7 +45,8 @@ const facilityCards = [
     id: 'ground',
     title: 'Sports & Physical Education',
     category: 'Athletics & Fitness',
-    badgeColor: 'bg-emerald-50 text-emerald-700',
+    badgeColor: 'bg-emerald-600 text-white font-bold',
+    image: slide4Img,
     desc: 'Dedicated open playground and courts for cricket practice, football, volleyball, badminton, and structured physical education sessions.',
     features: ['Cricket Practice Nets', 'Badminton & Volleyball Courts', 'Football & Athletic Field', 'Yoga & Physical Training'],
     icon: Trophy
@@ -43,7 +55,8 @@ const facilityCards = [
     id: 'library',
     title: 'School Library & Reading Room',
     category: 'Knowledge Repository',
-    badgeColor: 'bg-amber-50 text-amber-700',
+    badgeColor: 'bg-amber-600 text-white font-bold',
+    image: studentsImg,
     desc: 'Quiet reading environment featuring academic reference books, fiction, children’s literature, newspapers, and educational periodicals.',
     features: ['Curated Academic Books', 'Daily Newspapers & Periodicals', 'Children’s Story & Fiction Section', 'Quiet Study & Reading Area'],
     icon: BookOpen
@@ -52,7 +65,8 @@ const facilityCards = [
     id: 'auditorium',
     title: 'Multipurpose Activity Hall',
     category: 'Performing Arts',
-    badgeColor: 'bg-purple-50 text-purple-700',
+    badgeColor: 'bg-purple-600 text-white font-bold',
+    image: slide5Img,
     desc: 'Multi-functional auditorium space with audio-visual equipment and stage for morning assemblies, cultural celebrations, debates, and workshops.',
     features: ['Stage & Presentation Setup', 'Sound & Audio-Visual System', 'Assembly & Function Seating', 'Co-Curricular Event Space'],
     icon: Building2
@@ -140,37 +154,54 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
               <div
                 key={idx}
                 id={card.id}
-                className="scroll-mt-28 bg-white p-7 sm:p-8 rounded-2xl shadow-[0_4px_24px_rgba(15,23,42,0.06)] hover:shadow-[0_16px_40px_rgba(15,23,42,0.12)] transition-all duration-300 relative overflow-hidden group hover:-translate-y-1.5 flex flex-col justify-between"
+                className="scroll-mt-28 min-h-[380px] rounded-2xl sm:rounded-3xl shadow-[0_8px_30px_rgba(11,30,72,0.12)] hover:shadow-[0_20px_50px_rgba(11,30,72,0.3)] transition-all duration-500 relative overflow-hidden group hover:-translate-y-1.5 flex flex-col justify-between p-6 sm:p-7 text-white border border-white/20"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full ${card.badgeColor}`}>
-                      {card.category}
-                    </span>
-                    <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-blue-900 group-hover:bg-blue-900 group-hover:text-amber-400 transition-colors shadow-xs">
-                      <IconComponent className="w-5 h-5" />
-                    </div>
+                {/* Background Image from Folder with Parallax/Smooth Zoom */}
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110 filter brightness-[0.88] select-none"
+                />
+
+                {/* Ambient Deep Navy Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/30 transition-opacity duration-500 group-hover:opacity-75 pointer-events-none" />
+
+                {/* Subtle Amber Edge Glow */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/30 via-transparent to-amber-500/10 pointer-events-none" />
+
+                {/* Card Top: Category Badge and Icon */}
+                <div className="relative z-10 flex items-center justify-between mb-4">
+                  <span className={`text-[10px] sm:text-xs uppercase tracking-wider px-3 py-1 rounded-full shadow-md backdrop-blur-md ${card.badgeColor}`}>
+                    {card.category}
+                  </span>
+                  <div className="w-10 h-10 rounded-xl bg-slate-900/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-400 group-hover:text-slate-950 transition-all duration-300 shadow-sm">
+                    <IconComponent className="w-5 h-5" />
                   </div>
-
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0B1E48] heading-serif mb-2.5 group-hover:text-blue-700 transition-colors">
-                    {card.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-5">
-                    {card.desc}
-                  </p>
                 </div>
 
-                <div>
-                  <div className="pt-4 border-t border-slate-100">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Key Amenities</span>
+                {/* Card Bottom: Glowing Amber Bar, Title, Description, and Features */}
+                <div className="relative z-10 mt-auto">
+                  <div className="flex items-start gap-3 mb-2.5">
+                    {/* Glowing Amber Accent Bar */}
+                    <span className="w-1 h-7 rounded-full bg-amber-400 shrink-0 shadow-[0_0_12px_rgba(245,158,11,0.9)] group-hover:h-9 transition-all duration-300" />
+                    <h3 className="text-xl sm:text-2xl font-black text-white heading-serif tracking-tight drop-shadow-md">
+                      {card.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium mb-4 drop-shadow">
+                    {card.desc}
+                  </p>
+
+                  <div className="pt-3 border-t border-white/15">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 block mb-2">Key Amenities</span>
                     <div className="flex flex-wrap gap-1.5">
                       {card.features.map((feat, fIdx) => (
                         <span
                           key={fIdx}
-                          className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-700 bg-slate-50 px-2.5 py-1 rounded-lg"
+                          className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-slate-100 bg-white/20 hover:bg-white/30 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/15 transition-colors"
                         >
-                          <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" />
+                          <CheckCircle2 className="w-3 h-3 text-amber-400 shrink-0" />
                           <span>{feat}</span>
                         </span>
                       ))}
