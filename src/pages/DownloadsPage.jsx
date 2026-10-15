@@ -144,7 +144,7 @@ export default function DownloadsPage({ onOpenAdmission }) {
     // Simulated instant download action
     setDownloadSuccess(`Downloading "${title}"...`);
     const blob = new Blob([
-      `Radha Krishna Public School (Affiliation No: 2130572 | School Code: 2132212)\nIndirapuram, Ghaziabad, U.P.\n\nDocument: ${title}\nAcademic Session: 2026-27\nDownloaded from official portal: rkps.edu.in\n`
+      `Radha Krishna Public School\nIndirapuram, Ghaziabad, U.P.\n\nDocument: ${title}\nAcademic Session: 2026-27\nDownloaded from official portal: rkps.edu.in\n`
     ], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');

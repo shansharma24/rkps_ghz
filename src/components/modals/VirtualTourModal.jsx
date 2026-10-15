@@ -6,7 +6,7 @@ const tourSpots = [
     title: 'School Campus & Transport Fleet',
     category: 'Campus Grounds',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCkNW3umzMyBB0D-OKTmTGmg11eQ_LRoUIIE233XVxKg8P1wpRHu9QqikuGdOvOdf68Cp3gzZ7Z5DUuTGEYuPwjP-Z8Tm39d3tntcezXaCi1vxsiOoCOv0k0yZgeUshbkH0qzCG1nO4t6xx2wPSPB7AN5SAIWvma1dmnspO5A1Ccb1XVnq9XJD7o6U6f_mR6C7VOC0ZdHGn2TTS-Lo9qz-9dfXdl0GbyWC05PJVomZo6m9g-mRBbCpfhQ',
-    description: '12 verdant acres with secure gated entry, GPS-monitored fleet of air-conditioned school buses covering all major routes across Ghaziabad, Noida, and East Delhi.'
+    description: 'Sprawling campus grounds with secure gated entry, GPS-monitored fleet of air-conditioned school buses covering all major routes across Ghaziabad, Noida, and East Delhi.'
   },
   {
     title: 'Grand Central Library & Digital Hub',

@@ -164,7 +164,7 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
                     Radha Krishna Public School, Ghaziabad
                   </h3>
                   <p className="text-xs text-blue-200/80 font-medium tracking-wide mt-1">
-                    Affiliation No. : <span className="font-semibold text-white">2130572</span> | School Code : <span className="font-semibold text-white">2132212</span>
+                    CBSE Affiliated Senior Secondary School
                   </p>
                 </div>
               </div>

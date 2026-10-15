@@ -66,7 +66,7 @@ export default function DirectorsDeskPage({ onOpenAdmission }) {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Architect of 12-Acre Modern Smart Infrastructure</span>
+                  <span>Architect of Modern Smart Infrastructure</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />

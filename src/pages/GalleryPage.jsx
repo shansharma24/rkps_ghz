@@ -10,7 +10,7 @@ const galleryPhotos = [
     category: 'campus',
     categoryLabel: 'Campus & Infrastructure',
     image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/founnew2.jpg',
-    desc: 'Sprawling 12-acre lush green campus designed for optimal natural lighting and safety.'
+    desc: 'Sprawling lush green campus designed for optimal natural lighting and safety.'
   },
   {
     id: 2,

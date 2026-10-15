@@ -10,7 +10,7 @@ export default function TopUtilityHeader({ onOpenAdmission, onOpenErp }) {
         <div className="hidden md:flex items-center space-x-6 text-slate-300">
           <span className="flex items-center space-x-1.5 text-amber-400 font-medium">
             <ShieldCheck className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-            <span className="truncate">CBSE Affiliated Senior Secondary School (Affiliation No: 2130572 | School Code: 2132212)</span>
+            <span className="truncate">CBSE Affiliated Senior Secondary School</span>
           </span>
         </div>
 

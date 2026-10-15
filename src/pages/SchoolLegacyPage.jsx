@@ -86,7 +86,7 @@ export default function SchoolLegacyPage({ onOpenAdmission }) {
               Pratap Vihar, Ghaziabad
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold heading-serif text-white drop-shadow">
-              A 12-Acre Verdant Sanctuary of Knowledge
+              A Verdant Sanctuary of Knowledge
             </h2>
             <p className="text-xs sm:text-sm text-slate-200 mt-2 font-medium">
               Architecturally designed to inspire intellectual freedom, safety, and physical vitality with lush green expanses, cutting-edge laboratories, and expansive sports complexes.

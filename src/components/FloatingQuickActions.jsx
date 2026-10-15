@@ -32,7 +32,7 @@ export default function FloatingQuickActions() {
       } else if (lower.includes('timing') || lower.includes('hour') || lower.includes('time')) {
         botReply = "School timings are Monday to Saturday: 8:00 AM to 2:00 PM for scholars, and our administrative office remains open until 4:00 PM.";
       } else if (lower.includes('affiliation') || lower.includes('cbse')) {
-        botReply = "Radha Krishna Public School is proudly affiliated with the Central Board of Secondary Education (CBSE), New Delhi (Affiliation No: 2130572 | School Code: 2132212).";
+        botReply = "Radha Krishna Public School is proudly affiliated with the Central Board of Secondary Education (CBSE), New Delhi.";
       }
 
       setMessages((prev) => [...prev, { sender: 'bot', text: botReply }]);

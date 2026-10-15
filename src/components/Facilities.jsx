@@ -60,14 +60,14 @@ export default function Facilities() {
               Campus &amp; Facilities
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl font-medium">
-              Explore our 12-acre campus featuring state-of-the-art smart classrooms, research laboratories, athletics arena, and central library.
+              Explore our campus featuring state-of-the-art smart classrooms, research laboratories, athletics arena, and central library.
             </p>
           </div>
           
           <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
             <span className="bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-xs text-slate-700 flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              12-Acre Campus
+              Lush Green Campus
             </span>
             <span className="bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-xs text-slate-700 flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-amber-500" />

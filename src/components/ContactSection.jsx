@@ -105,7 +105,7 @@ export default function ContactSection({ formRef }) {
                   ✓
                 </span>
                 <div>
-                  <div className="text-[11px] font-bold text-blue-950">CBSE Affiliation #2130572 | School Code #2132212</div>
+                  <div className="text-[11px] font-bold text-blue-950">CBSE Affiliated Senior Secondary School</div>
                   <div className="text-[10px] text-slate-500">Regular On-Campus Counseling Available</div>
                 </div>
               </div>

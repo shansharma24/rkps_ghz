@@ -118,7 +118,7 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
           <div className="w-20 h-1.5 bg-amber-400 mx-auto mt-4 mb-5 rounded-full" />
 
           <p className="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto font-medium">
-            Spread across 12 lush acres in Ghaziabad, our modern academic wings, advanced laboratories, and championship sporting arenas nurture future-ready leaders.
+            Set amidst a lush green campus in Ghaziabad, our modern academic wings, advanced laboratories, and championship sporting arenas nurture future-ready leaders.
           </p>
 
           {/* Quick Facility Anchor Links */}
