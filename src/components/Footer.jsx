@@ -186,8 +186,8 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
                   <div className="w-7 h-7 border border-white/60 flex items-center justify-center shrink-0 rounded-xs">
                     <Mail className="w-3.5 h-3.5 text-white" />
                   </div>
-                  <a href="mailto:rkps.ghz@gmail.com" className="hover:text-amber-400 transition-colors">
-                    rkps.ghz@gmail.com
+                  <a href="mailto:rkpshelpdesk@gmail.com" className="hover:text-amber-400 transition-colors">
+                    rkpshelpdesk@gmail.com
                   </a>
                 </div>
 
@@ -267,7 +267,7 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
           {/* Social Links Row centered at the bottom of navy section */}
           <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-xs sm:text-sm font-semibold text-slate-200">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/radhakrishnapublicschoolrkps/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 hover:text-pink-400 transition-colors"
@@ -279,7 +279,7 @@ export default function Footer({ onOpenAdmission, onOpenErp }) {
             </a>
 
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 hover:text-blue-400 transition-colors"

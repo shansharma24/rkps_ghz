@@ -96,9 +96,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-slate-900">Email Correspondence</h3>
                     <p className="text-slate-600 mt-0.5">
-                      <a href="mailto:admissions@rkpsghaziabad.edu.in" className="hover:text-blue-900 font-medium">admissions@rkpsghaziabad.edu.in</a>
+                      <a href="mailto:rkpshelpdesk@gmail.com" className="hover:text-blue-900 font-medium">rkpshelpdesk@gmail.com</a>
                     </p>
-                    <p className="text-xs text-slate-500">General: info@rkpsghaziabad.edu.in</p>
+                    <p className="text-xs text-slate-500">Admissions, Enquiries &amp; Help Desk</p>
                   </div>
                 </div>
 

@@ -33,6 +33,8 @@ export default function FloatingQuickActions() {
         botReply = "School timings are Monday to Saturday: 8:00 AM to 2:00 PM for scholars, and our administrative office remains open until 4:00 PM.";
       } else if (lower.includes('affiliation') || lower.includes('cbse')) {
         botReply = "Radha Krishna Public School is proudly affiliated with the Central Board of Secondary Education (CBSE), New Delhi.";
+      } else if (lower.includes('email') || lower.includes('mail')) {
+        botReply = "You can write to us directly at rkpshelpdesk@gmail.com for admissions, fee details, or any general queries.";
       }
 
       setMessages((prev) => [...prev, { sender: 'bot', text: botReply }]);

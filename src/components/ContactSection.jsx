@@ -82,7 +82,11 @@ export default function ContactSection({ formRef }) {
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900 uppercase">Email Us</h4>
-                      <p className="text-xs text-slate-600 mt-0.5">info@rkpschool.edu.in / admissions@rkpschool.edu.in</p>
+                      <p className="text-xs text-slate-600 mt-0.5">
+                        <a href="mailto:rkpshelpdesk@gmail.com" className="hover:text-blue-900 font-medium transition-colors">
+                          rkpshelpdesk@gmail.com
+                        </a>
+                      </p>
                     </div>
                   </div>
 
