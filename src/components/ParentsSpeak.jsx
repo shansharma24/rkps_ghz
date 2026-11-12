@@ -151,8 +151,8 @@ export default function ParentsSpeak() {
                     ))}
                   </div>
 
-                  {/* Category Pill */}
-                  <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 border border-blue-100 shadow-2xs">
+                  {/* Category Badge (No Pill) */}
+                  <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-blue-50 text-blue-900 border border-blue-100 shadow-2xs">
                     {item.tag}
                   </span>
                 </div>

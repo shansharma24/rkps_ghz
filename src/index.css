@@ -5,29 +5,41 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #1e293b;
+    color: #0f172a;
     background-color: #ffffff;
     overflow-x: hidden;
   }
   
   h1, h2, h3, .heading-serif {
     font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
   }
 }
 
 @layer utilities {
   .glass-card {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
   }
 
   .glass-dark {
-    background: rgba(11, 27, 61, 0.88);
+    background: rgba(7, 19, 48, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.8);
   }
 
   @keyframes marquee {
@@ -38,10 +50,22 @@
   .animate-marquee {
     display: flex;
     width: max-content;
-    animation: marquee 40s linear infinite;
+    animation: marquee 32s linear infinite;
   }
 
   .animate-marquee:hover {
     animation-play-state: paused;
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+  }
+
+  .box-glow-gold {
+    box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.35);
+  }
+
+  .box-glow-blue {
+    box-shadow: 0 0 25px -5px rgba(37, 99, 235, 0.35);
   }
 }
