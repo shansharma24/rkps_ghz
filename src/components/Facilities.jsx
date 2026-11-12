@@ -1,228 +1,215 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Sparkles, CheckCircle2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowUpRight, ArrowRight, Building2, BookOpen, Trophy, Cpu, Music, ShieldCheck, CheckCircle2, X, Sparkles, MapPin } from 'lucide-react';
 
-// Authentic High-Resolution Campus & Facility Images from local repository
 import exteriorImg from '../assets/Radha Krishna Public School Exterior.png';
-import slide2Img from '../assets/slides/2.png';
-import studentsImg from '../assets/admissions_students.png';
 import slide3Img from '../assets/slides/3.png';
 import slide4Img from '../assets/slides/4.png';
-import slide5Img from '../assets/slides/5.png';
 
-const facilityCollageItems = [
+const facilityCards = [
   {
     id: 'campus',
     title: 'Main Campus & Foundation Wing',
-    category: 'Flagship Campus',
-    badgeColor: 'bg-amber-500 text-slate-950 font-extrabold',
-    desc: 'Spacious green academic grounds, smart administrative facilities, and nurturing foundational learning environment.',
-    features: ['Lush Green Campus', 'Architectural Distinction', 'Senior Secondary Hub'],
+    subtitle: 'Spacious 12-acre verdant academic grounds, smart administrative facilities, and nurturing foundational learning spaces.',
+    tag: 'Flagship Campus',
+    tagColor: 'bg-[#f59e0b] text-slate-950 font-black',
     image: exteriorImg,
-    link: '/facilities#classrooms',
-    gridClass: 'lg:col-span-7 lg:row-span-2 min-h-[360px] sm:min-h-[420px] lg:min-h-[490px]'
+    span: 'lg:col-span-2 lg:row-span-2 min-h-[380px] sm:min-h-[440px] lg:min-h-[500px]',
+    icon: Building2,
+    badgeFeatures: ['12-Acre Campus', 'Estd. 1999', 'CCTV Secured'],
+    details: 'Spanning 12 verdant acres in Ghaziabad, our flagship campus houses architect-designed academic wings, sprawling sports grounds, multimedia smart classrooms, and specialized research blocks for holistic development from Pre-Nursery to Grade XII.'
   },
   {
     id: 'library',
     title: 'Central Library & Digital Hub',
-    category: 'Knowledge Repository',
-    badgeColor: 'bg-blue-600 text-white font-bold',
-    desc: '20,000+ literary volumes, high-speed digital research terminals, and collaborative study alcoves.',
-    features: ['20,000+ Books', 'Digital Catalog', 'Cyber Terminals'],
-    image: slide2Img,
-    link: '/facilities#library',
-    gridClass: 'lg:col-span-5 min-h-[220px] sm:min-h-[235px]'
+    subtitle: '20,000+ literary volumes, high-speed digital research terminals, and quiet study carrels.',
+    tag: 'Knowledge Repository',
+    tagColor: 'bg-blue-600 text-white font-bold',
+    image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/homeinner2.jpg',
+    span: 'lg:col-span-1 min-h-[230px] sm:min-h-[240px]',
+    icon: BookOpen,
+    badgeFeatures: ['20,000+ Volumes', 'Digital Carrels'],
+    details: 'Equipped with over 20,000 reference volumes, international scholastic journals, digital carrels, and high-speed internet terminals fostering independent inquiry.'
   },
   {
-    id: 'scholars',
+    id: 'senior-wing',
     title: 'Senior Academic Wing',
-    category: 'Academic Distinction',
-    badgeColor: 'bg-emerald-600 text-white font-bold',
-    desc: 'Multimedia smart classrooms, dedicated CBSE distinction mentorship, and advanced experimental science wings.',
-    features: ['Smart Classrooms', 'CBSE Distinction', 'Expert Mentors'],
-    image: studentsImg,
-    link: '/facilities#classrooms',
-    gridClass: 'lg:col-span-5 min-h-[220px] sm:min-h-[235px]'
+    subtitle: 'Multimedia smart classrooms, dedicated CBSE distinction mentorship, and advanced experimental science wings.',
+    tag: 'Academic Distinction',
+    tagColor: 'bg-emerald-600 text-white font-bold',
+    image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/homeinner3.jpg',
+    span: 'lg:col-span-1 min-h-[230px] sm:min-h-[240px]',
+    icon: ShieldCheck,
+    isFeatured: true, // Signature amber border from reference design
+    badgeFeatures: ['Smart Classrooms', 'CBSE Distinction', 'Expert Mentors'],
+    details: 'Dedicated collegiate wings for Science, Commerce, and Humanities with integrated preparation for IIT-JEE, NEET, and CUET under seasoned senior faculty.'
   },
   {
-    id: 'stem',
+    id: 'stem-lab',
     title: 'Robotics & STEM Innovation Lab',
-    category: 'Future-Ready STEM',
-    badgeColor: 'bg-indigo-600 text-white font-bold',
-    desc: 'Hands-on robotics kits, coding stations, 3D prototyping models, and interactive science discovery apparatus.',
-    features: ['Robotics Kits', 'Coding Workstations', '3D Science Kits'],
+    subtitle: 'Hands-on robotics kits, coding stations, 3D prototyping, and IoT experimentation benches.',
+    tag: 'Future-Ready STEM',
+    tagColor: 'bg-indigo-600 text-white font-bold',
     image: slide3Img,
-    link: '/facilities#labs',
-    gridClass: 'lg:col-span-4 min-h-[250px] sm:min-h-[280px]'
+    span: 'lg:col-span-1 min-h-[240px] sm:min-h-[260px]',
+    icon: Cpu,
+    badgeFeatures: ['Atal Tinkering', 'Robotics Kits', '3D Prototyping'],
+    details: 'State-of-the-art innovation lab featuring Arduino microcontrollers, ESP32 modules, 3D printing stations, and algorithmic programming setups.'
   },
   {
     id: 'sports',
     title: 'Olympic Sports Arena & Turf',
-    category: 'Sports Excellence',
-    badgeColor: 'bg-amber-600 text-white font-bold',
-    desc: 'Cricket turf, synthetic badminton and basketball courts, athletics field, and martial arts ring.',
-    features: ['Cricket Practice Turf', 'Basketball Arena', 'Badminton Academy'],
+    subtitle: 'Cricket turf, synthetic badminton, basketball courts, and NIS-certified athletics coaching.',
+    tag: 'Sports Excellence',
+    tagColor: 'bg-amber-500 text-slate-950 font-black',
     image: slide4Img,
-    link: '/facilities#ground',
-    gridClass: 'lg:col-span-4 min-h-[250px] sm:min-h-[280px]'
+    span: 'lg:col-span-1 min-h-[240px] sm:min-h-[260px]',
+    icon: Trophy,
+    badgeFeatures: ['Cricket Turf', 'Basketball Academy', 'NIS Mentors'],
+    details: 'Sprawling athletic facilities including professional cricket coaching nets, synthetic basketball arena, badminton courts, and track & field training.'
   },
   {
-    id: 'auditorium',
+    id: 'arts',
     title: 'Performing Arts Auditorium',
-    category: 'Cultural Center',
-    badgeColor: 'bg-purple-600 text-white font-bold',
-    desc: 'Acoustically engineered amphitheater for morning assemblies, musical theatre, annual galas, and debates.',
-    features: ['Surround Audio System', 'Theatrical Stage', 'Amphitheater Seating'],
-    image: slide5Img,
-    link: '/facilities#auditorium',
-    gridClass: 'lg:col-span-4 min-h-[250px] sm:min-h-[280px]'
+    subtitle: 'Acoustically engineered amphitheater for morning assemblies, theatrical drama, and annual symposia.',
+    tag: 'Cultural Center',
+    tagColor: 'bg-purple-600 text-white font-bold',
+    image: 'https://khaitanpublicschool.com/wp-content/uploads/2025/12/homeinner1.jpg',
+    span: 'lg:col-span-1 min-h-[240px] sm:min-h-[260px]',
+    icon: Music,
+    badgeFeatures: ['1,200 Capacity', 'Acoustic Sound', 'Grand Stage'],
+    details: '1,200-seat multi-tier amphitheater engineered for theatrical performances, Indian classical dance, vocal music recitals, and national symposia.'
   }
 ];
 
 export default function Facilities() {
-  const [activeId, setActiveId] = useState('campus');
+  const [selectedFacility, setSelectedFacility] = useState(null);
 
   return (
     <section 
-      className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white via-slate-50 to-blue-50/20 text-slate-800 relative overflow-hidden" 
-      data-purpose="facilities-collage" 
+      className="py-16 sm:py-20 md:py-24 bg-[#fff6f8] relative overflow-hidden border-b border-rose-100/80" 
+      data-purpose="facilities-bento-grid" 
       id="facilities"
     >
-      <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* 1. Signature Red/Rose Polka-Dot Pattern (Ravensbourne Style) */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#f43f5e 1.75px, transparent 1.75px)',
+          backgroundSize: '22px 22px',
+          opacity: 0.5
+        }}
+      />
+
+      {/* 2. Top-Right Magenta/Rose Curved Corner Accent */}
+      <div className="absolute top-0 right-0 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 pointer-events-none overflow-hidden z-0">
+        <div 
+          className="w-72 sm:w-96 md:w-[420px] h-72 sm:h-96 md:h-[420px] -top-24 sm:-top-32 md:-top-36 -right-24 sm:-right-32 md:-right-36 absolute rounded-full bg-gradient-to-bl from-[#e11d48] via-[#e11d48] to-[#be185d] opacity-90 shadow-md"
+        />
+      </div>
+
+      {/* 3. Ambient Rose/Gold Glow */}
+      <div className="absolute top-1/3 left-10 w-96 h-96 rounded-full bg-rose-200/35 blur-3xl pointer-events-none" />
+
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 relative z-10">
         
-        {/* Header with Title and Highlights */}
+        {/* Header with Title and Highlights (Exact match from reference image) */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold uppercase tracking-wider mb-2 border border-amber-200/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
               <span>World-Class Infrastructure</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0B1E48] tracking-tight heading-serif">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0B1E48] tracking-tight heading-serif">
               Campus &amp; Facilities
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl font-medium">
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-xl font-medium leading-relaxed">
               Explore our modern academic wings, research laboratories, athletics arena, and central library through our campus collage.
             </p>
           </div>
           
           <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
-            <span className="bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-xs text-slate-700 flex items-center gap-1.5 border border-slate-200/60">
+            <span className="bg-white px-3.5 py-1.5 rounded-full border border-slate-200/80 shadow-xs text-slate-700 flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
               Lush Green Campus
             </span>
-            <span className="bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-xs text-slate-700 flex items-center gap-1.5 border border-slate-200/60">
+            <span className="bg-white px-3.5 py-1.5 rounded-full border border-slate-200/80 shadow-xs text-slate-700 flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-amber-500" />
               Smart Classrooms
             </span>
-            <span className="bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-xs text-slate-700 flex items-center gap-1.5 border border-slate-200/60">
+            <span className="bg-white px-3.5 py-1.5 rounded-full border border-slate-200/80 shadow-xs text-slate-700 flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-blue-500" />
               Olympic Arena
             </span>
-            <Link
-              to="/facilities"
-              className="px-3.5 py-1.5 rounded-full bg-blue-950 hover:bg-blue-900 text-white font-bold transition-all flex items-center gap-1 shadow-sm"
+            <a
+              href="#facilities"
+              className="bg-[#0B1E48] hover:bg-[#f59e0b] text-white hover:text-slate-950 px-4 py-1.5 rounded-full font-bold text-xs flex items-center gap-1 transition-all shadow-sm cursor-pointer ml-1"
             >
               <span>View All</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
+            </a>
           </div>
         </div>
 
-        {/* Dynamic Bento Photo Collage with Accordion Interaction & Effects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
-          {facilityCollageItems.map((item) => {
-            const isActive = activeId === item.id;
-
+        {/* Bento Collage Grid (High-Resolution Real Photos with Catchy Polish) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {facilityCards.map((facility) => {
             return (
               <div
-                key={item.id}
-                onMouseEnter={() => setActiveId(item.id)}
-                onClick={() => setActiveId(item.id)}
-                className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 transform ${item.gridClass} ${
-                  isActive 
-                    ? 'ring-2 ring-amber-400 shadow-[0_20px_50px_rgba(11,30,72,0.45)] scale-[1.01] z-20' 
-                    : 'ring-1 ring-white/30 shadow-md hover:ring-amber-400/60 hover:shadow-xl hover:scale-[1.008]'
-                }`}
-                tabIndex={0}
-                role="button"
-                aria-label={item.title}
+                key={facility.id}
+                onClick={() => setSelectedFacility(facility)}
+                className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-end p-5 sm:p-6 cursor-pointer ${
+                  facility.isFeatured 
+                    ? 'border-2 border-amber-400 shadow-xl ring-2 ring-amber-400/25' 
+                    : 'border border-slate-200/90'
+                } ${facility.span} hover:-translate-y-1.5`}
               >
-                {/* Background Image from Local Folder with Parallax / Smooth Zoom Effect */}
+                {/* Background Image with Zoom on Hover */}
                 <img
-                  src={item.image}
-                  alt={item.title}
-                  className={`absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out select-none pointer-events-none ${
-                    isActive ? 'scale-110 filter brightness-[0.98]' : 'scale-100 group-hover:scale-105 filter brightness-[0.85]'
-                  }`}
+                  src={facility.image}
+                  alt={facility.title}
+                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                  loading="lazy"
                 />
 
-                {/* Ambient Deep Navy Gradient Overlay */}
-                <div 
-                  className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/55 to-slate-950/20 transition-opacity duration-500 pointer-events-none ${
-                    isActive ? 'opacity-65' : 'opacity-85 group-hover:opacity-75'
-                  }`} 
-                />
+                {/* Dark Gradient Overlay for readable white typography */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/45 to-slate-950/20 group-hover:via-slate-950/35 transition-all duration-300 pointer-events-none" />
 
-                {/* Subtle Amber Edge Glow */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/40 via-transparent to-amber-500/10 pointer-events-none" />
-
-                {/* Top Badge */}
-                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10">
-                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs uppercase tracking-wider backdrop-blur-md shadow-md transition-all duration-300 ${item.badgeColor}`}>
-                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                    <span>{item.category}</span>
+                {/* Top Floating Badge & Arrow (Rotates on hover) */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+                  <span className={`text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm ${facility.tagColor}`}>
+                    {facility.tag}
                   </span>
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/40 group-hover:bg-[#f59e0b] group-hover:text-slate-950 backdrop-blur-md text-white flex items-center justify-center transition-all duration-300 border border-white/20 group-hover:border-amber-400 group-hover:rotate-45 shadow-sm">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
                 </div>
 
-                {/* Top Right Quick Link Indicator */}
-                <Link
-                  to={item.link}
-                  onClick={(e) => e.stopPropagation()}
-                  className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 w-8 h-8 rounded-full bg-slate-900/60 hover:bg-amber-400 hover:text-slate-950 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all duration-300 group-hover:scale-110 shadow"
-                  title="Explore Details"
-                >
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-
-                {/* Bottom Content Area with Signature Accordion Glowing Amber Bar */}
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 lg:p-6 z-10 flex flex-col justify-end bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent">
-                  <div className="flex items-start gap-3">
-                    {/* Signature Accordion Glowing Amber Bar */}
-                    <span 
-                      className={`w-1 rounded-full bg-amber-400 shrink-0 transition-all duration-300 ${
-                        isActive 
-                          ? 'h-8 sm:h-9 shadow-[0_0_16px_rgba(245,158,11,1)] bg-amber-300' 
-                          : 'h-5 sm:h-6 shadow-[0_0_8px_rgba(245,158,11,0.6)] group-hover:h-8'
-                      }`} 
-                    />
-
-                    <div className="flex-1">
-                      <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-black text-white heading-serif tracking-tight drop-shadow-md">
-                        {item.title}
-                      </h3>
-
-                      <p className={`text-xs sm:text-sm text-slate-200 mt-1 font-medium transition-all duration-300 leading-relaxed ${
-                        isActive ? 'line-clamp-2 opacity-100' : 'line-clamp-1 group-hover:line-clamp-2 opacity-90'
-                      }`}>
-                        {item.desc}
-                      </p>
-
-                      {/* Feature Chips that smoothly reveal */}
-                      <div className={`flex flex-wrap items-center gap-1.5 sm:gap-2 mt-2.5 transition-all duration-300 ${
-                        isActive ? 'opacity-100 max-h-16' : 'opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-16'
-                      }`}>
-                        {item.features.map((feat, fIdx) => (
-                          <span 
-                            key={fIdx} 
-                            className="text-[9px] sm:text-[10px] font-semibold bg-white/20 hover:bg-white/30 text-white backdrop-blur-md px-2 sm:px-2.5 py-0.5 rounded-full border border-white/20 flex items-center gap-1"
-                          >
-                            <CheckCircle2 className="w-2.5 h-2.5 text-amber-300" />
-                            <span>{feat}</span>
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                {/* Bottom Text Content */}
+                <div className="relative z-10 text-white">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="w-1 h-4 sm:h-5 bg-[#f59e0b] rounded-full inline-block shrink-0" />
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold heading-serif tracking-tight text-white group-hover:text-amber-300 transition-colors">
+                      {facility.title}
+                    </h3>
                   </div>
+
+                  <p className="text-xs sm:text-xs text-slate-200/90 line-clamp-2 font-normal leading-relaxed pl-3 mb-2.5">
+                    {facility.subtitle}
+                  </p>
+
+                  {/* Sub-Badges (Exact match for Senior Wing from Reference image) */}
+                  {facility.badgeFeatures && facility.badgeFeatures.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-1.5 pl-3 pt-1">
+                      {facility.badgeFeatures.map((badge, idx) => (
+                        <span 
+                          key={idx}
+                          className="text-[10px] sm:text-[11px] px-2.5 py-0.5 rounded-full bg-slate-900/70 backdrop-blur-xs text-slate-200 border border-white/10 font-medium"
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             );
@@ -230,6 +217,97 @@ export default function Facilities() {
         </div>
 
       </div>
+
+      {/* Interactive Facility Detail Lightbox Modal */}
+      {selectedFacility && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setSelectedFacility(null)}
+        >
+          <div 
+            className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200 text-slate-900"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header Image */}
+            <div className="relative h-60 sm:h-72 w-full bg-slate-950">
+              <img 
+                src={selectedFacility.image} 
+                alt={selectedFacility.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+              
+              <button 
+                onClick={() => setSelectedFacility(null)}
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md transition-transform hover:scale-110 active:scale-90 cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="absolute bottom-5 left-6 right-6 text-white">
+                <span className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2 shadow-sm ${selectedFacility.tagColor}`}>
+                  {selectedFacility.tag}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black heading-serif text-white">
+                  {selectedFacility.title}
+                </h3>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 sm:p-8 space-y-5 bg-slate-50/50">
+              <div>
+                <h4 className="text-xs font-bold text-amber-700 uppercase tracking-widest mb-1.5">
+                  Facility Overview
+                </h4>
+                <p className="text-sm text-slate-700 leading-relaxed font-medium">
+                  {selectedFacility.details}
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2.5">
+                  Key Infrastructure Highlights
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {selectedFacility.badgeFeatures.map((feat, idx) => (
+                    <div key={idx} className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-xs text-xs font-semibold text-slate-800">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <span className="text-xs text-slate-500 font-medium">
+                  Campus tours available Monday to Saturday.
+                </span>
+                <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <button
+                    onClick={() => setSelectedFacility(null)}
+                    className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                  >
+                    Close
+                  </button>
+                  <a
+                    href="#admissions"
+                    onClick={() => setSelectedFacility(null)}
+                    className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#0B1E48] hover:bg-[#f59e0b] hover:text-slate-950 text-white text-xs font-bold uppercase tracking-wider text-center transition-all shadow-md cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>Schedule Campus Visit</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
+
     </section>
   );
 }

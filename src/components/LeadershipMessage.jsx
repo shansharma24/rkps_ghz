@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Quote, X, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { Quote, Award, ArrowRight, X, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import directorImg from '../assets/director.png';
 import principalImg from '../assets/principal.png';
 
 const leaders = [
   {
     id: 'director',
-    role: 'DIRECTOR',
+    tabName: "Director's Vision",
+    role: 'MANAGING DIRECTOR & FOUNDER',
     name: 'Dr. Satish Yadav',
     experience: '28+ Years in Educational Leadership',
     image: directorImg,
+    deskUrl: '/directors-desk',
     quote: '“Education is the most powerful weapon which you can use to change the world.”',
     quoteAuthor: 'Nelson Mandela',
     previewText:
-      'Dear Parents, Students, and Well-wishers, It is with great joy and immense pride that I welcome you to Radha Krishna Public School, Ghaziabad. Over the last two and a half decades, our institution has established itself as a sacred sanctuary of learning, values, and progressive innovation. Every brick of this campus carries our unyielding commitment to academic brilliance and the transformative empowerment of each child.',
+      'Dear Parents, Students, and Well-wishers, It is with immense pride that I welcome you to Radha Krishna Public School. Over a quarter-century, our institution has stood firm as a sanctuary of learning, values, and progressive innovation. Every brick of this campus carries our unyielding commitment to academic brilliance and the transformative empowerment of each child.',
+    highlights: [
+      'Pioneering non-commercial, values-based schooling in NCR since 1999',
+      'Integration of 21st-century digital competencies with timeless Bharatiya heritage',
+      'Dedicated parental partnership and personalized mentorship for all scholars'
+    ],
     fullMessage: [
       'Dear Parents, Students, and Well-wishers,',
       'It is with great joy and immense pride that I welcome you to Radha Krishna Public School, Ghaziabad. Over the last two and a half decades, our institution has established itself as a sacred sanctuary of learning, values, and progressive innovation. Every brick of this campus carries our unyielding commitment to academic brilliance and the transformative empowerment of each child.',
@@ -24,14 +32,21 @@ const leaders = [
   },
   {
     id: 'principal',
-    role: 'PRINCIPAL',
-    name: 'Dr. Rupa Tyagi ',
+    tabName: "Principal's Desk",
+    role: 'PRINCIPAL & ACADEMIC HEAD',
+    name: 'Dr. Rupa Tyagi',
     experience: '22+ Years in Pedagogy & Curriculum Excellence',
     image: principalImg,
+    deskUrl: '/principals-desk',
     quote: '“The mind is not a vessel to be filled, but a fire to be kindled.”',
     quoteAuthor: 'Plutarch',
     previewText:
       'Dear Parents, Students, and Aspiring Learners, Welcome to the vibrant academic fraternity of Radha Krishna Public School. As educators, our supreme privilege is to create an inspiring ecosystem where intellectual curiosity flourishes, critical thinking takes root, and every young learner discovers their distinct voice and potential.',
+    highlights: [
+      'Student-centric CBSE curriculum balanced with artistic and athletic expression',
+      'Individualized mentorship ensuring no learner is left behind in board preparations',
+      'Cutting-edge experiential laboratories fostering hands-on scientific mastery'
+    ],
     fullMessage: [
       'Dear Parents, Students, and Aspiring Learners,',
       'Welcome to the vibrant academic fraternity of Radha Krishna Public School. As educators, our supreme privilege is to create an inspiring ecosystem where intellectual curiosity flourishes, critical thinking takes root, and every young learner discovers their distinct voice and potential.',
@@ -43,262 +58,212 @@ const leaders = [
 ];
 
 export default function LeadershipMessage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  // Auto-swipe every 2.5 seconds unless paused on hover or when modal is open
-  useEffect(() => {
-    if (isPaused || isModalOpen) return;
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev === 0 ? 1 : 0));
-    }, 2500);
-    return () => clearInterval(interval);
-  }, [isPaused, isModalOpen]);
-
-  const currentLeader = leaders[currentIndex];
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? leaders.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === leaders.length - 1 ? 0 : prev + 1));
-  };
+  const current = leaders[activeTab];
 
   return (
-    <section 
-      className="py-8 sm:py-10 md:py-12 bg-[#FFF7F6] relative overflow-hidden" 
-      data-purpose="leadership-message"
-      id="leadership"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {/* Subtle ambient decorative dots */}
+    <section className="py-16 sm:py-20 md:py-24 bg-[#fff6f8] border-y border-rose-100/80 relative overflow-hidden" data-purpose="leadership-message" id="leadership">
+      
+      {/* 1. Signature Red/Rose Polka-Dot Pattern (Ravensbourne Style) */}
       <div 
-        className="absolute top-4 right-10 w-40 h-40 opacity-20 pointer-events-none hidden lg:block"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(#e11d48 1.5px, transparent 1.5px)',
-          backgroundSize: '16px 16px'
-        }}
-      />
-      <div 
-        className="absolute bottom-4 left-10 w-36 h-36 opacity-15 pointer-events-none hidden lg:block"
-        style={{
-          backgroundImage: 'radial-gradient(#1e3a8a 1.5px, transparent 1.5px)',
-          backgroundSize: '16px 16px'
+          backgroundImage: 'radial-gradient(#f43f5e 1.75px, transparent 1.75px)',
+          backgroundSize: '22px 22px',
+          opacity: 0.5
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+      {/* 2. Top-Right Magenta/Rose Curved Corner Accent */}
+      <div className="absolute top-0 right-0 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 pointer-events-none overflow-hidden z-0">
+        <div 
+          className="w-72 sm:w-96 md:w-[420px] h-72 sm:h-96 md:h-[420px] -top-24 sm:-top-32 md:-top-36 -right-24 sm:-right-32 md:-right-36 absolute rounded-full bg-gradient-to-bl from-[#e11d48] via-[#e11d48] to-[#be185d] opacity-90 shadow-md"
+        />
+      </div>
+
+      {/* 3. Ambient Rose Glow */}
+      <div className="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-rose-200/35 blur-3xl pointer-events-none" />
+
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         
-        {/* Single-line Header without tabs */}
-        <div className="text-center mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#192A56] tracking-tight heading-serif inline-flex items-center gap-2 sm:gap-3">
-            <span>Leadership</span>
-            <span className="text-[#EF4444]">Message</span>
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#192A56] via-[#EF4444] to-[#192A56] mx-auto mt-2 rounded-full" />
+        {/* Section Header & Tab Bar (MIT/Pathways Style) */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">
+              Governance &amp; Mentorship
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 heading-serif tracking-tight">
+              Messages from Educational Leadership
+            </h2>
+          </div>
+
+          {/* Executive Switcher Tabs */}
+          <div className="flex p-1.5 bg-white rounded-2xl border border-slate-200 shadow-xs self-start md:self-auto">
+            {leaders.map((leader, idx) => (
+              <button
+                key={leader.id}
+                onClick={() => setActiveTab(idx)}
+                className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  activeTab === idx
+                    ? 'bg-blue-950 text-white shadow'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                {leader.tabName}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* =========================================================================
-            SLIDER SHOWCASE (Utilizes full horizontal space & compact vertical height)
-           ========================================================================= */}
-        <div className="relative flex items-center justify-between gap-2 sm:gap-4">
-          
-          {/* Left Arrow Button */}
-          <button
-            onClick={handlePrev}
-            className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-[#EF4444] text-[#EF4444] hover:bg-[#EF4444] hover:text-white flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm hover:scale-105 active:scale-95 bg-white z-20 cursor-pointer"
-            aria-label="Previous leader"
-          >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
+        {/* Executive Showcase Card (Clean White with Hairline Borders) */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-200/90 shadow-xl transition-all duration-500">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+            
+            {/* Left: Formal Portrait Frame */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-sm">
+                
+                {/* Accent Corner Line */}
+                <div className="absolute -top-3 -left-3 w-28 h-28 border-t-4 border-l-4 border-amber-500 rounded-tl-3xl pointer-events-none" />
+                <div className="absolute -bottom-3 -right-3 w-28 h-28 border-b-4 border-r-4 border-blue-950 rounded-br-3xl pointer-events-none" />
 
-          {/* Main Card Container */}
-          <div className="flex-1 bg-white/75 backdrop-blur-xs rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-rose-100 shadow-sm transition-all duration-500">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 items-center">
-              
-              {/* Left Column: Stylized Portrait Frame */}
-              <div className="lg:col-span-4 flex justify-center">
-                <div className="relative w-52 sm:w-60 md:w-64 lg:w-72">
-                  
-                  {/* Decorative background dot grid accent */}
-                  <div 
-                    className="absolute -top-3 -right-3 w-20 h-20 opacity-40 pointer-events-none"
-                    style={{
-                      backgroundImage: 'radial-gradient(#f43f5e 1.5px, transparent 1.5px)',
-                      backgroundSize: '10px 10px'
-                    }}
+                {/* Portrait */}
+                <div className="relative rounded-2xl overflow-hidden bg-slate-900 shadow-2xl aspect-[4/5] border-2 border-white">
+                  <img
+                    src={current.image}
+                    alt={current.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
 
-                  {/* Red/Coral Top-Left Curved Outer Accent Arc */}
-                  <div className="absolute -top-2.5 -left-2.5 w-28 sm:w-32 h-28 sm:h-32 border-t-[6px] sm:border-t-[7px] border-l-[6px] sm:border-l-[7px] border-[#EF4444] rounded-tl-[40px] pointer-events-none" />
-
-                  {/* Deep Navy Bottom-Right Curved Outer Accent Arc */}
-                  <div className="absolute -bottom-2.5 -right-2.5 w-28 sm:w-32 h-28 sm:h-32 border-b-[6px] sm:border-b-[7px] border-r-[6px] sm:border-r-[7px] border-[#192A56] rounded-br-[40px] pointer-events-none" />
-
-                  {/* Portrait Card */}
-                  <div className="relative rounded-[28px] sm:rounded-[32px] overflow-hidden bg-slate-900 shadow-lg border-3 border-white aspect-square">
-                    <img
-                      key={currentLeader.id}
-                      src={currentLeader.image}
-                      alt={currentLeader.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105 animate-fadeIn"
-                    />
-
-                    {/* Subtle bottom shadow vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                    {/* Desk Name Plate Overlay */}
-                    <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white rounded-xl py-1.5 px-2.5 border border-amber-400/40 shadow-md text-center backdrop-blur-md">
-                      <div className="text-xs sm:text-sm font-extrabold tracking-wider text-amber-300 uppercase truncate">
-                        {currentLeader.name}
-                      </div>
-                      <div className="text-[9px] sm:text-[10px] font-bold text-slate-300 tracking-widest uppercase">
-                        {currentLeader.role}
-                      </div>
-                    </div>
+                  {/* Nameplate Overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md p-3.5 rounded-xl border border-white/20 text-center">
+                    <h3 className="text-base font-extrabold text-amber-300 heading-serif">
+                      {current.name}
+                    </h3>
+                    <p className="text-[11px] font-bold text-slate-300 uppercase tracking-wider mt-0.5">
+                      {current.role}
+                    </p>
+                    <p className="text-[10px] text-slate-400 mt-1">
+                      {current.experience}
+                    </p>
                   </div>
-
                 </div>
+
+              </div>
+            </div>
+
+            {/* Right: Editorial Message & Leadership Pillars */}
+            <div className="lg:col-span-7 space-y-6">
+              
+              {/* Quote Box */}
+              <div className="relative bg-slate-50 p-6 rounded-2xl border-l-4 border-amber-500 border border-slate-200/80 shadow-xs">
+                <Quote className="w-8 h-8 text-amber-500/20 absolute top-3 right-4 pointer-events-none" />
+                <p className="text-sm sm:text-base font-bold text-slate-800 leading-snug italic">
+                  {current.quote}
+                </p>
+                <span className="block text-xs font-extrabold text-amber-700 uppercase tracking-wider mt-2 not-italic">
+                  — {current.quoteAuthor}
+                </span>
               </div>
 
-              {/* Right Column: Quotes & Message (Utilizes wide horizontal space) */}
-              <div className="lg:col-span-8 space-y-3.5 sm:space-y-4">
-                
-                {/* Quote Box matching reference */}
-                <div className="relative bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#EF4444]/60 shadow-xs">
-                  <Quote className="absolute -top-3 right-4 w-6 h-6 text-[#192A56] fill-[#192A56] transform rotate-180" />
+              {/* Message Narrative */}
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                {current.previewText}
+              </p>
 
-                  <p className="text-sm sm:text-base font-bold text-[#192A56] leading-snug pr-4">
-                    {currentLeader.quote} – <span className="font-extrabold text-[#EF4444]">{currentLeader.quoteAuthor}</span>
-                  </p>
-                </div>
-
-                {/* Main Message Text */}
-                <div className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
-                  <p className="line-clamp-4 sm:line-clamp-none">
-                    {currentLeader.previewText}..{' '}
-                    <button
-                      onClick={() => setIsModalOpen(true)}
-                      className="text-[#EF4444] hover:text-[#DC2626] font-bold underline inline-flex items-center gap-0.5 cursor-pointer ml-1 transition-colors"
-                    >
-                      Read More
-                    </button>
-                  </p>
-                </div>
-
-                {/* Leader Credential Meta Strip */}
-                <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-slate-500 border-t border-rose-100">
-                  <div className="flex items-center gap-1.5 font-semibold text-[#192A56]">
-                    <Award className="w-4 h-4 text-amber-500" />
-                    <span>{currentLeader.experience}</span>
+              {/* Key Leadership Pillars */}
+              <div className="space-y-2.5 pt-2 border-t border-slate-100">
+                {current.highlights.map((h, i) => (
+                  <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>{h}</span>
                   </div>
-                  {currentLeader.credentials && (
-                    <>
-                      <span className="text-slate-300">•</span>
-                      <span className="text-slate-600 font-medium">{currentLeader.credentials}</span>
-                    </>
-                  )}
-                </div>
+                ))}
+              </div>
 
+              {/* Actions */}
+              <div className="pt-4 flex flex-wrap items-center gap-4">
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="px-6 py-3 rounded-xl bg-blue-950 hover:bg-blue-900 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  Read Full Message (Letter)
+                </button>
+
+                <Link
+                  to={current.deskUrl}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-900 hover:text-amber-600 transition-colors uppercase tracking-wider"
+                >
+                  <span>Visit {current.tabName} Page</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
               </div>
 
             </div>
+
           </div>
-
-          {/* Right Arrow Button */}
-          <button
-            onClick={handleNext}
-            className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-[#EF4444] text-[#EF4444] hover:bg-[#EF4444] hover:text-white flex items-center justify-center shrink-0 transition-all duration-200 shadow-sm hover:scale-105 active:scale-95 bg-white z-20 cursor-pointer"
-            aria-label="Next leader"
-          >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
-
-        </div>
-
-        {/* Bottom Pagination Dots with subtle auto-swipe progress pulse */}
-        <div className="flex items-center justify-center gap-2 mt-5 sm:mt-6">
-          {leaders.map((leader, idx) => (
-            <button
-              key={leader.id}
-              onClick={() => setCurrentIndex(idx)}
-              className={`transition-all duration-300 rounded-full cursor-pointer ${
-                currentIndex === idx
-                  ? 'w-7 h-2 bg-[#EF4444]'
-                  : 'w-2 h-2 bg-rose-200 hover:bg-rose-300'
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
         </div>
 
       </div>
 
-      {/* =========================================================================
-          FULL LEADERSHIP MESSAGE MODAL
-         ========================================================================= */}
-      {isModalOpen && (
+      {/* Full Executive Message Modal */}
+      {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-fadeIn">
-          <div 
-            className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-rose-100 animate-scaleUp"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="relative bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 animate-scaleUp max-h-[88vh] flex flex-col">
+            
             {/* Modal Header */}
-            <div className="bg-[#192A56] p-5 sm:p-6 text-white relative">
-              <button 
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-transform hover:scale-110 active:scale-90"
+            <div className="bg-blue-950 p-6 text-white flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <img
+                  src={current.image}
+                  alt={current.name}
+                  className="w-14 h-14 rounded-2xl object-cover border-2 border-amber-400"
+                />
+                <div>
+                  <span className="text-[10px] font-bold text-amber-300 uppercase tracking-widest">
+                    {current.role}
+                  </span>
+                  <h3 className="text-xl font-bold heading-serif text-white">
+                    {current.name}
+                  </h3>
+                  <p className="text-xs text-slate-300">
+                    {current.experience}
+                  </p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setModalOpen(false)}
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
-
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0">
-                  <img 
-                    src={currentLeader.image} 
-                    alt={currentLeader.name} 
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <div>
-                  <span className="px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-bold uppercase tracking-wider inline-block mb-1">
-                    {currentLeader.role}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold heading-serif text-white">
-                    {currentLeader.name}
-                  </h3>
-                  {currentLeader.credentials && (
-                    <p className="text-xs text-slate-300">
-                      {currentLeader.credentials}
-                    </p>
-                  )}
-                </div>
-              </div>
             </div>
 
             {/* Modal Body */}
-            <div className="p-5 sm:p-8 space-y-4 max-h-[60vh] overflow-y-auto">
-              <div className="p-4 rounded-xl bg-[#FFF7F6] border-l-4 border-[#EF4444] text-xs sm:text-sm font-semibold text-[#192A56] italic">
-                {currentLeader.quote} – <span className="font-bold text-[#EF4444]">{currentLeader.quoteAuthor}</span>
+            <div className="p-6 sm:p-8 space-y-4 overflow-y-auto flex-1">
+              <div className="p-4 bg-amber-50 rounded-xl border border-amber-200 text-xs sm:text-sm font-semibold text-amber-900 italic">
+                {current.quote} — <span className="font-bold">{current.quoteAuthor}</span>
               </div>
 
-              <div className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                {currentLeader.fullMessage.map((p, idx) => (
+              <div className="space-y-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                {current.fullMessage.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
               </div>
+            </div>
 
-              <div className="pt-4 border-t border-slate-100 flex justify-end">
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-6 py-2.5 rounded-xl bg-[#192A56] hover:bg-[#101e3d] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md"
-                >
-                  Close Message
-                </button>
-              </div>
+            {/* Modal Footer */}
+            <div className="p-4 border-t border-slate-100 bg-slate-50 flex justify-end">
+              <button
+                onClick={() => setModalOpen(false)}
+                className="px-6 py-2.5 bg-blue-950 text-white rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-blue-900 transition-colors shadow"
+              >
+                Close Message
+              </button>
             </div>
           </div>
         </div>

@@ -20,16 +20,18 @@ import AdmissionsPage from './pages/AdmissionsPage';
 import DownloadsPage from './pages/DownloadsPage';
 import GalleryPage from './pages/GalleryPage';
 
-// Modals
+// Global Modals
 import AdmissionModal from './components/modals/AdmissionModal';
 import ErpLoginModal from './components/modals/ErpLoginModal';
 import VirtualTourModal from './components/modals/VirtualTourModal';
+import VisitUsModal from './components/modals/VisitUsModal';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [admissionOpen, setAdmissionOpen] = useState(false);
   const [erpOpen, setErpOpen] = useState(false);
   const [virtualTourOpen, setVirtualTourOpen] = useState(false);
+  const [visitUsOpen, setVisitUsOpen] = useState(false);
 
   const handleLoadingFinished = useCallback(() => {
     setLoading(false);
@@ -37,28 +39,34 @@ export default function App() {
 
   const scrollToEnquiry = () => {
     const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-    else setAdmissionOpen(true);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      setAdmissionOpen(true);
+    }
   };
 
   return (
     <BrowserRouter>
-      {/* Initial Light-Themed Animated Loading Screen */}
+      {/* 0. Initial Animated Loading Screen */}
       {loading && <LoadingScreen onFinished={handleLoadingFinished} />}
 
       <ScrollToTop />
-      <div className="relative min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col">
+      
+      <div className="relative min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col font-sans">
 
-        {/* 1. Global Top Utility Header */}
+        {/* 1. Global Top Utility Bar (CBSE Affiliation, Phone, ERP, Apply) */}
         <TopUtilityHeader
           onOpenAdmission={() => setAdmissionOpen(true)}
           onOpenErp={() => setErpOpen(true)}
         />
 
-        {/* 2. Global Navigation Bar with Multi-Page Routing */}
+        {/* 2. Global Sticky Navbar with Multi-Tier Dropdowns */}
         <Navbar
           onOpenEnquiry={scrollToEnquiry}
           onOpenAdmission={() => setAdmissionOpen(true)}
+          onOpenVisitUs={() => setVisitUsOpen(true)}
+          onOpenErp={() => setErpOpen(true)}
         />
 
         {/* 3. Dynamic Page View Routes */}
@@ -70,6 +78,7 @@ export default function App() {
                 <HomePage
                   onOpenAdmission={() => setAdmissionOpen(true)}
                   onOpenVirtualTour={() => setVirtualTourOpen(true)}
+                  onOpenVisitUs={() => setVisitUsOpen(true)}
                   scrollToEnquiry={scrollToEnquiry}
                 />
               }
@@ -120,7 +129,7 @@ export default function App() {
                 />
               }
             />
-            {/* Catch-all fallback to HomePage */}
+            {/* Catch-all fallback */}
             <Route
               path="*"
               element={
@@ -134,13 +143,13 @@ export default function App() {
           </Routes>
         </div>
 
-        {/* 4. Global Institutional Midnight Navy Footer */}
+        {/* 4. Global Institutional Footer & Partner Marquee */}
         <Footer
           onOpenAdmission={() => setAdmissionOpen(true)}
           onOpenErp={() => setErpOpen(true)}
         />
 
-        {/* 5. Persistent Floating Quick Actions */}
+        {/* 5. Persistent Floating Quick Actions (Call, WhatsApp, AI Chatbot) */}
         <FloatingQuickActions />
 
         {/* Global Interactive Modals */}
@@ -158,7 +167,13 @@ export default function App() {
           isOpen={virtualTourOpen}
           onClose={() => setVirtualTourOpen(false)}
         />
+
+        <VisitUsModal
+          isOpen={visitUsOpen}
+          onClose={() => setVisitUsOpen(false)}
+        />
       </div>
     </BrowserRouter>
   );
 }
+

@@ -1,60 +1,127 @@
 import React from 'react';
+import { ArrowRight, Phone, Download, Calendar, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import studentsImg from '../assets/admissions_students.png';
 
 export default function CtaBanner({ onOpenAdmission, onOpenEnquiry }) {
-  const handleAction = () => {
-    if (onOpenAdmission) {
-      onOpenAdmission();
-    } else if (onOpenEnquiry) {
-      onOpenEnquiry();
-    }
-  };
-
   return (
-    <section
-      className="relative w-full bg-white pt-10 sm:pt-14 md:pt-16 pb-12 sm:pb-16 overflow-visible"
-      data-purpose="admissions-cta-banner"
-      id="admissions"
-    >
-      {/* Main Colored Banner Bar - Themed in Royal Institutional Navy */}
-      <div className="relative w-full bg-gradient-to-r from-blue-950 via-[#0d2259] to-blue-900 text-white overflow-visible shadow-md">
+    <section className="relative w-full py-16 sm:py-20 md:py-24 bg-[#fff6f8] overflow-visible border-b border-rose-100/80" data-purpose="admissions-cta-banner" id="admissions">
+      {/* Signature Red/Rose Polka-Dot Pattern */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#f43f5e 1.75px, transparent 1.75px)',
+          backgroundSize: '22px 22px',
+          opacity: 0.5
+        }}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main High-Impact Midnight Container */}
+        <div className="relative rounded-3xl bg-gradient-to-r from-slate-950 via-[#0b1f4d] to-slate-950 text-white p-8 sm:p-12 lg:p-16 overflow-hidden shadow-2xl border border-blue-900/40">
+          
+          {/* Ambient Radial Accent Glows */}
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+          
+          {/* Grid overlay */}
+          <div 
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{
+              backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+              backgroundSize: '20px 20px'
+            }}
+          />
 
-        {/* Subtle patterned overlay for institutional depth */}
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            
+            {/* Left Content Column (7 cols) */}
+            <div className="lg:col-span-7 space-y-6">
+              
+              {/* Clean Eyebrow (No Pill) */}
+              <p className="text-xs font-bold tracking-widest text-amber-400 uppercase mb-2">
+                Admissions Open for Academic Session 2026–27
+              </p>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative min-h-[170px] sm:min-h-[200px] md:min-h-[220px] flex items-center">
+              {/* Headline */}
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white heading-serif leading-[1.08] tracking-tight">
+                Begin Your Child's Journey Toward Excellence.
+              </h2>
 
-          {/* Left Text Block */}
-          <div className="py-8 sm:py-10 md:py-12 z-10 max-w-xl">
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase leading-none font-sans select-none drop-shadow-md">
-              ADMISSIONS OPEN
-            </h2>
-            <div className="text-2xl sm:text-4xl md:text-5xl font-black text-amber-400 tracking-tight mt-1.5 sm:mt-2.5 select-none font-sans drop-shadow-md">
-              2026-27
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl font-normal">
+                Limited enrolment openings across Pre-Nursery, Kindergarten, Primary, Middle, and Senior Secondary (Science, Commerce &amp; Humanities). Experience a transformative CBSE education in Ghaziabad.
+              </p>
+
+              {/* Quick Perks Strip */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-200">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Transparent Fee Policy</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Merit Scholarships</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Transport Across NCR</span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 flex flex-wrap items-center gap-4">
+                <button
+                  onClick={onOpenAdmission}
+                  className="px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(245,158,11,0.5)] hover:shadow-[0_0_35px_rgba(245,158,11,0.8)] hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2"
+                >
+                  <span>Apply Online Now</span>
+                  <ArrowRight className="w-4 h-4 text-slate-950" />
+                </button>
+
+                <Link
+                  to="/admissions"
+                  className="px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm tracking-wide backdrop-blur-md border border-white/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  View Enrolment Roadmap
+                </Link>
+              </div>
+
             </div>
-          </div>
 
-          {/* Right Side: Students 3D Pop-out Image with transparent cutout overflowing the top */}
-          <div className="absolute right-0 sm:right-4 lg:right-8 bottom-0 w-[42%] sm:w-[46%] md:w-[48%] max-w-[560px] h-[135%] sm:h-[145%] md:h-[155%] pointer-events-none flex items-end justify-end overflow-visible z-20">
-            <img
-              src={studentsImg}
-              alt="Radha Krishna Public School Students"
-              className="w-full h-full object-contain object-bottom select-none transform translate-y-0 filter drop-shadow-[0_10px_15px_rgba(0,0,0,0.25)]"
-              loading="eager"
-            />
-          </div>
+            {/* Right Visual: Students Image Cutout (5 cols) */}
+            <div className="lg:col-span-5 relative flex justify-center lg:justify-end mt-4 lg:mt-0">
+              <div className="relative w-full max-w-md">
+                
+                {/* Background Ring Accent */}
+                <div className="absolute inset-0 rounded-full border border-amber-400/20 animate-pulse pointer-events-none scale-105" />
 
-          {/* Golden Yellow ENQUIRE NOW Button overlapping bottom edge */}
-          <div className="absolute -bottom-5 sm:-bottom-6 left-4 sm:left-6 lg:left-8 z-30">
-            <button
-              onClick={handleAction}
-              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider px-7 sm:px-10 py-3 sm:py-3.5 shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 select-none border border-amber-300 rounded-xs"
-            >
-              ENQUIRE NOW
-            </button>
+                <img
+                  src={studentsImg}
+                  alt="Radha Krishna Public School Scholars"
+                  className="w-full h-auto object-contain max-h-[380px] sm:max-h-[440px] drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] relative z-10"
+                />
+
+                {/* Floating Contact Card on Image */}
+                <div className="absolute -bottom-3 left-4 right-4 sm:left-6 sm:right-6 bg-slate-950/90 backdrop-blur-md p-3.5 rounded-2xl border border-white/20 text-white text-center shadow-2xl z-20">
+                  <div className="text-[10px] font-bold text-amber-400 uppercase tracking-wider">
+                    Direct Admissions Helpline
+                  </div>
+                  <a
+                    href="tel:9310300600"
+                    className="text-sm sm:text-base font-black text-white hover:text-amber-300 transition-colors flex items-center justify-center gap-1.5 mt-0.5"
+                  >
+                    <Phone className="w-4 h-4 text-amber-400" />
+                    <span>+91 9310300600</span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
         </div>
+
       </div>
     </section>
   );

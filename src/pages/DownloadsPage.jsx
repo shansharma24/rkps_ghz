@@ -131,26 +131,40 @@ export default function DownloadsPage({ onOpenAdmission }) {
 
   return (
     <div className="bg-slate-50 text-slate-800 min-h-screen">
-      {/* 1. Header Banner */}
-      <section className="relative py-16 sm:py-20 bg-gradient-to-b from-[#0B1E48] via-[#102a6b] to-[#0B1E48] text-white overflow-hidden">
+      {/* 1. Header Banner (Ravensbourne / MIT Dark Hero) */}
+      <section className="relative py-20 sm:py-24 bg-gradient-to-b from-[#050E24] via-[#08173d] to-[#050E24] text-white overflow-hidden border-b border-slate-800">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+        <div className="absolute top-1/4 -left-32 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          
+          {/* Breadcrumb Navigation */}
+          <nav className="flex items-center justify-center gap-2 text-xs text-slate-400 mb-6 font-medium">
+            <Link to="/" className="hover:text-amber-400 transition-colors">Home</Link>
+            <span className="text-slate-500">/</span>
+            <span className="text-slate-300">Academics</span>
+            <span className="text-slate-500">/</span>
+            <span className="text-amber-400 font-semibold">Downloads</span>
+          </nav>
+
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 text-xs font-bold uppercase tracking-widest mb-4">
             <FileCheck className="w-3.5 h-3.5 text-amber-400" />
             <span>Academic Guidelines &amp; Schedules</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black heading-serif tracking-tight text-white leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black heading-serif tracking-tight text-white leading-tight">
             Curriculum &amp; Datesheets
           </h1>
 
           <div className="w-20 h-1.5 bg-amber-400 mx-auto mt-4 mb-5 rounded-full" />
 
-          <p className="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto font-medium">
+          <p className="text-base sm:text-xl text-slate-200 max-w-3xl mx-auto font-normal leading-relaxed">
             Access official CBSE syllabi, course blueprints, examination schedules, and academic calendars for Radha Krishna Public School.
           </p>
 
           {/* Quick Filter Navigation Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mt-7">
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
             <button
               onClick={() => setActiveTab('all')}
               className={`px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
