@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Building2, BookOpen, Trophy, Cpu, Music, ShieldCheck, CheckCircle2, 
-  ArrowRight, ArrowUpRight, X, Sparkles, MapPin, Compass, ChevronRight, 
-  FlaskConical, GraduationCap, Layers
+  ArrowRight, ArrowUpRight, X, Compass, ChevronRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -92,63 +91,6 @@ const facilityBentoItems = [
   }
 ];
 
-const detailedSpecs = [
-  {
-    id: 'classrooms',
-    title: 'Smart Digitized Classrooms',
-    category: 'Learning Environment',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-    desc: 'Equipped with interactive IFPD touch-panels, high-speed fiber internet, and ergonomic furniture tailored for collaboration and active learning.',
-    features: ['Interactive 4K IFPD Panels', 'High-Speed Fiber Network', 'Ergonomic Modular Seating', 'Acoustic Soundproofing'],
-    icon: GraduationCap
-  },
-  {
-    id: 'labs',
-    title: 'Advanced Science Research Suites',
-    category: 'STEM Laboratories',
-    badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
-    desc: 'CBSE-standard Physics, Chemistry, and Biology laboratories equipped with computerized sensor probes, analytical balances, and safety apparatus.',
-    features: ['CBSE-Standard Lab Protocols', 'Computerized Sensor Probes', 'Fume Hoods & Safety Kits', 'Dedicated Biotech Workbenches'],
-    icon: FlaskConical
-  },
-  {
-    id: 'robotics',
-    title: 'AI & Robotics Tinkering Hub',
-    category: 'Future Technology',
-    badgeColor: 'bg-cyan-50 text-cyan-700 border-cyan-200',
-    desc: 'Arduino, Raspberry Pi, 3D printers, and drone aviation kits for hands-on computational learning, coding, and national robotics hackathons.',
-    features: ['3D Prototyping Printers', 'Arduino & Raspberry Pi Kits', 'Drone Aviation Testing', 'Python & AI Coding Stations'],
-    icon: Cpu
-  },
-  {
-    id: 'ground',
-    title: 'Olympic-Standard Sports Arena & Ground',
-    category: 'Athletics & Fitness',
-    badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    desc: 'Full-size cricket coaching nets, synthetic basketball and badminton academy, football turf, and dedicated martial arts & yoga studios.',
-    features: ['Cricket Turf Practice Nets', 'Synthetic Basketball Academy', 'Championship Football Turf', 'Taekwondo & Yoga Studio'],
-    icon: Trophy
-  },
-  {
-    id: 'library',
-    title: 'Grand Central Knowledge Library',
-    category: 'Knowledge Repository',
-    badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
-    desc: 'Over 20,000 literary works, international research journals, quiet research carrels, Kindle stations, and digital e-library repositories.',
-    features: ['20,000+ Curated Volumes', 'E-Library Kindle Terminals', 'Individual Research Carrels', 'National & Global Periodicals'],
-    icon: BookOpen
-  },
-  {
-    id: 'auditorium',
-    title: '1,200-Seat Multipurpose Auditorium',
-    category: 'Performing Arts',
-    badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
-    desc: 'Centrally air-conditioned with professional acoustics, theatrical stage lighting grids, surround audio engineering, and green rooms.',
-    features: ['1,200 Seating Capacity', 'Theatrical Stage Lighting', 'Surround Acoustic Engineering', 'Backstage Dressing Suites'],
-    icon: Building2
-  }
-];
-
 export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
   const [selectedFacility, setSelectedFacility] = useState(null);
   const [activeCategory, setActiveCategory] = useState('all');
@@ -178,7 +120,7 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
       </div>
 
       {/* 1. Header Section (Clean Institutional Architecture - No Pill) */}
-      <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="pt-28 pb-10 sm:pt-32 sm:pb-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center gap-2 text-xs text-slate-500 mb-6 font-medium">
@@ -339,74 +281,24 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
         </div>
       </section>
 
-      {/* 3. Detailed Specifications Breakdown (Deep-Dive Cards) */}
-      <section className="py-14 bg-white/70 backdrop-blur-xs border-y border-rose-200/70 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-xs font-black uppercase tracking-widest text-amber-600 mb-2 font-mono">
-              COMPREHENSIVE SPECIFICATIONS
-            </p>
-            <h2 className="text-2xl sm:text-4xl font-black heading-serif text-[#0B1E48]">
-              Engineered for Scholastic Distinction
-            </h2>
-            <div className="w-16 h-1 bg-[#f59e0b] mx-auto mt-3 rounded-full" />
+      {/* ─── Architectural Section Divider Line & Badge ─── */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16 relative z-10">
+        <div className="relative flex items-center justify-center">
+          <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-rose-300 via-amber-400/80 to-transparent shadow-xs" />
+          <div className="absolute px-5 py-2 rounded-full bg-white/95 backdrop-blur-md border border-rose-200/90 shadow-[0_4px_20px_rgba(244,63,94,0.14)] flex items-center gap-2.5 text-xs font-black uppercase tracking-wider text-slate-800 select-none">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#f59e0b] shadow-[0_0_8px_#f59e0b] animate-pulse" />
+            <span className="text-slate-900 font-black">CAMPUS VISITS &amp; TOURS</span>
+            <span className="text-rose-200 font-light">|</span>
+            <span className="text-amber-600 font-black flex items-center gap-1.5">
+              <span>EXPLORE TODAY</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {detailedSpecs.map((card, idx) => {
-              const IconComponent = card.icon;
-              return (
-                <div
-                  key={idx}
-                  id={card.id}
-                  className="bg-white p-7 rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group hover:-translate-y-1 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${card.badgeColor}`}>
-                        {card.category}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-[#0B1E48] group-hover:bg-[#0B1E48] group-hover:text-[#f59e0b] transition-colors shadow-2xs">
-                        <IconComponent className="w-5 h-5" />
-                      </div>
-                    </div>
-
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-950 heading-serif mb-2.5 group-hover:text-blue-900 transition-colors">
-                      {card.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-5">
-                      {card.desc}
-                    </p>
-                  </div>
-
-                  <div>
-                    <div className="pt-4 border-t border-slate-100">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Key Amenities</span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {card.features.map((feat, fIdx) => (
-                          <span
-                            key={fIdx}
-                            className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-100 px-2.5 py-1 rounded-lg"
-                          >
-                            <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                            <span>{feat}</span>
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
         </div>
-      </section>
+      </div>
 
-      {/* 4. Campus Walkthrough CTA Banner */}
-      <section className="py-16 sm:py-20 relative z-10">
+      {/* 3. Campus Walkthrough CTA Banner */}
+      <section className="pb-16 sm:pb-20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-gradient-to-r from-slate-950 via-[#0B1E48] to-slate-950 text-white p-8 sm:p-12 lg:p-14 text-center relative overflow-hidden shadow-2xl border-t-2 border-t-amber-400/70 border-x border-b border-blue-900/40">
             
