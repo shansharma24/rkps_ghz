@@ -60,7 +60,7 @@ export default function NewsAndEvents() {
   const sideArticles = newsArticles.filter((a) => !a.featured);
 
   return (
-    <section className="py-16 md:py-24 bg-[#fff6f8] relative overflow-hidden border-b border-rose-100/80" data-purpose="news-and-events" id="news">
+    <section className="pt-16 pb-10 md:pt-24 md:pb-14 bg-[#fff6f8] relative overflow-hidden border-b border-rose-200/70" data-purpose="news-and-events" id="news">
       {/* Signature Red/Rose Polka-Dot Pattern */}
       <div 
         className="absolute inset-0 pointer-events-none"

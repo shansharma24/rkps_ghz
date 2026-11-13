@@ -5,7 +5,7 @@ import studentsImg from '../assets/admissions_students.png';
 
 export default function CtaBanner({ onOpenAdmission, onOpenEnquiry }) {
   return (
-    <section className="relative w-full py-16 sm:py-20 md:py-24 bg-[#fff6f8] overflow-visible border-b border-rose-100/80" data-purpose="admissions-cta-banner" id="admissions">
+    <section className="relative w-full pt-8 pb-16 sm:pt-10 sm:pb-20 md:pt-12 md:pb-24 bg-[#fff6f8] overflow-visible border-b border-rose-100/80" data-purpose="admissions-cta-banner" id="admissions">
       {/* Signature Red/Rose Polka-Dot Pattern */}
       <div 
         className="absolute inset-0 pointer-events-none"
@@ -15,10 +15,31 @@ export default function CtaBanner({ onOpenAdmission, onOpenEnquiry }) {
           opacity: 0.5
         }}
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      {/* ─── Architectural Divider Line & Centered Emblem Badge ─── */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16 relative z-10">
+        <div className="relative flex items-center justify-center">
+          {/* Dual-Tone Rose to Amber Gradient Divider Line */}
+          <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-rose-300 via-amber-400/80 to-transparent shadow-xs" />
+          
+          {/* Centered Glassmorphic Emblem Pill */}
+          <div className="absolute px-5 py-2 rounded-full bg-white/95 backdrop-blur-md border border-rose-200/90 shadow-[0_4px_20px_rgba(244,63,94,0.14)] flex items-center gap-2.5 text-xs font-black uppercase tracking-wider text-slate-800 transition-transform hover:scale-105 select-none">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#f59e0b] shadow-[0_0_8px_#f59e0b] animate-pulse" />
+            <span className="text-slate-900 font-black">ADMISSIONS CONTINUUM 2026–27</span>
+            <span className="text-rose-200 font-light">|</span>
+            <span className="text-amber-600 font-black flex items-center gap-1.5">
+              <span>ENROL TODAY</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Main High-Impact Midnight Container */}
-        <div className="relative rounded-3xl bg-gradient-to-r from-slate-950 via-[#0b1f4d] to-slate-950 text-white p-8 sm:p-12 lg:p-16 overflow-hidden shadow-2xl border border-blue-900/40">
+        {/* Main High-Impact Midnight Container with Golden Amber Top Accent Rim */}
+        <div className="relative rounded-3xl bg-gradient-to-r from-slate-950 via-[#0b1f4d] to-slate-950 text-white p-8 sm:p-12 lg:p-16 overflow-hidden shadow-2xl border-t-2 border-t-amber-400/70 border-x border-b border-blue-900/40">
+
           
           {/* Ambient Radial Accent Glows */}
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
