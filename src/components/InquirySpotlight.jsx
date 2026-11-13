@@ -72,12 +72,12 @@ function InquiryCard({ item, onClick }) {
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-4">
           <span className={`font-mono text-sm sm:text-base font-black transition-colors ${
-            isHovered ? 'text-slate-900 font-extrabold' : 'text-slate-400'
+            isHovered ? 'text-slate-900 font-extrabold' : 'text-[#f59e0b]'
           }`}>
             {item.number}
           </span>
           <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
-            isHovered ? 'bg-slate-900 text-white' : 'bg-white/5 border border-white/10 text-slate-400'
+            isHovered ? 'bg-slate-900 text-white' : 'bg-white/5 border border-white/10 text-[#f59e0b] group-hover:bg-[#f59e0b] group-hover:text-slate-950'
           }`}>
             <ArrowUpRight className="w-4 h-4" />
           </div>
@@ -91,7 +91,7 @@ function InquiryCard({ item, onClick }) {
         </h3>
 
         <p className={`text-xs leading-relaxed font-normal line-clamp-3 transition-colors ${
-          isHovered ? 'text-slate-800 font-medium' : 'text-slate-400'
+          isHovered ? 'text-slate-800 font-medium' : 'text-slate-300'
         }`}>
           {item.summary}
         </p>
@@ -137,32 +137,40 @@ export default function InquirySpotlight({ onOpenAdmission }) {
 
   return (
     <section 
-      className="py-18 sm:py-24 bg-[#0d1017] text-white relative overflow-hidden border-y border-slate-800"
+      className="py-18 sm:py-24 bg-[#070D1B] text-white relative overflow-hidden border-t-4 border-[#f59e0b] border-b border-slate-800"
       data-purpose="inquiry-spotlight"
       id="inquire"
     >
       {/* Precision 1px grid pattern (MIT Architecture) */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
 
+      {/* Subtle Golden Diagonal Hatching Overlay (Signature RKPS Amber Accent) */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-20"
+        style={{
+          backgroundImage: 'repeating-linear-gradient(45deg, rgba(245,158,11,0.06), rgba(245,158,11,0.06) 1.5px, transparent 1.5px, transparent 14px)'
+        }}
+      />
+
       {/* Ambient background glows */}
-      <div className="absolute -top-32 left-1/3 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-32 left-1/3 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 right-1/4 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Kicker Header (MIT Style) */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-slate-800 pb-6 mb-10 gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-2 font-mono text-[11px] font-bold tracking-widest text-slate-400 uppercase">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f59e0b]/15 border border-[#f59e0b]/40 text-[#f59e0b] font-mono text-[11px] font-black tracking-widest uppercase mb-3">
+              <span className="w-2 h-2 rounded-full bg-[#f59e0b] animate-pulse" />
               <span>ASK AN EDUCATOR // INQUIRY &amp; DISCOVERY</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black heading-serif tracking-tight text-white">
-              Curiosity, Science &amp; Pedagogy Unpacked
+              Curiosity, Science &amp; <span className="text-[#f59e0b] italic font-serif">Pedagogy Unpacked</span>
             </h2>
           </div>
           
-          <p className="text-xs sm:text-sm text-slate-400 max-w-md font-normal leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-md font-medium leading-relaxed">
             Exploring big questions in 21st-century education, STEM research, and board distinction answered by our faculty and scholars.
           </p>
         </div>
@@ -180,16 +188,17 @@ export default function InquirySpotlight({ onOpenAdmission }) {
 
         {/* Bottom Interactive Strip */}
         <div className="mt-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-2 text-xs text-slate-400">
-            <HelpCircle className="w-4 h-4 text-amber-400 shrink-0" />
-            <span>Have a specific academic question? Our mentors respond within 24 hours.</span>
+          <div className="flex items-center gap-2 text-xs text-slate-300">
+            <HelpCircle className="w-4 h-4 text-[#f59e0b] shrink-0" />
+            <span className="font-medium">Have a specific academic question? Our mentors respond within 24 hours.</span>
           </div>
 
           <button
             onClick={() => setSelectedInquiry(INQUIRY_DATA[0])}
-            className="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold transition-all cursor-pointer"
+            className="px-6 py-2.5 rounded-xl bg-[#f59e0b] hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-[0_4px_20px_rgba(245,158,11,0.35)] hover:scale-102 active:scale-98 cursor-pointer"
           >
-            Submit an Inquiry
+            <span>Submit an Inquiry</span>
+            <ArrowUpRight className="w-4 h-4 text-slate-950" />
           </button>
         </div>
 
