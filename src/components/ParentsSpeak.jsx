@@ -1,5 +1,5 @@
 import React from 'react';
-import { Quote, Sparkles, Star } from 'lucide-react';
+import { Quote, Star } from 'lucide-react';
 
 const testimonials = [
   {
@@ -110,11 +110,6 @@ export default function ParentsSpeak() {
         
         {/* Clean, Focused Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 border border-amber-300/60 text-amber-900 text-[11px] font-bold uppercase tracking-wider mb-2.5 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
-            <span>Voices of Trust &amp; Pride</span>
-          </div>
-          
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 heading-serif tracking-tight leading-tight">
             Parents Speak
           </h2>
