@@ -65,17 +65,25 @@ export default function StudentWorkShowcase() {
       data-purpose="student-work-showcase"
       id="student-works"
     >
-      {/* 1. Signature Pink/Rose Polka Dot Pattern from Image 3 (Ravensbourne Style) */}
+      {/* 1. Signature Staggered Polka Dot Pattern (Ravensbourne Reference) */}
       <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#f43f5e 1.75px, transparent 1.75px)',
-          backgroundSize: '22px 22px',
-          opacity: 0.5
-        }}
+        className="absolute inset-0 pointer-events-none bg-ravensbourne-dots"
       />
 
-      {/* 2. Top-Right Magenta/Rose Curved Corner Accent (Exact match from Image 3) */}
+      {/* Top-Left Magenta Circles & Diagonal Hatching (Matching Reference Design) */}
+      <div className="absolute -top-8 sm:-top-12 left-4 sm:left-10 flex items-center gap-2 pointer-events-none z-0 opacity-85">
+        <div className="w-16 sm:w-24 md:w-28 h-16 sm:h-24 md:h-28 rounded-full bg-[#e11d48] shadow-md" />
+        <div 
+          className="w-20 sm:w-32 md:w-40 h-12 sm:h-16 md:h-20"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, #f43f5e 0, #f43f5e 1.5px, transparent 0, transparent 8px)',
+            opacity: 0.75
+          }}
+        />
+        <div className="w-16 sm:w-24 md:w-28 h-16 sm:h-24 md:h-28 rounded-full bg-[#e11d48] shadow-md -ml-4 sm:-ml-6" />
+      </div>
+
+      {/* 2. Top-Right Magenta/Rose Curved Corner Accent (Exact match from Reference Design) */}
       <div className="absolute top-0 right-0 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 pointer-events-none overflow-hidden z-0">
         <div 
           className="w-72 sm:w-96 md:w-[420px] h-72 sm:h-96 md:h-[420px] -top-24 sm:-top-32 md:-top-36 -right-24 sm:-right-32 md:-right-36 absolute rounded-full bg-gradient-to-bl from-[#e11d48] via-[#e11d48] to-[#be185d] opacity-90 shadow-md"
@@ -87,8 +95,11 @@ export default function StudentWorkShowcase() {
 
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 relative z-10">
         
-        {/* 4. Top Solid Golden Yellow Header Banner Box (Exact match from Image 3) */}
-        <div className="text-center mb-6 sm:mb-8">
+        {/* 4. Top Solid Golden Yellow Header Banner Box & Main Title (Exact match from Reference Design) */}
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 heading-serif tracking-tight leading-tight mb-4">
+            Amazing things happen here
+          </h2>
           <div className="inline-block bg-[#f59e0b] text-slate-950 font-black px-5 sm:px-7 py-2 sm:py-2.5 text-xs sm:text-sm tracking-wider uppercase shadow-sm">
             See what our students and staff have been working on
           </div>
@@ -97,10 +108,10 @@ export default function StudentWorkShowcase() {
         {/* 5. Section Heading & Carousel Controls */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-950 heading-serif tracking-tight leading-tight">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 heading-serif tracking-tight">
               Student Innovations &amp; Creative Portfolio
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 mt-2 font-normal max-w-xl">
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1.5 font-normal max-w-xl">
               From broadcasting audio suites and regional robotics prototypes to fine art galleries and ecological audits — explore authentic student creations.
             </p>
           </div>

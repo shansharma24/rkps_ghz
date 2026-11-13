@@ -68,4 +68,13 @@
   .box-glow-blue {
     box-shadow: 0 0 25px -5px rgba(37, 99, 235, 0.35);
   }
+
+  /* Signature Staggered Polka-Dot Canvas Pattern (Ravensbourne Reference) */
+  .bg-ravensbourne-dots {
+    background-image: 
+      radial-gradient(circle, rgba(244, 63, 94, 0.28) 2.6px, transparent 2.7px),
+      radial-gradient(circle, rgba(244, 63, 94, 0.28) 2.6px, transparent 2.7px);
+    background-size: 26px 26px;
+    background-position: 0 0, 13px 13px;
+  }
 }

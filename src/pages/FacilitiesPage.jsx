@@ -102,14 +102,9 @@ export default function FacilitiesPage({ onOpenAdmission, onOpenVirtualTour }) {
   return (
     <div className="bg-[#fff6f8] text-slate-800 min-h-screen relative overflow-hidden">
       
-      {/* Signature Red/Rose Polka-Dot Canvas Pattern (Matching Homepage) */}
+      {/* Signature Staggered Polka-Dot Canvas Pattern (Ravensbourne Reference) */}
       <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#f43f5e 1.75px, transparent 1.75px)',
-          backgroundSize: '22px 22px',
-          opacity: 0.45
-        }}
+        className="absolute inset-0 pointer-events-none bg-ravensbourne-dots"
       />
 
       {/* Top-Right Magenta/Rose Curved Accent Arc */}

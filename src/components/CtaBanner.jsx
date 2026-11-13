@@ -6,14 +6,9 @@ import studentsImg from '../assets/admissions_students.png';
 export default function CtaBanner({ onOpenAdmission, onOpenEnquiry }) {
   return (
     <section className="relative w-full pt-8 pb-16 sm:pt-10 sm:pb-20 md:pt-12 md:pb-24 bg-[#fff6f8] overflow-visible border-b border-rose-100/80" data-purpose="admissions-cta-banner" id="admissions">
-      {/* Signature Red/Rose Polka-Dot Pattern */}
+      {/* Signature Staggered Polka-Dot Pattern (Ravensbourne Reference) */}
       <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#f43f5e 1.75px, transparent 1.75px)',
-          backgroundSize: '22px 22px',
-          opacity: 0.5
-        }}
+        className="absolute inset-0 pointer-events-none bg-ravensbourne-dots"
       />
 
       {/* ─── Architectural Divider Line & Centered Emblem Badge ─── */}

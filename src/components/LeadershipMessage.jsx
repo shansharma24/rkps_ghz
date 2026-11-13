@@ -66,14 +66,9 @@ export default function LeadershipMessage() {
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-[#fff6f8] border-y border-rose-100/80 relative overflow-hidden" data-purpose="leadership-message" id="leadership">
       
-      {/* 1. Signature Red/Rose Polka-Dot Pattern (Ravensbourne Style) */}
+      {/* 1. Signature Staggered Polka-Dot Pattern (Ravensbourne Reference) */}
       <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#f43f5e 1.75px, transparent 1.75px)',
-          backgroundSize: '22px 22px',
-          opacity: 0.5
-        }}
+        className="absolute inset-0 pointer-events-none bg-ravensbourne-dots"
       />
 
       {/* 2. Top-Right Magenta/Rose Curved Corner Accent */}

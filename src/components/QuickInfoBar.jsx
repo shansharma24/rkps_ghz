@@ -43,14 +43,9 @@ const stats = [
 export default function QuickInfoBar() {
   return (
     <section className="relative z-20 w-full bg-[#fff8f9] border-y border-rose-200/80 shadow-xs overflow-hidden" data-purpose="quick-info-bar">
-      {/* Subtle Rose Dot Accent */}
+      {/* Subtle Staggered Rose Dot Accent (Ravensbourne Reference) */}
       <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#f43f5e 1.5px, transparent 1.5px)',
-          backgroundSize: '20px 20px',
-          opacity: 0.35
-        }}
+        className="absolute inset-0 pointer-events-none bg-ravensbourne-dots opacity-75"
       />
 
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">

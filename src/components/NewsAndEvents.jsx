@@ -61,14 +61,9 @@ export default function NewsAndEvents() {
 
   return (
     <section className="pt-16 pb-10 md:pt-24 md:pb-14 bg-[#fff6f8] relative overflow-hidden border-b border-rose-200/70" data-purpose="news-and-events" id="news">
-      {/* Signature Red/Rose Polka-Dot Pattern */}
+      {/* Signature Staggered Polka-Dot Pattern (Ravensbourne Reference) */}
       <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#f43f5e 1.75px, transparent 1.75px)',
-          backgroundSize: '22px 22px',
-          opacity: 0.5
-        }}
+        className="absolute inset-0 pointer-events-none bg-ravensbourne-dots"
       />
 
       {/* Top-Right Magenta/Rose Curved Corner Accent */}

@@ -352,14 +352,9 @@ export default function AcademicPrograms({ onOpenAdmission }) {
       data-purpose="academic-programs" 
       id="academics"
     >
-      {/* 1. Signature Red/Rose Polka-Dot Pattern (Ravensbourne Style) */}
+      {/* 1. Signature Staggered Polka-Dot Pattern (Ravensbourne Reference) */}
       <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#f43f5e 1.75px, transparent 1.75px)',
-          backgroundSize: '22px 22px',
-          opacity: 0.5
-        }}
+        className="absolute inset-0 pointer-events-none bg-ravensbourne-dots"
       />
 
       {/* 2. Top-Right Magenta/Rose Curved Corner Accent */}
