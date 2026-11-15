@@ -107,62 +107,38 @@ export default function Hero({ onOpenAdmission }) {
             />
           )}
 
-          {/* Localized Bottom-Left Scrim — Protects bottom-left typography while leaving top/right imagery unobstructed */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/85 via-slate-950/35 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
+          {/* Subtle Bottom Scrim for CTA Button Contrast */}
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-slate-950/60 to-transparent pointer-events-none" />
         </div>
       ))}
 
-      {/* Hero Foreground Content — Aligned to Bottom-Left, occupying only half the screen width */}
+      {/* Accessible Institutional Title for Screen Readers & SEO */}
+      <h1 className="sr-only">
+        Radha Krishna Public School — 25 Years of Scholastic Excellence, Pratap Vihar, Ghaziabad
+      </h1>
+
+      {/* Hero Foreground Action Controls — Clean Floating CTA */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end pb-8 sm:pb-12 md:pb-16 lg:pb-20">
-        <div className="w-full md:w-1/2 lg:max-w-xl xl:max-w-2xl space-y-3.5 sm:space-y-4 md:space-y-5 text-left">
-          
-          {/* Live Indicator (Clean Typography, No Pill) */}
-          <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-slate-200 uppercase drop-shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-amber-400" />
-            <span className="text-amber-400 font-extrabold">{active.tag}</span>
-            <span className="text-white/40">•</span>
-            <span className="text-slate-200 font-medium">CBSE Affiliation #2130572</span>
-          </div>
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            onClick={onOpenAdmission}
+            className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-[0_4px_25px_rgba(245,158,11,0.5)] hover:shadow-[0_4px_35px_rgba(245,158,11,0.8)] hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2.5"
+          >
+            <span>Apply for Admission 2026–27</span>
+            <ArrowRight className="w-4 h-4 text-slate-950" />
+          </button>
 
-          {/* Bold Editorial Headline (Sans + Italic Serif) — Balanced Sizing */}
-          <div className="space-y-1">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-[1.08] drop-shadow-md">
-              <span>{active.titlePart1}</span>
-              <span className="block italic text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 font-serif font-medium mt-1">
-                {active.titlePart2}
-              </span>
-            </h1>
-          </div>
-
-          {/* Minimal 1-Sentence Description */}
-          <p className="text-xs sm:text-sm md:text-base text-slate-100 leading-relaxed max-w-lg font-normal drop-shadow">
-            {active.subtitle}
-          </p>
-
-          {/* Single Admission Action Button */}
-          <div className="pt-2 flex flex-wrap items-center gap-3">
+          {/* Video sound toggle only on video slide */}
+          {active.type === 'video' && (
             <button
-              onClick={onOpenAdmission}
-              className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-[0_4px_25px_rgba(245,158,11,0.5)] hover:shadow-[0_4px_35px_rgba(245,158,11,0.8)] hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2.5"
+              onClick={() => setIsMuted(!isMuted)}
+              className="w-11 h-11 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all cursor-pointer"
+              title={isMuted ? "Unmute Video Audio" : "Mute Video Audio"}
+              aria-label="Toggle Hero Video Sound"
             >
-              <span>Apply for Admission 2026–27</span>
-              <ArrowRight className="w-4 h-4 text-slate-950" />
+              {isMuted ? <VolumeX className="w-4 h-4 text-slate-300" /> : <Volume2 className="w-4 h-4 text-amber-400" />}
             </button>
-
-            {/* Video sound toggle only on video slide */}
-            {active.type === 'video' && (
-              <button
-                onClick={() => setIsMuted(!isMuted)}
-                className="w-11 h-11 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all cursor-pointer"
-                title={isMuted ? "Unmute Video Audio" : "Mute Video Audio"}
-                aria-label="Toggle Hero Video Sound"
-              >
-                {isMuted ? <VolumeX className="w-4 h-4 text-slate-300" /> : <Volume2 className="w-4 h-4 text-amber-400" />}
-              </button>
-            )}
-          </div>
-
+          )}
         </div>
       </div>
 

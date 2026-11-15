@@ -3,7 +3,6 @@ import Hero from '../components/Hero';
 import QuickInfoBar from '../components/QuickInfoBar';
 import AboutUs from '../components/AboutUs';
 import LeadershipMessage from '../components/LeadershipMessage';
-import AcademicPrograms from '../components/AcademicPrograms';
 import FutureReadyBanner from '../components/FutureReadyBanner';
 import Facilities from '../components/Facilities';
 import StudentWorkShowcase from '../components/StudentWorkShowcase';
@@ -69,10 +68,7 @@ export default function HomePage({ onOpenAdmission, onOpenVirtualTour, onOpenVis
         onOpenVisitUs={onOpenVisitUs}
       />
 
-      {/* 6. Academic Programs & Educational Continuum (Four Stages of Learning) */}
-      <AcademicPrograms onOpenAdmission={onOpenAdmission} />
-
-      {/* 7. Campus & Infrastructure Accordion Gallery (Ravensbourne Style) */}
+      {/* 6. Campus & Infrastructure Accordion Gallery (Ravensbourne Style) */}
       <Facilities />
 
       {/* 8. Student & Staff Work Showcase Carousel (Ravensbourne Portfolio Style) */}
