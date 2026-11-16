@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0b2a63;
+  --navy-dark: #071f4c;
+  --navy-deep: #052051;
+  --red: #9b2335;
+  --red-dark: #7a1f2b;
+  --gold: #f0b429;
+  --gold-light: #faba28;
+  --bg: #ffffff;
+  --alt: #f6f6f6;
+  --tx: #2b2b2b;
+  --mu: #666666;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: var(--tx);
+    background-color: var(--bg);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-bebas {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    letter-spacing: 0.03em;
+  }
+}
+
+@layer utilities {
+  .watermark-shield {
+    background-image: radial-gradient(circle, rgba(11, 42, 99, 0.05) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+
+  .watermark-shield-dark {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+}

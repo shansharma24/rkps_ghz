@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Radha Krishna Public School, Ghaziabad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0b2a63;
+            --red: #9b2335;
+            --gold: #f0b429;
+            --bg: #fff;
+            --alt: #f6f6f6;
+            --tx: #2b2b2b;
+            --mu: #666;
+            --hd: #fff;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        @media(prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #10131a;
+                --alt: #161a23;
+                --tx: #e8e8e8;
+                --mu: #aab;
+                --hd: #10131a;
+                --navy: #6f93e0
+            }
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--tx);
+            font-family: 'DM Sans', Arial, sans-serif
+        }
+
+        h1,
+        h2,
+        h3,
+        .bn {
+            font-family: 'Bebas Neue', Impact, sans-serif;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: .5px
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: var(--hd);
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4vw;
+            box-shadow: 0 2px 10px #0002
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .crest {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 3px solid var(--navy);
+            display: grid;
+            place-items: center;
+            font: 700 11px 'DM Sans';
+            color: var(--navy)
+        }
+
+        .logo b {
+            font: 400 24px/.95 'Bebas Neue';
+            color: var(--navy);
+            text-transform: uppercase
+        }
+
+        .hr {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: .5px
+        }
+
+        .hr a {
+            color: var(--red)
+        }
+
+        .menu {
+            border: 1px solid var(--navy);
+            border-radius: 30px;
+            padding: 4px 6px 4px 16px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            cursor: pointer;
+            color: var(--tx);
+            background: none;
+            font: 700 13px 'DM Sans'
+        }
+
+        .menu i {
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--navy);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-style: normal
+        }
+
+        .dd {
+            position: relative
+        }
+
+        .dd div {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 30px;
+            background: var(--bg);
+            box-shadow: 0 6px 20px #0003;
+            min-width: 170px;
+            padding: 8px 0
+        }
+
+        .dd:hover div,
+        .dd:focus-within div {
+            display: block
+        }
+
+        .dd div a {
+            display: block;
+            padding: 8px 16px;
+            color: var(--tx)
+        }
+
+        #nav {
+            position: fixed;
+            inset: 0 0 0 auto;
+            width: min(360px, 100%);
+            background: var(--navy);
+            color: #fff;
+            z-index: 30;
+            transform: translateX(100%);
+            transition: .3s;
+            padding: 80px 32px
+        }
+
+        #nav.o {
+            transform: none
+        }
+
+        #nav a {
+            display: block;
+            font: 400 30px 'Bebas Neue';
+            padding: 6px 0
+        }
+
+        #nav button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: 0;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer
+        }
+
+        .hero {
+            height: calc(100vh - 72px);
+            min-height: 460px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding-bottom: 70px;
+            transition: background .6s
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            text-transform: uppercase;
+            text-shadow: 0 2px 14px #0008
+        }
+
+        .btns {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 14px
+        }
+
+        .pill {
+            border: 1px solid #fff;
+            border-radius: 30px;
+            padding: 11px 26px;
+            font: 700 12px 'DM Sans';
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            background: #0005;
+            color: #fff;
+            cursor: pointer
+        }
+
+        .pill.n {
+            background: var(--navy);
+            border-color: var(--navy)
+        }
+
+        .pill.r {
+            background: var(--red);
+            border-color: var(--red)
+        }
+
+        .arr {
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+            display: flex;
+            gap: 8px
+        }
+
+        .arr button,
+        .ca button {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            background: #0004;
+            color: #fff;
+            cursor: pointer
+        }
+
+        .tab {
+            position: fixed;
+            left: 0;
+            top: 45%;
+            z-index: 15;
+            background: var(--navy);
+            color: #fff;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            padding: 18px 7px;
+            font: 700 12px 'DM Sans';
+            letter-spacing: 1px;
+            border-radius: 0 6px 6px 0
+        }
+
+        .eagle {
+            text-align: center;
+            padding: 70px 6vw;
+            background: var(--bg)
+        }
+
+        .eagle h2 {
+            font-size: clamp(40px, 5vw, 60px);
+            color: var(--red)
+        }
+
+        .eagle h2 span {
+            color: var(--navy)
+        }
+
+        .three {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 34px auto 0
+        }
+
+        .three h3 {
+            font-size: 26px;
+            color: var(--navy)
+        }
+
+        .three p {
+            font-size: 14px;
+            color: var(--mu);
+            line-height: 1.7;
+            margin: 6px 0
+        }
+
+        .dark {
+            background: var(--navy);
+            color: #fff;
+            padding: 80px 6vw
+        }
+
+        :root:not([data-theme="light"]) .dk2 {}
+
+        .dark h2 {
+            text-align: center;
+            font-size: clamp(40px, 5vw, 64px)
+        }
+
+        .dark h2 span {
+            color: var(--gold)
+        }
+
+        .dark>p {
+            max-width: 680px;
+            margin: 14px auto 40px;
+            text-align: center;
+            line-height: 1.9;
+            font-size: 15px
+        }
+
+        .panel {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff14;
+            border: 1px solid #ffffff22;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 360px;
+            overflow: hidden
+        }
+
+        .panel .ph {
+            margin: 20px;
+            border-radius: 0 50% 50% 0/0 40% 60% 0
+        }
+
+        .pr {
+            padding: 36px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center
+        }
+
+        .pr small {
+            color: var(--gold);
+            font: 400 15px 'Bebas Neue';
+            letter-spacing: 1px
+        }
+
+        .pr h3 {
+            font-size: 42px;
+            margin: 4px 0 10px
+        }
+
+        .pr p {
+            font-size: 14px;
+            line-height: 1.8
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 22px
+        }
+
+        .stats b {
+            display: block;
+            font: 400 34px 'Bebas Neue';
+            color: var(--gold)
+        }
+
+        .stats span {
+            font-size: 11px;
+            line-height: 1.3;
+            display: block
+        }
+
+        .tag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--red);
+            padding: 6px 14px;
+            font: 400 15px 'Bebas Neue'
+        }
+
+        .ca {
+            position: absolute;
+            right: 16px;
+            bottom: 14px;
+            display: flex;
+            gap: 6px
+        }
+
+        .ca button {
+            width: 30px;
+            height: 30px
+        }
+
+        .ph {
+            background: linear-gradient(135deg, #1c3f85, #6b2f4f);
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: #ffffffbb;
+            font-size: 12px;
+            padding: 10px;
+            min-height: 180px
+        }
+
+        .edu {
+            background: var(--alt);
+            padding: 70px 6vw
+        }
+
+        .edu h2 {
+            font-size: clamp(40px, 5vw, 60px);
+            color: var(--navy)
+        }
+
+        .edu h2 span {
+            color: var(--red)
+        }
+
+        .tabs {
+            display: flex;
+            gap: 40px;
+            margin: 30px 0 28px;
+            font: 700 14px 'DM Sans';
+            text-transform: uppercase;
+            color: var(--mu)
+        }
+
+        .tabs a {
+            cursor: pointer;
+            padding-bottom: 6px;
+            border-bottom: 2px solid transparent
+        }
+
+        .tabs a.on {
+            color: var(--red);
+            border-color: var(--red)
+        }
+
+        .edg {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center
+        }
+
+        .edg h4 {
+            color: var(--navy);
+            margin: 0 0 10px;
+            font-size: 14px;
+            text-transform: uppercase
+        }
+
+        .edg p {
+            line-height: 1.9;
+            font-size: 14px;
+            color: var(--mu)
+        }
+
+        .edg .ph {
+            border-radius: 50% 0 50% 50%/0 0 50% 50%;
+            min-height: 300px
+        }
+
+        .out {
+            display: inline-block;
+            border: 1px solid var(--red);
+            color: var(--red);
+            border-radius: 30px;
+            padding: 10px 22px;
+            font: 700 11px 'DM Sans';
+            text-transform: uppercase;
+            margin-top: 12px
+        }
+
+        .think {
+            background: var(--navy);
+            color: #fff;
+            padding: 70px 6vw
+        }
+
+        .think h2 {
+            text-align: right;
+            font-size: clamp(40px, 5vw, 64px)
+        }
+
+        .tt {
+            display: flex;
+            gap: 26px;
+            font: 700 12px 'DM Sans';
+            text-transform: uppercase;
+            margin-bottom: 12px
+        }
+
+        .tt a {
+            cursor: pointer;
+            opacity: .6
+        }
+
+        .tt a.on {
+            color: var(--gold);
+            opacity: 1
+        }
+
+        .tg {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 0;
+            align-items: end
+        }
+
+        .tg .ph {
+            min-height: 300px
+        }
+
+        .tg .ph.s {
+            min-height: 240px;
+            border-bottom: 60px solid #fff
+        }
+
+        .tcap {
+            padding: 18px;
+            font-size: 14px;
+            line-height: 1.7;
+            background: #0007;
+            margin-top: -120px;
+            position: relative;
+            z-index: 2;
+            max-width: 480px
+        }
+
+        .fut {
+            padding: 70px 0 50px;
+            text-align: center
+        }
+
+        .fut h2 {
+            font-size: clamp(40px, 5vw, 60px);
+            color: var(--navy)
+        }
+
+        .fut h2 span {
+            color: var(--red)
+        }
+
+        .fut p {
+            max-width: 640px;
+            margin: 14px auto 28px;
+            color: var(--mu);
+            line-height: 1.8;
+            font-size: 14px;
+            padding: 0 5vw
+        }
+
+        .rail {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            padding: 10px 6vw 20px;
+            scroll-snap-type: x mandatory
+        }
+
+        .card {
+            flex: 0 0 230px;
+            height: 310px;
+            background: linear-gradient(#789, #223);
+            color: #fff;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 18px;
+            text-align: center
+        }
+
+        .card small {
+            color: var(--gold);
+            font: 400 15px 'Bebas Neue'
+        }
+
+        .card b {
+            font: 400 26px 'Bebas Neue'
+        }
+
+        .logos {
+            background: var(--bg);
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 34px 5vw;
+            overflow-x: auto;
+            color: var(--mu);
+            font: 700 13px 'DM Sans';
+            white-space: nowrap
+        }
+
+        .story {
+            background: var(--navy);
+            color: #fff;
+            padding: 70px 6vw;
+            text-align: center
+        }
+
+        .story h2 {
+            font-size: clamp(40px, 5vw, 60px)
+        }
+
+        .story h2 span {
+            color: var(--gold)
+        }
+
+        .hd {
+            display: inline-block;
+            background: #ffffff18;
+            padding: 8px 22px;
+            font: 700 11px 'DM Sans';
+            margin: 20px 0
+        }
+
+        .gal {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 640px;
+            margin: 0 auto
+        }
+
+        .gal .ph {
+            min-height: 200px
+        }
+
+        .cta {
+            padding: 90px 6vw;
+            text-align: center
+        }
+
+        .cta h2 {
+            font-size: clamp(40px, 5vw, 64px);
+            color: var(--navy)
+        }
+
+        .cta h2 span {
+            color: var(--red)
+        }
+
+        .cta p {
+            max-width: 520px;
+            margin: 10px auto 22px;
+            color: var(--mu);
+            line-height: 1.7
+        }
+
+        .cta .pill {
+            color: #fff;
+            margin: 0 5px
+        }
+
+        footer {
+            background: var(--alt);
+            padding: 50px 8vw 30px;
+            font-size: 13px
+        }
+
+        .fg {
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 1fr;
+            gap: 30px
+        }
+
+        footer h3 {
+            font-size: 26px;
+            color: var(--navy);
+            margin-bottom: 10px
+        }
+
+        footer p,
+        footer a {
+            display: block;
+            margin: 6px 0;
+            line-height: 1.6
+        }
+
+        .fb {
+            border-top: 1px solid #8884;
+            margin-top: 30px;
+            padding-top: 14px;
+            font-size: 11px;
+            color: var(--mu);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .need {
+            font-size: 10px;
+            background: var(--gold);
+            color: #000;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-family: 'DM Sans'
+        }
+
+        .md {
+            position: fixed;
+            inset: 0;
+            background: #000a;
+            z-index: 40;
+            display: none;
+            place-items: center
+        }
+
+        .md.o {
+            display: grid
+        }
+
+        .md form {
+            background: var(--bg);
+            width: min(380px, 92vw);
+            padding: 28px;
+            display: grid;
+            gap: 12px;
+            position: relative
+        }
+
+        .md input,
+        .md select {
+            padding: 11px;
+            border: 1px solid #8886;
+            background: var(--bg);
+            color: var(--tx);
+            font: 14px 'DM Sans'
+        }
+
+        .md h3 {
+            color: var(--navy);
+            font-size: 30px
+        }
+
+        .md .x {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: none;
+            border: 0;
+            font-size: 26px;
+            color: var(--tx);
+            cursor: pointer
+        }
+
+        @media(max-width:760px) {
+
+            .three,
+            .panel,
+            .edg,
+            .tg,
+            .fg {
+                grid-template-columns: 1fr
+            }
+
+            .hr a {
+                display: none
+            }
+
+            .tabs {
+                gap: 16px;
+                overflow-x: auto
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .gal {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .tcap {
+                margin-top: 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header><a class="logo" href="#">
+            <div class="crest">RKPS</div><b>Radha Krishna<br>Public School</b>
+        </a>
+        <div class="hr">
+            <div class="dd"><a tabindex="0" href="#">PORTALS</a>
+                <div><a href="http://ptsrkps.rkpsgzb.co/" target="_blank">ERP Login</a><a
+                        href="http://ptsrkps.rkpsgzb.co/" target="_blank">Student Login</a><a
+                        href="https://play.google.com/store/apps/details?id=com.pts.student" target="_blank">Mobile
+                        App</a><a href="http://www.rkpsgzb.co/seva.html" target="_blank">SEVA</a></div>
+            </div><a href="#">SEARCH</a><button class="menu" onclick="nav.classList.add('o')">MENU
+                <i>&#9776;</i></button>
+        </div>
+    </header>
+    <aside id="nav"><button onclick="nav.classList.remove('o')">&times;</button><a
+            href="http://www.rkpsgzb.co/vision.html" target="_blank">About Us</a><a
+            href="http://www.rkpsgzb.co/directormessage.html" target="_blank">Message</a><a
+            href="http://www.rkpsgzb.co/admissionprocedure.html" target="_blank">Session Info</a><a
+            href="http://www.rkpsgzb.co/library.html" target="_blank">Facility</a><a
+            href="http://www.rkpsgzb.co/result.html" target="_blank">Academics</a><a
+            href="http://www.rkpsgzb.co/curriculum.html" target="_blank">Downloads</a><a
+            href="http://www.rkpsgzb.co/photogallery.html" target="_blank">Gallery</a><a
+            href="http://www.rkpsgzb.co/events.html" target="_blank">Events</a><a href="http://www.rkpsgzb.co/faq.html"
+            target="_blank">FAQs</a><a href="http://www.rkpsgzb.co/admission.aspx" target="_blank">Online
+            Admission</a><a href="http://www.rkpsgzb.co/mandatory-disclouser.html" target="_blank">Mandatory Public
+            Disclosure</a></aside>
+    <div class="tab" style="cursor:pointer;background:var(--red)" onclick="enq.classList.add('o')">ADMISSION ENQUIRY
+    </div>
+
+    <section class="hero" id="hero">
+        <div>
+            <h1 id="hh">Education for All</h1>
+            <div class="btns"><a class="pill" href="http://www.rkpsgzb.co/admissionprocedure.html"
+                    target="_blank">Admissions</a><a class="pill" href="http://www.rkpsgzb.co/curriculum.html"
+                    target="_blank">Academics</a></div>
+        </div>
+        <div class="arr"><button onclick="hs(-1)">&#8249;</button><button onclick="hs(1)">&#8250;</button></div>
+    </section>
+
+    <section class="eagle">
+        <h2>THE RKPS WAY <span>IS ABOUT...</span></h2>
+        <div class="three">
+            <div>
+                <h3>Quality Learning</h3>
+                <p>CBSE academics in a stress free setting that encourages creativity and critical thinking</p>
+            </div>
+            <div>
+                <h3>Every Child Valued</h3>
+                <p>A friendly school where each student is understood, valued and given personal attention</p>
+            </div>
+            <div>
+                <h3>Beyond the Classroom</h3>
+                <p>Equal attention to sports, yoga and cultural activities alongside academics</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dark">
+        <h2>WHY FAMILIES <span>CHOOSE RKPS</span></h2>
+        <p>RKPS pairs CBSE academics with attentive teaching and a close school community. Here is a look at the people,
+            spaces and history behind the school.</p>
+        <div class="panel" id="panel"></div>
+    </section>
+
+    <section class="edu">
+        <h2>LEARNING <span>AT EVERY STAGE</span></h2>
+        <div class="tabs" id="et"></div>
+        <div class="edg">
+            <div>
+                <h4 id="eh"></h4>
+                <p id="ep"></p><a class="out" href="http://www.rkpsgzb.co/curriculum.html" target="_blank">Learn more
+                    about academics</a>
+            </div>
+            <div class="ph">Photo: RKPS classroom<br>(supply from school)</div>
+        </div>
+    </section>
+
+    <section class="think">
+        <h2>LEARNING<br>BEYOND THE<br>CLASSROOM</h2>
+        <div class="tt" id="tt"></div>
+        <div class="tg">
+            <div>
+                <div class="ph">Photo: RKPS activity<br>(supply from school)</div>
+                <div class="tcap" id="tc"></div>
+            </div>
+            <div class="ph s">Photo: RKPS students<br>(supply from school)</div>
+        </div>
+    </section>
+
+    <section class="fut">
+        <h2>PREPARED FOR <span>THE FUTURE</span></h2>
+        <p>RKPS prepares students for the next stage with solid academics, clear study habits and steady guidance
+            through board examinations.</p>
+        <div class="tabs" style="justify-content:center"><a class="on">Parent voices</a><a
+                href="http://www.rkpsgzb.co/result.html" target="_blank">Results</a></div>
+        <div class="rail" id="rail"></div>
+    </section>
+    <div class="logos"><span>[Institution logo]</span><span>[Institution logo]</span><span>[Institution
+            logo]</span><span>[Institution logo]</span><span>[Institution logo]</span><span class="need">Needs data from
+            school management</span></div>
+
+    <section class="story">
+        <h2>LIFE AT <span>RKPS</span></h2><a class="hd" href="https://www.facebook.com/rkpsgzb" target="_blank">@rkpsgzb
+            on Facebook</a>
+        <div class="gal" id="gal"></div>
+    </section>
+
+    <section class="cta">
+        <h2>COME AND SEE <span>THE RKPS WAY</span></h2>
+        <p>Meet our team, walk the campus and ask us about admissions.</p><a class="pill n"
+            href="http://www.rkpsgzb.co/contactus.html" target="_blank">Visit Us</a><a class="pill r"
+            href="http://www.rkpsgzb.co/admission.aspx" target="_blank">Apply Now</a>
+        <p style="margin-top:20px"><a href="#" onclick="enq.classList.add('o');return false"
+                style="color:var(--red);font-weight:700">Admission Enquiry</a></p>
+    </section>
+
+    <footer>
+        <div class="fg">
+            <div>
+                <div class="logo">
+                    <div class="crest">RKPS</div><b>Radha Krishna<br>Public School</b>
+                </div>
+                <p>Affiliated to CBSE, New Delhi. Affiliation code 2132212</p>
+            </div>
+            <div>
+                <h3>CONTACT</h3>
+                <p><b>Radha Krishna Public School</b></p>
+                <p>NH-9, Lal Kuan, Ghaziabad, Uttar Pradesh 201001</p>
+                <p>9810624925, 9315099591, 9310300600</p>
+                <p>rkps.gzb@gmail.com</p>
+            </div>
+            <div>
+                <h3>QUICK LINKS</h3><a href="http://www.rkpsgzb.co/admission.aspx" target="_blank">Online
+                    Admission</a><a href="http://ptsrkps.rkpsgzb.co/" target="_blank">ERP Login</a><a
+                    href="http://ptsrkps.rkpsgzb.co/" target="_blank">Student Login</a><a
+                    href="https://play.google.com/store/apps/details?id=com.pts.student" target="_blank">Mobile
+                    App</a><a href="http://www.rkpsgzb.co/seva.html" target="_blank">SEVA</a><a
+                    href="http://www.rkpsgzb.co/faq.html" target="_blank">FAQs</a><a
+                    href="http://www.rkpsgzb.co/contactus.html" target="_blank">Contact Us</a><a
+                    href="http://www.rkpsgzb.co/mandatory-disclouser.html" target="_blank">Mandatory Public
+                    Disclosure</a>
+            </div>
+        </div>
+        <div class="fb"><a href="https://www.facebook.com/rkpsgzb" target="_blank"
+                style="margin:0">Facebook</a><span>Copyright &copy; 2026 Radha Krishna Public School</span></div>
+    </footer>
+    <div id="enq" class="md">
+        <form onsubmit="return sq(this)"><button type="button" class="x"
+                onclick="enq.classList.remove('o')">&times;</button>
+            <h3>ADMISSION ENQUIRY</h3><input name="n" placeholder="Name" required><select name="c" required>
+                <option value="">Apply for class</option>
+                <option>Play</option>
+                <option>Nursery</option>
+                <option>LKG</option>
+                <option>UKG</option>
+                <option>I</option>
+                <option>II</option>
+                <option>III</option>
+                <option>IV</option>
+                <option>V</option>
+                <option>VI</option>
+                <option>VII</option>
+                <option>VIII</option>
+                <option>IX</option>
+                <option>X</option>
+            </select><input name="f" placeholder="Father’s name" required><input name="m" placeholder="Mother’s name"
+                required><input name="p" placeholder="Contact no" required><button class="pill r">Submit
+                enquiry</button>
+        </form>
+    </div>
+
+    <script>
+        const N = '<span class="need">Data needed</span>';
+        const heroes = [['Education for All', 'linear-gradient(135deg,#1c3f85,#6b2f4f)'], ['Love, Joy, Faith', 'linear-gradient(135deg,#7a1f2b,#c98a1b)'], ['20 Years of Excellence', 'linear-gradient(135deg,#0b2a63,#2d7a6b)']]; let hi = 0;
+        function hs(d) { hi = (hi + d + heroes.length) % heroes.length; hh.textContent = heroes[hi][0]; hero.style.background = heroes[hi][1] } hs(0);
+        const P = [['EDUCATORS', 'Our Educators', 'Teachers Who Raise the Standard', 'Led by Principal Ms. Monika Sharma, RKPS teachers focus on the academic growth and well being of every child.', ['Teachers', 'Average years of experience', 'Qualified faculty', 'Training programmes']],
+        ['COMMUNITY', 'Our Community', 'Over Two Decades of Families', 'Since 2004, RKPS has served families across Lal Kuan and Ghaziabad. Parents and teachers work together through regular communication and school events.', ['Alumni', 'Families', 'Parent volunteers', 'Events a year']],
+        ['FACILITIES', 'Our Campus', 'Spaces Built for Learning', 'A library, labs, smart classes, a computer lab, sports, art and craft, music, dance, abacus and Vedic mathematics.', ['Facility areas', 'Library books', 'Labs', 'Sports areas']],
+        ['HISTORY', 'Our History', 'A Legacy Since 2004', 'Radha Krishna Public School began in 2004 and is affiliated to the Central Board of Secondary Education, New Delhi. It has grown with the families it serves.', ['Founded', 'Students in the first year', 'Affiliation', 'Years of excellence']],
+        ['STUDENTS', 'Our Students', 'A Full Student Life', 'Students from Play to Class X work hard in class and take part in sports, yoga and cultural activities.', ['Classes, Play to X', 'Students', 'Houses and clubs', 'Activities offered']]]; let pi = 0; const K = { HISTORY: { 0: '2004', 2: 'CBSE', 3: '20+' }, FACILITIES: { 0: '11' }, STUDENTS: { 0: '14' } };
+        function rp() { const p = P[pi]; panel.innerHTML = '<div class="tag">' + p[0] + '</div><div class="ph">Photo: RKPS ' + p[0].toLowerCase() + '<br>(supply from school)</div><div class="pr"><small>' + p[1].toUpperCase() + '</small><h3>' + p[2] + '</h3><p>' + p[3] + '</p><div class="stats">' + p[4].map((s, i) => '<div><b>' + ((K[p[0]] || {})[i] || '00') + '</b><span>' + s + '<br>' + ((K[p[0]] || {})[i] ? '' : N) + '</span></div>').join('') + '</div></div><div class="ca"><button onclick="ps(-1)">&#8249;</button><button onclick="ps(1)">&#8250;</button></div>' }
+        function ps(d) { pi = (pi + d + P.length) % P.length; rp() } rp();
+        const E = [['Pre Primary', 'Pre Primary years', 'Play, Nursery, LKG and UKG. A calm, structured first step into school. Children build early language, number sense and social skills in a safe and well supervised setting.'], ['Primary', 'Primary school', 'Classes I to V. Strong foundations in reading, writing and mathematics, taught with clear routines and regular feedback to parents.'], ['Middle', 'Middle school', 'Classes VI to VIII. Subjects deepen and expectations rise. Students learn to study on their own while teachers track progress closely.'], ['Secondary', 'Secondary school', 'Classes IX and X. Focused CBSE preparation with careful subject guidance and steady academic support through the board years.']]; let ei = 0;
+        function re() { et.innerHTML = E.map((e, i) => '<a class="' + (i == ei ? 'on' : '') + '" onclick="ei=' + i + ';re()">' + e[0] + '</a>').join(''); eh.textContent = E[ei][1]; ep.textContent = E[ei][2] } re();
+        const T = [['Activities', 'Sports, yoga, music, dance, art and craft sit alongside academics, so every student has a place to build skill and confidence outside the classroom.'], ['Experiential Learning', 'Trips and excursions, celebrations and guest visits give students learning that goes beyond the textbook.'], ['Service Learning', 'Social initiatives teach students responsibility and care for the people around them.']]; let ti = 0;
+        function rt() { tt.innerHTML = T.map((e, i) => '<a class="' + (i == ti ? 'on' : '') + '" onclick="ti=' + i + ';rt()">' + e[0] + '</a>').join(''); tc.innerHTML = '<h3 style="font-size:34px">' + T[ti][0].toUpperCase() + '</h3>' + T[ti][1] } rt();
+        rail.innerHTML = '<div class="card"><small>Parent voice</small><b>Kanika Pandey</b><span style="font-size:12px;line-height:1.5">Praises the cooperative staff and management, and the extra effort teachers put into her daughter’s growth.</span></div>' + [2, 3, 4, 5, 6].map(n => '<a class="card" target="_blank" href="http://www.rkpsgzb.co/images/testimonials/testi-moni' + n + '.mp4"><small>Parent video</small><b>Testimonial ' + (n - 1) + '</b><span style="font-size:11px">Watch on rkpsgzb.co</span></a>').join(''); function sq(f) { const d = new FormData(f); location.href = 'mailto:rkps.gzb@gmail.com?subject=' + encodeURIComponent('Admission enquiry') + '&body=' + encodeURIComponent('Name: ' + d.get('n') + '\nClass: ' + d.get('c') + '\nFather: ' + d.get('f') + '\nMother: ' + d.get('m') + '\nContact: ' + d.get('p')); return false }
+        gal.innerHTML = [1, 2, 3, 4, 5, 6].map(i => '<a class="ph" target="_blank" href="http://www.rkpsgzb.co/photogallery.html">Photo ' + i + '<br>Open photo gallery</a>').join('');
+    </script>
+</body>
+
+</html>
